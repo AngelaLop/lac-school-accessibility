@@ -1,0 +1,1353 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+/* ========================================
+   V3 — Warm Storytelling / NGO Style
+   LAC School Accessibility Platform
+   ======================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --terracotta: #C65D3E;
+  --cream: #FFF8F0;
+  --deep-brown: #3B2314;
+  --soft-green: #7BA68A;
+  --terracotta-light: #d98a72;
+  --terracotta-dark: #a34a2f;
+  --green-light: #a3c4ad;
+  --brown-light: #5c3f2a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--deep-brown);
+  background-color: var(--cream);
+  line-height: 1.9;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', serif;
+  line-height: 1.3;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--terracotta);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--terracotta-dark);
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(
+    180deg,
+    #3B2314 0%,
+    #6b3a1f 15%,
+    #C65D3E 35%,
+    #d98a72 55%,
+    #e8a97a 70%,
+    #f5c98e 82%,
+    #fde8b0 92%,
+    #FFF8F0 100%
+  );
+  color: var(--cream);
+  position: relative;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero-eyebrow {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #f5c98e;
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 20px rgba(59, 35, 20, 0.3);
+}
+
+.hero-stat-line {
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 300;
+  color: #fde8b0;
+  margin-bottom: 2rem;
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: rgba(255, 248, 240, 0.9);
+  max-width: 620px;
+  margin: 0 auto 2.5rem;
+}
+
+.hero-cta {
+  display: inline-block;
+  background-color: var(--cream);
+  color: var(--terracotta);
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(59, 35, 20, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(59, 35, 20, 0.35);
+  color: var(--terracotta-dark);
+}
+
+/* Decorative sun */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 8%;
+  right: 15%;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #fde8b0 0%, rgba(253, 232, 176, 0) 70%);
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+/* ========================================
+   SECTION DEFAULTS
+   ======================================== */
+
+section {
+  padding: 5rem 2rem;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--terracotta);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--deep-brown);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--brown-light);
+  max-width: 700px;
+  margin-bottom: 3rem;
+}
+
+/* ========================================
+   THE SCHOOL RACE
+   ======================================== */
+
+.school-race {
+  background-color: var(--cream);
+}
+
+.race-panels {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.race-panel {
+  flex: 1;
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 24px rgba(59, 35, 20, 0.08);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.race-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+}
+
+.race-panel.emma::before {
+  background: var(--soft-green);
+}
+
+.race-panel.yurani::before {
+  background: var(--terracotta);
+}
+
+/* CSS Character — head + backpack */
+.character {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.character-head {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  position: relative;
+  margin-bottom: 0.25rem;
+}
+
+.emma .character-head {
+  background: #f5c98e;
+  box-shadow: 0 2px 10px rgba(198, 93, 62, 0.15);
+}
+
+.yurani .character-head {
+  background: #c6956e;
+  box-shadow: 0 2px 10px rgba(198, 93, 62, 0.15);
+}
+
+/* Eyes */
+.character-head::before,
+.character-head::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 7px;
+  background: var(--deep-brown);
+  border-radius: 50%;
+  top: 26px;
+}
+
+.character-head::before {
+  left: 18px;
+}
+
+.character-head::after {
+  right: 18px;
+}
+
+/* Smile */
+.character-smile {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 8px;
+  border-bottom: 2.5px solid var(--deep-brown);
+  border-radius: 0 0 50% 50%;
+}
+
+/* Hair */
+.emma .character-hair {
+  position: absolute;
+  top: -4px;
+  left: 4px;
+  right: 4px;
+  height: 30px;
+  background: #a0622e;
+  border-radius: 50% 50% 0 0;
+}
+
+.yurani .character-hair {
+  position: absolute;
+  top: -6px;
+  left: 2px;
+  right: 2px;
+  height: 36px;
+  background: #2c1810;
+  border-radius: 50% 50% 40% 40%;
+}
+
+/* Backpack */
+.character-backpack {
+  width: 32px;
+  height: 24px;
+  border-radius: 4px 4px 8px 8px;
+  position: relative;
+}
+
+.emma .character-backpack {
+  background: var(--soft-green);
+}
+
+.yurani .character-backpack {
+  background: var(--terracotta);
+}
+
+.character-backpack::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 8px;
+  border: 2.5px solid;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+}
+
+.emma .character-backpack::before {
+  border-color: #5e9470;
+}
+
+.yurani .character-backpack::before {
+  border-color: #a34a2f;
+}
+
+/* Character name + location */
+.character-name {
+  font-family: 'Merriweather', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--deep-brown);
+  margin-bottom: 0.25rem;
+}
+
+.character-location {
+  font-size: 0.9rem;
+  color: var(--brown-light);
+  margin-bottom: 1.25rem;
+}
+
+/* Travel time */
+.travel-time {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.emma .travel-time {
+  color: var(--soft-green);
+}
+
+.yurani .travel-time {
+  color: var(--terracotta);
+}
+
+/* Dotted path */
+.path-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0;
+  gap: 0.5rem;
+}
+
+.path-dot-start,
+.path-dot-end {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.emma .path-dot-start,
+.emma .path-dot-end {
+  background: var(--soft-green);
+}
+
+.yurani .path-dot-start,
+.yurani .path-dot-end {
+  background: var(--terracotta);
+}
+
+.path-line {
+  height: 3px;
+  border-radius: 2px;
+}
+
+.emma .path-line {
+  width: 60px;
+  border-top: 3px dotted var(--soft-green);
+}
+
+.yurani .path-line {
+  width: 100%;
+  min-width: 180px;
+  position: relative;
+}
+
+/* Winding path for Yurani using a wavy dotted line effect */
+.yurani .path-line::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 20px;
+  border-top: 3px dotted var(--terracotta);
+  border-radius: 0;
+  position: absolute;
+  top: 0;
+}
+
+.yurani .path-line::after {
+  content: '';
+  display: block;
+  width: 80%;
+  height: 20px;
+  border-bottom: 3px dotted var(--terracotta);
+  position: absolute;
+  top: 8px;
+  left: 10%;
+}
+
+.path-label {
+  font-size: 0.8rem;
+  color: var(--brown-light);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Canoe icon for Yurani */
+.path-canoe {
+  display: inline-block;
+  width: 24px;
+  height: 10px;
+  background: var(--terracotta);
+  border-radius: 0 0 50% 50%;
+  position: relative;
+}
+
+.path-canoe::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 8px;
+  background: var(--terracotta-dark);
+}
+
+/* Panel captions */
+.panel-caption {
+  font-family: 'Merriweather', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--brown-light);
+  margin-top: 1.25rem;
+  line-height: 1.7;
+}
+
+/* ========================================
+   PULL QUOTE
+   ======================================== */
+
+.pull-quote-section {
+  background-color: var(--deep-brown);
+  color: var(--cream);
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.pull-quote {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 3rem;
+}
+
+.pull-quote::before {
+  content: '\201C';
+  font-family: 'Merriweather', serif;
+  font-size: 8rem;
+  color: var(--terracotta);
+  position: absolute;
+  top: -2.5rem;
+  left: -0.5rem;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.pull-quote blockquote {
+  font-family: 'Merriweather', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.pull-quote cite {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--terracotta-light);
+  letter-spacing: 1px;
+}
+
+/* ========================================
+   STATS — WARM PRESENTATION
+   ======================================== */
+
+.stats-section {
+  background-color: #fff;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-card {
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 16px rgba(59, 35, 20, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-icon.schools {
+  background: rgba(198, 93, 62, 0.12);
+}
+
+.stat-icon.countries {
+  background: rgba(123, 166, 138, 0.15);
+}
+
+.stat-icon.coverage {
+  background: rgba(198, 93, 62, 0.12);
+}
+
+.stat-icon.geo {
+  background: rgba(123, 166, 138, 0.15);
+}
+
+/* CSS icons inside stat cards */
+.stat-icon-shape {
+  display: block;
+}
+
+.stat-icon.schools .stat-icon-shape {
+  width: 20px;
+  height: 22px;
+  background: var(--terracotta);
+  clip-path: polygon(50% 0%, 0% 40%, 0% 100%, 100% 100%, 100% 40%);
+}
+
+.stat-icon.countries .stat-icon-shape {
+  width: 22px;
+  height: 22px;
+  background: var(--soft-green);
+  border-radius: 50%;
+  position: relative;
+}
+
+.stat-icon.countries .stat-icon-shape::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+}
+
+.stat-icon.coverage .stat-icon-shape {
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--terracotta);
+  border-radius: 50%;
+  position: relative;
+}
+
+.stat-icon.coverage .stat-icon-shape::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  background: var(--terracotta);
+  border-radius: 50%;
+}
+
+.stat-icon.geo .stat-icon-shape {
+  width: 16px;
+  height: 22px;
+  background: var(--soft-green);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+}
+
+.stat-number {
+  font-family: 'Merriweather', serif;
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--deep-brown);
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: var(--brown-light);
+  line-height: 1.5;
+}
+
+.stat-warmth {
+  font-family: 'Merriweather', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--terracotta);
+  margin-top: 0.75rem;
+}
+
+/* ========================================
+   PROBLEM — TEXT LEFT / IMAGE RIGHT
+   ======================================== */
+
+.problem-section {
+  background: var(--cream);
+}
+
+.alternating-block {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.alternating-block:last-child {
+  margin-bottom: 0;
+}
+
+.alternating-block.reverse {
+  flex-direction: row-reverse;
+}
+
+.alternating-text {
+  flex: 1;
+}
+
+.alternating-visual {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alternating-text h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--deep-brown);
+  margin-bottom: 1rem;
+}
+
+.alternating-text p {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  color: var(--brown-light);
+}
+
+/* CSS illustration — winding road */
+.illustration-road {
+  width: 280px;
+  height: 280px;
+  background: #f0e8de;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(59, 35, 20, 0.08);
+  overflow: hidden;
+}
+
+.illustration-road::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: var(--soft-green);
+  opacity: 0.3;
+  border-radius: 0 0 50% 50%;
+}
+
+.road-path {
+  position: absolute;
+  bottom: 20%;
+  left: 15%;
+  width: 70%;
+  height: 50%;
+  border: 4px dotted var(--terracotta);
+  border-radius: 40% 60% 30% 50%;
+  border-bottom: none;
+  transform: rotate(-5deg);
+}
+
+.road-school {
+  position: absolute;
+  top: 18%;
+  right: 22%;
+  width: 40px;
+  height: 35px;
+  background: var(--terracotta);
+  border-radius: 4px;
+}
+
+.road-school::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 15px solid var(--terracotta-dark);
+}
+
+.road-house {
+  position: absolute;
+  bottom: 15%;
+  left: 18%;
+  width: 24px;
+  height: 20px;
+  background: var(--soft-green);
+  border-radius: 2px;
+}
+
+.road-house::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -2px;
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 10px solid #5e9470;
+}
+
+/* CSS illustration — map dots */
+.illustration-map {
+  width: 280px;
+  height: 280px;
+  background: #f0e8de;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 4px 24px rgba(59, 35, 20, 0.08);
+  overflow: hidden;
+}
+
+.map-dot {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.map-dot.d1 { width: 8px; height: 8px; background: var(--terracotta); top: 20%; left: 30%; }
+.map-dot.d2 { width: 6px; height: 6px; background: var(--soft-green); top: 25%; left: 45%; }
+.map-dot.d3 { width: 10px; height: 10px; background: var(--terracotta); top: 35%; left: 35%; }
+.map-dot.d4 { width: 7px; height: 7px; background: var(--soft-green); top: 30%; left: 55%; }
+.map-dot.d5 { width: 5px; height: 5px; background: var(--terracotta); top: 40%; left: 50%; }
+.map-dot.d6 { width: 8px; height: 8px; background: var(--soft-green); top: 45%; left: 40%; }
+.map-dot.d7 { width: 6px; height: 6px; background: var(--terracotta); top: 50%; left: 55%; }
+.map-dot.d8 { width: 9px; height: 9px; background: var(--soft-green); top: 55%; left: 45%; }
+.map-dot.d9 { width: 7px; height: 7px; background: var(--terracotta); top: 60%; left: 35%; }
+.map-dot.d10 { width: 5px; height: 5px; background: var(--terracotta-light); top: 65%; left: 50%; }
+.map-dot.d11 { width: 8px; height: 8px; background: var(--soft-green); top: 22%; left: 60%; }
+.map-dot.d12 { width: 6px; height: 6px; background: var(--terracotta); top: 70%; left: 40%; }
+
+/* Rough LAC continent outline */
+.map-outline {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  width: 60%;
+  height: 80%;
+  border: 3px solid rgba(59, 35, 20, 0.1);
+  border-radius: 30% 40% 50% 35%;
+}
+
+/* ========================================
+   HOW IT WORKS — FMM
+   ======================================== */
+
+.how-section {
+  background: #fff;
+}
+
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.how-step {
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.step-number {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  color: var(--cream);
+  font-family: 'Merriweather', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+
+.step-connector {
+  display: none;
+}
+
+.how-step h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--deep-brown);
+  margin-bottom: 0.75rem;
+}
+
+.how-step p {
+  font-size: 0.95rem;
+  color: var(--brown-light);
+}
+
+/* ========================================
+   IMPACT — PANAMA PILOT
+   ======================================== */
+
+.impact-section {
+  background: var(--cream);
+}
+
+.impact-highlight {
+  background: #fff;
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 4px 24px rgba(59, 35, 20, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.impact-number-block {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.impact-big-number {
+  font-family: 'Merriweather', serif;
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--terracotta);
+  line-height: 1;
+}
+
+.impact-big-label {
+  font-size: 0.85rem;
+  color: var(--brown-light);
+  margin-top: 0.5rem;
+}
+
+.impact-text h3 {
+  font-family: 'Merriweather', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--deep-brown);
+  margin-bottom: 1rem;
+}
+
+.impact-text p {
+  color: var(--brown-light);
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Bar visualization for Panama */
+.bar-visual {
+  margin-top: 2rem;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.bar-label {
+  font-size: 0.85rem;
+  color: var(--brown-light);
+  width: 140px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.bar-track {
+  flex: 1;
+  height: 20px;
+  background: rgba(59, 35, 20, 0.06);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  background: var(--terracotta);
+}
+
+.bar-fill.green {
+  background: var(--soft-green);
+}
+
+.bar-value {
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--deep-brown);
+  width: 50px;
+  flex-shrink: 0;
+}
+
+/* Education gradient cards */
+.gradient-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.gradient-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 2px 16px rgba(59, 35, 20, 0.06);
+  text-align: center;
+  border-top: 4px solid;
+}
+
+.gradient-card.primary {
+  border-color: var(--soft-green);
+}
+
+.gradient-card.secondary {
+  border-color: var(--terracotta-light);
+}
+
+.gradient-card.tertiary {
+  border-color: var(--terracotta);
+}
+
+.gradient-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--deep-brown);
+  margin-bottom: 0.5rem;
+}
+
+.gradient-card p {
+  font-size: 0.9rem;
+  color: var(--brown-light);
+}
+
+/* ========================================
+   COUNTRIES
+   ======================================== */
+
+.countries-section {
+  background: var(--deep-brown);
+  color: var(--cream);
+}
+
+.countries-section .section-label {
+  color: var(--terracotta-light);
+}
+
+.countries-section .section-title {
+  color: var(--cream);
+}
+
+.countries-section .section-subtitle {
+  color: rgba(255, 248, 240, 0.7);
+}
+
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.country-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 248, 240, 0.06);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: rgba(255, 248, 240, 0.85);
+  transition: background 0.3s ease;
+}
+
+.country-item:hover {
+  background: rgba(255, 248, 240, 0.12);
+}
+
+.country-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.country-dot.green {
+  background: var(--soft-green);
+}
+
+.country-dot.terra {
+  background: var(--terracotta-light);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+footer {
+  background: var(--deep-brown);
+  border-top: 1px solid rgba(255, 248, 240, 0.1);
+  color: rgba(255, 248, 240, 0.6);
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+footer p {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-back {
+  display: inline-block;
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  color: var(--terracotta-light);
+  padding: 0.75rem 2rem;
+  border: 2px solid var(--terracotta-light);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.footer-back:hover {
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+  color: var(--cream);
+}
+
+/* ========================================
+   RESPONSIVE — 1024px
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .how-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .gradient-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .alternating-block {
+    gap: 2.5rem;
+  }
+
+  .impact-highlight {
+    gap: 2rem;
+    padding: 2rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — 768px
+   ======================================== */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 85vh;
+    padding: 3rem 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-stat-line {
+    font-size: 1.1rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  section {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .race-panels {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .pull-quote blockquote {
+    font-size: 1.25rem;
+  }
+
+  .pull-quote::before {
+    font-size: 5rem;
+    top: -1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .alternating-block,
+  .alternating-block.reverse {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .illustration-road,
+  .illustration-map {
+    width: 220px;
+    height: 220px;
+  }
+
+  .how-steps {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .impact-highlight {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .impact-big-number {
+    font-size: 3rem;
+  }
+
+  .gradient-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .bar-label {
+    width: 100px;
+    font-size: 0.78rem;
+  }
+
+  .countries-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========================================
+   RESPONSIVE — 320px
+   ======================================== */
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: auto;
+    padding: 4rem 1rem 3rem;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-stat-line {
+    font-size: 0.95rem;
+  }
+
+  section {
+    padding: 2.5rem 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .race-panel {
+    padding: 2rem 1.25rem;
+  }
+
+  .pull-quote {
+    padding: 0 1rem;
+  }
+
+  .pull-quote blockquote {
+    font-size: 1.1rem;
+  }
+
+  .pull-quote::before {
+    font-size: 4rem;
+    top: -1rem;
+    left: -0.25rem;
+  }
+
+  .impact-highlight {
+    padding: 1.5rem;
+  }
+
+  .bar-row {
+    flex-wrap: wrap;
+  }
+
+  .bar-label {
+    width: 100%;
+    text-align: left;
+  }
+
+  .countries-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .illustration-road,
+  .illustration-map {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — 1440px
+   ======================================== */
+
+@media (min-width: 1440px) {
+  .section-inner {
+    max-width: 1200px;
+  }
+
+  .hero-content {
+    max-width: 900px;
+  }
+
+  .hero h1 {
+    font-size: 3.8rem;
+  }
+
+  section {
+    padding: 6rem 2.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+  }
+
+  .how-steps {
+    gap: 3rem;
+  }
+
+  .impact-highlight {
+    padding: 3.5rem;
+  }
+}

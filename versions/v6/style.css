@@ -1,0 +1,602 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=VT323&display=swap');
+
+/* ====== Reset & Base ====== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #000000;
+  --green: #33FF33;
+  --dim-green: #1A8C1A;
+  --amber: #FFB800;
+  --glow: 0 0 5px #33FF33;
+  --glow-amber: 0 0 5px #FFB800;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--green);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+/* Scanline overlay on the entire page */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ====== Terminal Window ====== */
+.terminal {
+  width: 100%;
+  max-width: 640px;
+  border: 1px solid var(--green);
+  box-shadow: var(--glow), inset 0 0 30px rgba(51, 255, 51, 0.03);
+  position: relative;
+}
+
+/* Title bar */
+.terminal-titlebar {
+  background: var(--dim-green);
+  color: var(--black);
+  font-family: 'VT323', monospace;
+  font-size: 1rem;
+  padding: 0.35rem 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--green);
+  letter-spacing: 0.5px;
+}
+
+.titlebar-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.titlebar-btn {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--black);
+  display: inline-block;
+}
+
+.terminal-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* ====== Blinking Cursor ====== */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  background: var(--green);
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+  box-shadow: var(--glow);
+}
+
+.cursor--amber {
+  background: var(--amber);
+  box-shadow: var(--glow-amber);
+}
+
+/* ====== Prompt styling ====== */
+.prompt {
+  color: var(--green);
+  text-shadow: var(--glow);
+}
+
+.prompt::before {
+  content: '> ';
+}
+
+.prompt--dim {
+  color: var(--dim-green);
+  text-shadow: none;
+}
+
+.prompt--amber {
+  color: var(--amber);
+  text-shadow: var(--glow-amber);
+}
+
+.prompt--amber::before {
+  content: '> ';
+  color: var(--green);
+  text-shadow: var(--glow);
+}
+
+/* ====== Section blocks ====== */
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.block-separator {
+  color: var(--dim-green);
+  text-shadow: none;
+  user-select: none;
+  overflow: hidden;
+  letter-spacing: 1px;
+}
+
+/* ====== Section headers (VT323) ====== */
+.section-header {
+  font-family: 'VT323', monospace;
+  font-size: 1.35rem;
+  color: var(--amber);
+  text-shadow: var(--glow-amber);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ====== Boot sequence ====== */
+.boot-line {
+  color: var(--dim-green);
+  text-shadow: none;
+  font-size: 0.8rem;
+}
+
+.boot-line::before {
+  content: '> ';
+}
+
+.boot-ok {
+  color: var(--green);
+  text-shadow: var(--glow);
+}
+
+.boot-title {
+  font-family: 'VT323', monospace;
+  font-size: 2rem;
+  color: var(--green);
+  text-shadow: var(--glow);
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 0.75rem 0;
+  line-height: 1.3;
+}
+
+.boot-subtitle {
+  text-align: center;
+  color: var(--dim-green);
+  font-size: 0.8rem;
+}
+
+/* ====== Race Section ====== */
+.race-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.race-subject {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.race-label {
+  font-size: 0.8rem;
+}
+
+.race-label::before {
+  content: '> ';
+}
+
+.race-track {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.race-track::before {
+  content: '> ';
+  flex-shrink: 0;
+}
+
+.race-bar {
+  height: 1.1rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.race-bar--emma {
+  background: var(--green);
+  width: 60px;
+  box-shadow: var(--glow);
+}
+
+.race-bar--yurani {
+  background: var(--amber);
+  width: 100%;
+  box-shadow: var(--glow-amber);
+}
+
+.race-time {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.race-time--arrived {
+  color: var(--green);
+  text-shadow: var(--glow);
+}
+
+.race-time--walking {
+  color: var(--amber);
+  text-shadow: var(--glow-amber);
+}
+
+.race-spacer {
+  height: 0.25rem;
+}
+
+/* ====== Stats / Query output ====== */
+.stat-query {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.stat-query::before {
+  content: '> QUERY ';
+  color: var(--dim-green);
+  text-shadow: none;
+  font-size: 0.8rem;
+}
+
+.stat-result {
+  font-family: 'VT323', monospace;
+  font-size: 1.75rem;
+  color: var(--green);
+  text-shadow: var(--glow);
+  padding-left: 1rem;
+  letter-spacing: 1px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.stat-box {
+  border: 1px solid var(--dim-green);
+  padding: 0.6rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.stat-box-label {
+  font-size: 0.75rem;
+  color: var(--dim-green);
+}
+
+.stat-box-label::before {
+  content: '> ';
+}
+
+.stat-box-value {
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  color: var(--green);
+  text-shadow: var(--glow);
+  letter-spacing: 1px;
+}
+
+/* ====== Report / Content block ====== */
+.report-text {
+  color: var(--green);
+  text-shadow: var(--glow);
+  padding-left: 1rem;
+  border-left: 2px solid var(--dim-green);
+  line-height: 1.8;
+}
+
+.report-text + .report-text {
+  margin-top: 0.5rem;
+}
+
+/* ====== Algorithm block ====== */
+.algorithm-box {
+  border: 1px solid var(--amber);
+  padding: 0.75rem;
+  box-shadow: 0 0 8px rgba(255, 184, 0, 0.1);
+}
+
+.algorithm-label {
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  color: var(--amber);
+  text-shadow: var(--glow-amber);
+  margin-bottom: 0.35rem;
+}
+
+.algorithm-text {
+  color: var(--green);
+  text-shadow: var(--glow);
+  font-size: 0.82rem;
+  line-height: 1.8;
+}
+
+.algorithm-list {
+  list-style: none;
+  padding-left: 1rem;
+  color: var(--dim-green);
+  font-size: 0.82rem;
+}
+
+.algorithm-list li::before {
+  content: '- ';
+  color: var(--green);
+}
+
+/* ====== Analysis complete / Impact ====== */
+.impact-box {
+  border: 1px solid var(--green);
+  padding: 0.75rem;
+}
+
+.impact-stat {
+  font-family: 'VT323', monospace;
+  font-size: 2rem;
+  color: var(--amber);
+  text-shadow: var(--glow-amber);
+  letter-spacing: 1px;
+}
+
+.impact-label {
+  font-size: 0.75rem;
+  color: var(--dim-green);
+}
+
+.impact-text {
+  color: var(--green);
+  text-shadow: var(--glow);
+  font-size: 0.82rem;
+  line-height: 1.8;
+  margin-top: 0.35rem;
+}
+
+/* ====== Countries table ====== */
+.countries-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.countries-table td {
+  padding: 0.2rem 0.5rem;
+  border-bottom: 1px solid rgba(51, 255, 51, 0.15);
+  color: var(--green);
+  text-shadow: var(--glow);
+}
+
+.countries-table td:first-child {
+  color: var(--dim-green);
+  text-shadow: none;
+  width: 2rem;
+  text-align: right;
+  padding-right: 0.75rem;
+}
+
+/* ====== Footer ====== */
+.footer-block {
+  border-top: 1px solid var(--dim-green);
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-link {
+  color: var(--amber);
+  text-decoration: none;
+  text-shadow: var(--glow-amber);
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.footer-link:hover {
+  color: var(--green);
+  text-shadow: var(--glow);
+}
+
+.footer-note {
+  font-size: 0.72rem;
+  color: var(--dim-green);
+  text-shadow: none;
+  line-height: 1.6;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  body {
+    padding: 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .terminal-body {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .boot-title {
+    font-size: 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .stat-box-value {
+    font-size: 1.25rem;
+  }
+
+  .stat-result {
+    font-size: 1.4rem;
+  }
+
+  .impact-stat {
+    font-size: 1.5rem;
+  }
+
+  .section-header {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .terminal-body {
+    padding: 0.75rem;
+    gap: 1.25rem;
+  }
+
+  .boot-title {
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .race-track {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .race-bar--emma {
+    width: 40px;
+  }
+
+  .section-header {
+    font-size: 1rem;
+  }
+
+  .countries-table {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 320px) {
+  body {
+    padding: 0.25rem;
+  }
+
+  .terminal-body {
+    padding: 0.5rem;
+  }
+
+  .boot-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* ====== Responsive — 1024px ====== */
+@media (max-width: 1024px) {
+  .terminal {
+    max-width: 600px;
+  }
+
+  .boot-title {
+    font-size: 1.75rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat-box-value {
+    font-size: 1.35rem;
+  }
+
+  .stat-result {
+    font-size: 1.5rem;
+  }
+
+  .impact-stat {
+    font-size: 1.75rem;
+  }
+
+  .section-header {
+    font-size: 1.25rem;
+  }
+}
+
+/* ====== Responsive — 1440px ====== */
+@media (min-width: 1440px) {
+  .terminal {
+    max-width: 720px;
+  }
+
+  .terminal-body {
+    padding: 1.75rem;
+    gap: 2rem;
+  }
+
+  .boot-title {
+    font-size: 2.25rem;
+  }
+
+  .section-header {
+    font-size: 1.5rem;
+  }
+
+  .stat-result {
+    font-size: 2rem;
+  }
+
+  .impact-stat {
+    font-size: 2.25rem;
+  }
+}

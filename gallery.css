@@ -1,0 +1,544 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1a1a1a;
+    background: #f5f5f4;
+    line-height: 1.6;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   HERO
+   ======================================== */
+
+.hero {
+    text-align: center;
+    padding: 4rem 2.5rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #800000;
+    margin-bottom: 1rem;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+}
+
+.subtitle {
+    font-size: 1.05rem;
+    color: #666;
+    max-width: 520px;
+    margin: 0 auto 1.25rem;
+    line-height: 1.5;
+}
+
+.meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    font-size: 0.78rem;
+    color: #888;
+    font-weight: 500;
+}
+
+.meta-sep {
+    font-size: 0.7rem;
+    color: #ccc;
+}
+
+/* ========================================
+   MAIN
+   ======================================== */
+
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+}
+
+/* ========================================
+   PHASE SECTIONS
+   ======================================== */
+
+.phase {
+    padding: 3rem 0;
+}
+
+.phase + .phase {
+    border-top: 1px solid #e5e5e5;
+}
+
+.phase-header {
+    margin-bottom: 0.75rem;
+}
+
+.phase-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #800000;
+    margin-bottom: 0.25rem;
+}
+
+.phase-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.phase-narrative {
+    color: #666;
+    max-width: 620px;
+    margin-bottom: 2rem;
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+/* ========================================
+   CARD GRID
+   ======================================== */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+}
+
+/* ========================================
+   CARDS
+   ======================================== */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card--final {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 0 2px #800000;
+}
+
+.card--final:hover {
+    box-shadow: 0 12px 24px rgba(128, 0, 0, 0.15), 0 0 0 2px #800000;
+}
+
+/* ========================================
+   CARD PREVIEW — Visual taste of each version
+   ======================================== */
+
+.card-preview {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.preview-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    opacity: 0.5;
+    letter-spacing: -0.03em;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Phase 1: Diverse explorations --- */
+
+.preview-v1 {
+    background: #f0f4f8;
+    color: #003876;
+}
+.preview-v1 .preview-text { font-family: 'Georgia', serif; }
+
+.preview-v2 {
+    background: #1a1a1a;
+    color: #FFE500;
+}
+.preview-v2 .preview-text { font-family: 'Courier New', monospace; font-weight: 800; }
+
+.preview-v3 {
+    background: #FFF8F0;
+    color: #C65D3E;
+}
+.preview-v3 .preview-text { font-family: 'Georgia', serif; font-style: italic; }
+
+.preview-v4 {
+    background: #0D1117;
+    color: #58A6FF;
+}
+.preview-v4 .preview-text { font-family: 'Courier New', monospace; }
+
+.preview-v5 {
+    background: #FAFAF7;
+    color: #B33A3A;
+    border-bottom: 1px solid #e8e8e4;
+}
+.preview-v5 .preview-text { font-family: 'Georgia', serif; font-size: 3.5rem; }
+
+.preview-v6 {
+    background: #000;
+    color: #33FF33;
+}
+.preview-v6 .preview-text { font-family: 'Courier New', monospace; text-shadow: 0 0 10px #33FF33; }
+
+.preview-v7 {
+    background: #fff;
+    color: #000;
+    border-bottom: 4px solid #FF0000;
+}
+.preview-v7 .preview-text { font-family: sans-serif; font-weight: 800; letter-spacing: 0.1em; }
+
+.preview-v8 {
+    background: linear-gradient(135deg, #FF1493, #6A0DAD, #00CED1);
+    color: #fff;
+}
+.preview-v8 .preview-text { font-family: sans-serif; font-weight: 800; opacity: 0.7; }
+
+.preview-v9 {
+    background: #fff;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+.preview-v9 .preview-text { font-family: 'Georgia', serif; font-size: 2rem; opacity: 0.3; }
+
+.preview-v10 {
+    background: #0A0A0A;
+    color: #FF6B6B;
+}
+.preview-v10 .preview-text { font-family: sans-serif; font-size: 3rem; font-weight: 300; }
+
+/* --- Phase 2: Geo-driven storytelling --- */
+
+.preview-v11 {
+    background:
+        repeating-radial-gradient(ellipse at 50% 50%, rgba(198,93,62,0.08) 0px, rgba(198,93,62,0.08) 2px, transparent 2px, transparent 28px),
+        #FFF8F0;
+    color: #3B2314;
+}
+.preview-v11 .preview-text { font-family: 'Georgia', serif; }
+
+.preview-v12 {
+    background: #F0F5F1;
+    color: #3B2314;
+    border: 1px solid rgba(59,35,20,0.1);
+    border-radius: 12px 12px 0 0;
+}
+.preview-v12 .preview-text { font-family: 'Georgia', serif; }
+
+.preview-v13 {
+    background:
+        repeating-linear-gradient(to right, rgba(59,35,20,0.06) 0px, rgba(59,35,20,0.06) 1px, transparent 1px, transparent 40px),
+        repeating-linear-gradient(to bottom, rgba(59,35,20,0.06) 0px, rgba(59,35,20,0.06) 1px, transparent 1px, transparent 40px),
+        #FFF8F0;
+    color: #C65D3E;
+}
+.preview-v13 .preview-text { font-family: 'Courier New', monospace; font-size: 2rem; }
+
+.preview-v14 {
+    background: linear-gradient(to bottom, #3B2314, #7A5540, #E8D5C8);
+    color: #FFF8F0;
+}
+.preview-v14 .preview-text { font-family: 'Georgia', serif; font-style: italic; }
+
+.preview-v15 {
+    background: linear-gradient(to right, #FFF8F0 50%, #3B2314 50%);
+    color: #C65D3E;
+}
+.preview-v15 .preview-text { font-family: 'Georgia', serif; }
+
+.preview-v16 {
+    background: #FFF8F0;
+    color: #7BA68A;
+    position: relative;
+}
+.preview-v16::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to right, transparent, rgba(123,166,138,0.2), transparent);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+.preview-v16 .preview-text { font-family: 'Georgia', serif; font-style: italic; font-size: 3rem; }
+
+.preview-v17 {
+    background: #3B2314;
+    color: #FFF8F0;
+}
+.preview-v17 .preview-text { font-family: sans-serif; font-weight: 600; }
+
+.preview-v18 {
+    background: #FFF8F0;
+    color: #C65D3E;
+    position: relative;
+}
+.preview-v18::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: conic-gradient(#C65D3E 0deg, #C65D3E 338deg, #EDE5D8 338deg);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+}
+.preview-v18 .preview-text { font-family: 'Courier New', monospace; position: relative; z-index: 1; }
+
+.preview-v19 {
+    background: #FFF8F0;
+    color: #3B2314;
+    border-left: 4px solid #C65D3E;
+}
+.preview-v19 .preview-text { font-family: 'Georgia', serif; }
+
+/* --- Phase 3: Color palette experiments --- */
+
+.preview-v20 {
+    background: #FFF8F0;
+    color: #C65D3E;
+}
+.preview-v20::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #C65D3E, #7BA68A, #D4A853);
+}
+.preview-v20 .preview-text { font-family: 'Georgia', serif; }
+
+.preview-v21 {
+    background: linear-gradient(135deg, #EDF4F2, #FAF8F5);
+    color: #2E86AB;
+}
+.preview-v21::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #2E86AB, #A3C4BC, #E8B84B);
+}
+.preview-v21 .preview-text { font-family: 'Georgia', serif; }
+
+.preview-v22 {
+    background: linear-gradient(135deg, #F0EDE4, #FEFCF3);
+    color: #2D6A4F;
+}
+.preview-v22::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #2D6A4F, #D4A373, #E09F3E);
+}
+.preview-v22 .preview-text { font-family: 'Georgia', serif; }
+
+.preview-v23 {
+    background: linear-gradient(135deg, #F5EDE2, #FDF6EE);
+    color: #D45D3A;
+}
+.preview-v23::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #D45D3A, #8B7355, #E8A838);
+}
+.preview-v23 .preview-text { font-family: 'Georgia', serif; }
+
+.preview-v24 {
+    background: #F8F5F0;
+    color: #E85D3A;
+}
+.preview-v24::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #E85D3A, #6BA68A, #C9952C);
+}
+.preview-v24 .preview-text { font-family: sans-serif; font-weight: 800; }
+
+.preview-v25 {
+    background:
+        repeating-radial-gradient(ellipse at 50% 50%, rgba(198,93,62,0.06) 0px, rgba(198,93,62,0.06) 2px, transparent 2px, transparent 28px),
+        linear-gradient(135deg, #FFF8F0, #F0F5F1);
+    color: #C65D3E;
+}
+.preview-v25::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #C65D3E, #7BA68A, #D4A853, #7BA68A, #C65D3E);
+}
+.preview-v25 .preview-text { font-family: 'Georgia', serif; font-weight: 700; opacity: 0.6; }
+
+/* ========================================
+   CARD INFO
+   ======================================== */
+
+.card-info {
+    padding: 1.25rem;
+}
+
+.card-number {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: #800000;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.card--final .card-number {
+    color: #800000;
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.card-desc {
+    font-size: 0.82rem;
+    color: #666;
+    line-height: 1.5;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+/* ========================================
+   TAGS
+   ======================================== */
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.tag {
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: #666;
+    background: #f5f5f4;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+footer {
+    text-align: center;
+    padding: 3rem 2.5rem;
+    color: #999;
+    font-size: 0.8rem;
+    border-top: 1px solid #e5e5e5;
+    margin-top: 2rem;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 720px) {
+    .hero {
+        padding: 3rem 1.5rem 2rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    main {
+        padding: 0 1rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-preview {
+        height: 140px;
+    }
+
+    .phase-narrative {
+        font-size: 0.88rem;
+    }
+
+    footer {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    }
+}

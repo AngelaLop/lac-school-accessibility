@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Sans+3:wght@400;600&display=swap');
+
+/* ── Reset & Base ───────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Crimson Text', Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  color: #333333;
+  background-color: #FFFFFF;
+  line-height: 1.6;
+  padding: 3rem 1.25rem 2rem;
+}
+
+/* ── Page Column ────────────────────────────────────────────────── */
+.paper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── Title Block ────────────────────────────────────────────────── */
+.title-block {
+  text-align: center;
+  margin-bottom: 2.25rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.title-block h1 {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #111111;
+  margin-bottom: 0.85rem;
+}
+
+.author {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 0.2rem;
+}
+
+.affiliation {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #666666;
+  font-style: italic;
+}
+
+.date {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #666666;
+  margin-top: 0.35rem;
+}
+
+/* ── Abstract ───────────────────────────────────────────────────── */
+.abstract {
+  border-left: 3px solid #0056B3;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  background-color: #FAFAFA;
+}
+
+.abstract-label {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0056B3;
+  margin-bottom: 0.4rem;
+}
+
+.abstract p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #444444;
+  text-align: justify;
+}
+
+/* ── Keywords ───────────────────────────────────────────────────── */
+.keywords {
+  font-size: 0.88rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #CCCCCC;
+}
+
+.keywords strong {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #555555;
+}
+
+.keywords span {
+  font-style: italic;
+  color: #555555;
+}
+
+/* ── Section Headings ───────────────────────────────────────────── */
+.section-heading {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111111;
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.section-heading .section-number {
+  font-weight: 700;
+}
+
+/* ── Body Text ──────────────────────────────────────────────────── */
+.paper p {
+  margin-bottom: 0.85rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* ── Inline footnote references ─────────────────────────────────── */
+/* CSS counter for auto-numbered footnotes */
+body {
+  counter-reset: footnote;
+}
+
+.fnref {
+  counter-increment: footnote;
+  font-size: 0.7em;
+  vertical-align: super;
+  line-height: 0;
+  color: #0056B3;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.fnref::after {
+  content: counter(footnote);
+}
+
+/* ── Callout / highlight box ────────────────────────────────────── */
+.callout {
+  background-color: #FFF9E6;
+  border: 1px solid #E6DFB8;
+  padding: 0.85rem 1rem;
+  margin: 1.25rem 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.callout p {
+  margin-bottom: 0;
+}
+
+/* ── Figure / Table: The School Race ────────────────────────────── */
+.figure {
+  margin: 1.75rem 0;
+}
+
+.figure-caption {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 0.5rem;
+}
+
+.figure-caption em {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #BBBBBB;
+  padding: 0.4rem 0.55rem;
+  text-align: left;
+}
+
+.data-table th {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  background-color: #F5F5F5;
+  color: #333333;
+  text-transform: none;
+}
+
+.data-table td {
+  font-family: 'Crimson Text', Georgia, serif;
+  color: #444444;
+}
+
+.data-table tbody tr:nth-child(even) {
+  background-color: #FAFAFA;
+}
+
+.figure-source {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.75rem;
+  color: #777777;
+  margin-top: 0.35rem;
+  line-height: 1.4;
+}
+
+/* ── Coverage table (Section 5) ─────────────────────────────────── */
+.coverage-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+  line-height: 1.35;
+  margin: 1rem 0 1.25rem;
+}
+
+.coverage-table th,
+.coverage-table td {
+  border: 1px solid #BBBBBB;
+  padding: 0.3rem 0.5rem;
+  text-align: left;
+}
+
+.coverage-table th {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  background-color: #F5F5F5;
+  color: #333333;
+}
+
+.coverage-table td {
+  font-family: 'Crimson Text', Georgia, serif;
+  color: #444444;
+}
+
+.coverage-table td:nth-child(2),
+.coverage-table td:nth-child(3) {
+  text-align: center;
+}
+
+.coverage-table th:nth-child(2),
+.coverage-table th:nth-child(3) {
+  text-align: center;
+}
+
+.coverage-table tbody tr:nth-child(even) {
+  background-color: #FAFAFA;
+}
+
+/* ── References ─────────────────────────────────────────────────── */
+.references {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #CCCCCC;
+}
+
+.references h2 {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 0.75rem;
+}
+
+.references p {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin-bottom: 0.55rem;
+  padding-left: 1.5rem;
+  text-indent: -1.5rem;
+  text-align: left;
+}
+
+/* ── Footnotes ──────────────────────────────────────────────────── */
+.footnotes {
+  margin-top: 2rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #DDDDDD;
+}
+
+.footnotes-label {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888888;
+  margin-bottom: 0.5rem;
+}
+
+.footnotes ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+  counter-reset: none;
+}
+
+.footnotes li {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #666666;
+  margin-bottom: 0.35rem;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────── */
+.footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #CCCCCC;
+  text-align: center;
+}
+
+.footer a {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0056B3;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ── Links ──────────────────────────────────────────────────────── */
+a {
+  color: #0056B3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 680px) {
+  body {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .title-block h1 {
+    font-size: 1.3rem;
+  }
+
+  .data-table,
+  .coverage-table {
+    font-size: 0.78rem;
+  }
+
+  .data-table th,
+  .data-table td,
+  .coverage-table th,
+  .coverage-table td {
+    padding: 0.3rem 0.4rem;
+  }
+}
+
+/* ── Responsive — 768px ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  body {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .title-block h1 {
+    font-size: 1.35rem;
+  }
+
+  .section-heading {
+    font-size: 1.1rem;
+  }
+
+  .abstract {
+    padding: 0.85rem 1rem;
+  }
+
+  .callout {
+    font-size: 0.88rem;
+  }
+
+  .data-table,
+  .coverage-table {
+    font-size: 0.8rem;
+  }
+}
+
+/* ── Responsive — 480px ─────────────────────────────────────────── */
+@media (max-width: 480px) {
+  body {
+    padding: 1.5rem 0.75rem 1.25rem;
+    font-size: 15px;
+  }
+
+  .title-block h1 {
+    font-size: 1.2rem;
+  }
+
+  .section-heading {
+    font-size: 1.05rem;
+    margin-top: 1.5rem;
+  }
+
+  .abstract {
+    padding: 0.75rem 0.85rem;
+  }
+
+  .abstract p {
+    font-size: 0.88rem;
+  }
+
+  .data-table,
+  .coverage-table {
+    font-size: 0.75rem;
+  }
+
+  .data-table th,
+  .data-table td,
+  .coverage-table th,
+  .coverage-table td {
+    padding: 0.25rem 0.35rem;
+  }
+
+  .references p {
+    font-size: 0.82rem;
+  }
+
+  .footnotes li {
+    font-size: 0.78rem;
+  }
+}
+
+/* ── Responsive — 1024px ────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .paper {
+    max-width: 560px;
+  }
+
+  .title-block h1 {
+    font-size: 1.45rem;
+  }
+
+  .section-heading {
+    font-size: 1.15rem;
+  }
+}
+
+/* ── Responsive — 1440px ────────────────────────────────────────── */
+@media (min-width: 1440px) {
+  .paper {
+    max-width: 680px;
+  }
+
+  body {
+    padding: 4rem 2rem 3rem;
+    font-size: 17px;
+  }
+
+  .title-block h1 {
+    font-size: 1.7rem;
+  }
+
+  .section-heading {
+    font-size: 1.3rem;
+  }
+
+  .abstract {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .abstract p {
+    font-size: 1rem;
+  }
+}

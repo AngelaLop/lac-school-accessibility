@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAC School Accessibility Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ====== HERO ====== -->
+  <header class="hero">
+    <div class="hero-rule"></div>
+
+    <h1 class="hero-headline">
+      School<br>
+      Accessibility<br>
+      <span>Platform</span>
+    </h1>
+
+    <p class="hero-subtitle">
+      Mapping the true cost of reaching school across
+      Latin America &amp; the Caribbean.
+    </p>
+
+    <div class="hero-stat">
+      <span class="hero-stat-number">532,650</span>
+      <span class="hero-stat-label">Schools mapped across 21 countries</span>
+    </div>
+  </header>
+
+  <!-- ====== 01. THE RACE ====== -->
+  <section>
+    <div class="grid">
+      <span class="section-number">01.</span>
+      <h2 class="section-title">The Race</h2>
+
+      <div class="race-container">
+        <!-- US child -->
+        <div class="race-row">
+          <span class="race-label">United States</span>
+          <div class="race-bar race-bar--us"></div>
+          <span class="race-time">10 min</span>
+        </div>
+
+        <!-- Vaupes child -->
+        <div class="race-row">
+          <span class="race-label">Vaup&eacute;s, Colombia</span>
+          <div class="race-bar race-bar--vaupes"></div>
+          <span class="race-time">120+ min</span>
+        </div>
+      </div>
+
+      <p class="race-note">
+        Two children. Same morning. Same goal: get to school.
+        The geometry alone tells the story &mdash; access is not equal.
+      </p>
+    </div>
+  </section>
+
+  <!-- ====== 02. THE PROBLEM ====== -->
+  <section>
+    <div class="grid">
+      <span class="section-number">02.</span>
+      <h2 class="section-title">The Problem</h2>
+
+      <p class="problem-text">
+        Across Latin America and the Caribbean, millions of children face
+        journeys of an hour or more just to reach a classroom. Distance is
+        the invisible filter &mdash; it determines who learns and who doesn't.
+        Without precise travel-time data, governments allocate resources blind.
+      </p>
+
+      <div class="problem-stats">
+        <div class="stat-block">
+          <span class="stat-number stat-number--red">4 in 10</span>
+          <span class="stat-label">Rural students travel 60+ min each way</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-number">80%</span>
+          <span class="stat-label">Dropout rate linked to distance</span>
+        </div>
+        <div class="stat-block">
+          <span class="stat-number">0</span>
+          <span class="stat-label">Countries had full travel-time maps before this project</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 03. THE METHOD ====== -->
+  <section>
+    <div class="grid">
+      <span class="section-number">03.</span>
+      <h2 class="section-title">The Method</h2>
+
+      <p class="method-text">
+        The platform uses the Fast Marching Method (FMM) &mdash; an algorithm
+        from computational physics that models wavefront propagation across
+        friction surfaces. Every pixel of terrain is assigned a traversal cost
+        based on land cover, slope, road networks, and waterways. The result:
+        a precise, continuous travel-time surface from any point to its nearest
+        school.
+      </p>
+
+      <ul class="method-steps">
+        <li>
+          <span class="step-num">Step A</span>
+          Ingest school coordinates from national registries &mdash;
+          532,650 points across 21 countries.
+        </li>
+        <li>
+          <span class="step-num">Step B</span>
+          Build a friction surface from satellite-derived land cover,
+          terrain slope, road class, and hydrological barriers.
+        </li>
+        <li>
+          <span class="step-num">Step C</span>
+          Run FMM to compute travel time from every 100&thinsp;m cell
+          to the nearest school, producing a continuous isochrone map.
+        </li>
+        <li>
+          <span class="step-num">Step D</span>
+          Overlay population grids to estimate the number of children
+          within each travel-time band (15, 30, 60, 120 min).
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ====== 04. THE IMPACT ====== -->
+  <section>
+    <div class="grid">
+      <span class="section-number">04.</span>
+      <h2 class="section-title">The Impact</h2>
+
+      <p class="impact-intro">
+        In Panama, the pilot deployment identified underserved communities and
+        directly informed infrastructure investment by the Ministry of Education.
+      </p>
+
+      <div class="impact-grid">
+        <div class="impact-card">
+          <span class="impact-number">6,894</span>
+          <span class="impact-unit">Schools analyzed in Panama</span>
+        </div>
+        <div class="impact-card">
+          <span class="impact-number">47</span>
+          <span class="impact-unit">New school sites recommended</span>
+        </div>
+        <div class="impact-card">
+          <span class="impact-number">120K</span>
+          <span class="impact-unit">Children with reduced travel time</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 05. THE COVERAGE ====== -->
+  <section>
+    <div class="grid">
+      <span class="section-number">05.</span>
+      <h2 class="section-title">The Coverage</h2>
+
+      <p class="coverage-intro">
+        The platform spans 21 countries across the region &mdash;
+        the most comprehensive school-accessibility dataset
+        ever assembled for Latin America and the Caribbean.
+      </p>
+
+      <div class="country-grid">
+        <span class="country-cell">Argentina</span>
+        <span class="country-cell">Barbados</span>
+        <span class="country-cell">Belize</span>
+        <span class="country-cell">Bolivia</span>
+        <span class="country-cell">Brazil</span>
+        <span class="country-cell">Chile</span>
+        <span class="country-cell">Colombia</span>
+        <span class="country-cell">Costa Rica</span>
+        <span class="country-cell">Dominican Republic</span>
+        <span class="country-cell">Ecuador</span>
+        <span class="country-cell">El Salvador</span>
+        <span class="country-cell">Guatemala</span>
+        <span class="country-cell">Guyana</span>
+        <span class="country-cell">Haiti</span>
+        <span class="country-cell">Honduras</span>
+        <span class="country-cell">Jamaica</span>
+        <span class="country-cell">Mexico</span>
+        <span class="country-cell">Nicaragua</span>
+        <span class="country-cell">Panama</span>
+        <span class="country-cell">Paraguay</span>
+        <span class="country-cell">Peru</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer>
+    <a href="/" class="footer-back">&larr; Back to Gallery</a>
+    <span class="footer-credit">LAC School Accessibility Platform &middot; V7 Swiss</span>
+  </footer>
+
+</body>
+</html>

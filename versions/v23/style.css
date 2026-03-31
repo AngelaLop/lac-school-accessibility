@@ -1,0 +1,937 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ===== V23: "Golden Hour" — Sunset Warmth ===== */
+:root {
+  --primary: #D45D3A;
+  --primary-soft: #E8846A;
+  --secondary: #8B7355;
+  --secondary-deep: #6E5A42;
+  --bg-main: #FDF6EE;
+  --bg-alt: #F5EDE2;
+  --bg-card: #EAE0D2;
+  --text-dark: #2D1B0E;
+  --text-mid: #5C4433;
+  --accent: #E8A838;
+
+  --nav-h: 48px;
+  --font-head: 'Fraunces', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--text-mid);
+  background: var(--bg-main);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--font-head); line-height: 1.2; color: var(--text-dark); }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* ===== NAV — dark bar with blur ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  height: var(--nav-h);
+  background: rgba(45, 27, 14, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.nav-logo {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.nav-logo span { color: var(--accent); }
+
+.nav-links { display: flex; gap: 24px; }
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.7);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #fff; }
+
+/* ===== HERO — v11 Field Survey topographic ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    repeating-radial-gradient(ellipse at 30% 40%, transparent 0, transparent 60px, rgba(212,93,58,0.04) 61px, transparent 62px),
+    repeating-radial-gradient(ellipse at 70% 60%, transparent 0, transparent 80px, rgba(232,168,56,0.05) 81px, transparent 82px),
+    repeating-radial-gradient(ellipse at 50% 50%, transparent 0, transparent 40px, rgba(139,115,85,0.03) 41px, transparent 42px),
+    linear-gradient(160deg, var(--text-dark) 0%, #3E2A1A 40%, #4A3525 70%, var(--text-dark) 100%);
+  overflow: hidden;
+}
+
+.hero-inner {
+  max-width: 700px;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.hero-rule {
+  border: none;
+  width: 60px;
+  height: 1px;
+  background: rgba(232,168,56,0.5);
+  margin: 0 auto 24px;
+}
+
+.hero-stat {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  font-feature-settings: 'tnum';
+  margin-bottom: 16px;
+}
+
+.hero-coord {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.1em;
+}
+
+/* ===== WAVE DIVIDERS — v16 river crossing ===== */
+.wave-divider {
+  position: relative;
+  line-height: 0;
+  overflow: visible;
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 80px;
+}
+
+.wave-divider--1 { background: var(--text-dark); }
+.wave-divider--2 { background: var(--bg-main); }
+.wave-divider--3 { background: var(--bg-alt); }
+.wave-divider--4 { background: var(--bg-main); }
+.wave-divider--5 { background: var(--bg-alt); }
+.wave-divider--6 { background: var(--bg-main); }
+.wave-divider--7 { background: var(--bg-alt); }
+
+/* Settlement dots */
+.settlement-dot {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: var(--secondary);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* River flow animation on wave dashed line */
+.wave-divider::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--primary-soft) 0, var(--primary-soft) 8px, transparent 8px, transparent 16px);
+  animation: riverFlow 4s linear infinite;
+}
+
+@keyframes riverFlow {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ===== STICKY STAT RIBBON — v17 ===== */
+.stat-ribbon {
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 150;
+  background: rgba(45, 27, 14, 0.95);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.stat-ribbon-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.stat-ribbon-item {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.7);
+  font-feature-settings: 'tnum';
+}
+
+.stat-ribbon-item strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.stat-ribbon-sep {
+  color: rgba(255,255,255,0.2);
+  font-size: 0.75rem;
+}
+
+/* ===== SECTION SHARED ===== */
+.section-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.section-deck {
+  font-size: 1.05rem;
+  color: var(--text-mid);
+  max-width: 600px;
+  line-height: 1.75;
+  margin-bottom: 48px;
+}
+
+/* ===== SCHOOL RACE — Enhanced v16 ===== */
+.race {
+  background: var(--bg-main);
+  padding: 96px 0;
+}
+
+.race .section-eyebrow,
+.race .section-title,
+.race .section-deck { text-align: center; }
+.race .section-deck { margin-left: auto; margin-right: auto; }
+
+.race-cards {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  align-items: center;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.race-card {
+  border-radius: 16px;
+  padding: 32px 28px;
+  text-align: center;
+}
+
+.race-card--emma {
+  background: var(--bg-alt);
+  border: 1px solid rgba(212,93,58,0.1);
+}
+
+.race-card--yurani {
+  background: var(--text-dark);
+  color: rgba(255,255,255,0.8);
+}
+.race-card--yurani .race-card-name { color: #fff; }
+.race-card--yurani .race-card-time { color: var(--accent); }
+.race-card--yurani .race-card-location { color: rgba(255,255,255,0.5); }
+
+/* CSS character avatars */
+.race-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.avatar-head {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 4px;
+}
+
+.avatar-body {
+  width: 24px;
+  height: 16px;
+  border-radius: 4px 4px 0 0;
+}
+
+.avatar-head--emma { background: var(--accent); }
+.avatar-body--emma { background: var(--primary-soft); }
+.avatar-head--yurani { background: var(--secondary); }
+.avatar-body--yurani { background: var(--secondary-deep); }
+
+.race-card-location {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text-mid);
+  margin-bottom: 4px;
+}
+
+.race-card-name {
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.race-card-time {
+  font-family: var(--font-body);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  font-feature-settings: 'tnum';
+  margin-bottom: 4px;
+}
+
+.race-card-route {
+  font-size: 0.8rem;
+  color: var(--text-mid);
+  margin-bottom: 16px;
+}
+
+.race-card--yurani .race-card-route { color: rgba(255,255,255,0.5); }
+
+/* Multi-segment race bars */
+.race-bar-track {
+  display: flex;
+  align-items: center;
+  height: 12px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.race-card--yurani .race-bar-track { background: rgba(255,255,255,0.1); }
+
+.race-bar {
+  height: 100%;
+}
+
+.race-bar--emma {
+  width: 14%;
+  min-width: 24px;
+  background: var(--secondary);
+  border-radius: 6px;
+}
+
+.race-bar--yurani-jungle { width: 35%; background: var(--secondary-deep); }
+.race-bar--yurani-river {
+  width: 30%;
+  background: linear-gradient(90deg, var(--secondary), var(--primary-soft));
+  background-size: 200% 100%;
+  animation: riverBarFlow 3s ease-in-out infinite;
+}
+.race-bar--yurani-walk { width: 35%; background: var(--secondary-deep); }
+
+@keyframes riverBarFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Pulsing dot at endpoint */
+.race-bar-dot {
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--primary);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,93,58,0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(212,93,58,0); }
+}
+
+.race-card-text {
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+/* Verdict callout */
+.race-verdict {
+  text-align: center;
+  padding: 16px 8px;
+}
+
+.race-verdict-number {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.race-verdict-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  margin-top: 4px;
+}
+
+/* ===== CHALLENGE SECTION ===== */
+.challenge {
+  background: var(--bg-alt);
+  padding: 96px 0;
+}
+
+.challenge .section-eyebrow,
+.challenge .section-title { text-align: center; }
+
+.challenge .section-title { margin-bottom: 56px; }
+
+.challenge-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 56px;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.challenge-row:last-child { margin-bottom: 0; }
+
+.challenge-row--reverse {
+  direction: rtl;
+}
+.challenge-row--reverse > * { direction: ltr; }
+
+.challenge-text h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.challenge-text p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.challenge-callout {
+  background: var(--bg-card);
+  border-left: 3px solid var(--primary);
+  padding: 12px 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  border-radius: 0 8px 8px 0;
+}
+
+/* CSS illustrations */
+.challenge-illust {
+  width: 200px;
+  height: 160px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Winding road */
+.illust-road {
+  width: 60px;
+  height: 140px;
+  border: 4px solid var(--secondary);
+  border-radius: 30px 30px 0 0;
+  position: relative;
+  background: transparent;
+}
+
+.illust-road::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: -20px;
+  width: 100px;
+  height: 50px;
+  border: 4px solid var(--secondary);
+  border-radius: 50px;
+  border-top: none;
+}
+
+.illust-road::after {
+  content: '';
+  position: absolute;
+  top: 80px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--primary-soft);
+  border-radius: 20px;
+  border-bottom: none;
+}
+
+/* Mountain */
+.illust-mountain {
+  width: 100px;
+  height: 100px;
+  background: var(--secondary);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.illust-mountain--sm {
+  width: 60px;
+  height: 60px;
+  background: var(--primary-soft);
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+}
+
+/* River */
+.illust-river {
+  width: 180px;
+  height: 40px;
+  background: linear-gradient(90deg, var(--primary-soft), var(--secondary), var(--primary-soft));
+  background-size: 200% 100%;
+  border-radius: 20px;
+  animation: riverFlow 4s ease-in-out infinite;
+  position: relative;
+}
+
+.illust-river::before,
+.illust-river::after {
+  content: '';
+  position: absolute;
+  height: 20px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--secondary), var(--primary-soft), var(--secondary));
+  background-size: 200% 100%;
+  animation: riverFlow 5s ease-in-out infinite reverse;
+}
+
+.illust-river::before {
+  width: 140px;
+  top: -28px;
+  left: 20px;
+}
+
+.illust-river::after {
+  width: 160px;
+  bottom: -28px;
+  left: 10px;
+}
+
+/* ===== PULL QUOTE ===== */
+.quote-section {
+  background: var(--bg-main);
+  padding: 80px 0;
+}
+
+.pull-quote {
+  font-family: var(--font-head);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-dark);
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 0;
+  border-top: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
+  line-height: 1.6;
+}
+
+/* ===== RADIO TABS — v17 ===== */
+.method {
+  background: var(--bg-alt);
+  padding: 96px 0;
+}
+
+.method .section-eyebrow,
+.method .section-title,
+.method .section-deck { text-align: center; }
+.method .section-deck { margin-left: auto; margin-right: auto; }
+
+.tabs { max-width: 760px; margin: 0 auto; }
+
+.tabs input[type="radio"] { display: none; }
+
+.tab-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--bg-card);
+  margin-bottom: 32px;
+}
+
+.tab-nav label {
+  flex: 1;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tab-nav label:hover { color: var(--text-dark); }
+
+#step1:checked ~ .tab-nav label[for="step1"],
+#step2:checked ~ .tab-nav label[for="step2"],
+#step3:checked ~ .tab-nav label[for="step3"] {
+  color: var(--primary);
+  font-weight: 700;
+  border-bottom-color: var(--primary);
+}
+
+.tab-panels { position: relative; }
+
+.panel { display: none; }
+
+#step1:checked ~ .tab-panels .panel-1,
+#step2:checked ~ .tab-panels .panel-2,
+#step3:checked ~ .tab-panels .panel-3 {
+  display: block;
+}
+
+.panel {
+  background: var(--bg-main);
+  border-radius: 16px;
+  padding: 40px 36px;
+}
+
+.panel h3 {
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+}
+
+.panel p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* ===== IMPACT — Conic Gradient Donuts (v18) ===== */
+.impact {
+  background: var(--bg-main);
+  padding: 96px 0;
+}
+
+.impact .section-eyebrow,
+.impact .section-title,
+.impact .section-deck { text-align: center; }
+.impact .section-deck { margin-left: auto; margin-right: auto; }
+
+.impact-hero-stat {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.impact-big-number {
+  font-family: var(--font-head);
+  font-size: clamp(3.5rem, 8vw, 5rem);
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 8px;
+  box-shadow:
+    0 0 0 8px rgba(212,93,58,0.06),
+    0 0 0 20px rgba(212,93,58,0.04),
+    0 0 0 36px rgba(212,93,58,0.02);
+  display: inline-block;
+  padding: 24px 40px;
+  border-radius: 50%;
+}
+
+.impact-big-label {
+  font-size: 1rem;
+  color: var(--text-mid);
+  margin-top: 16px;
+}
+
+/* Donut charts */
+.impact-donuts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 720px;
+  margin: 0 auto 56px;
+}
+
+.donut-card { text-align: center; }
+
+.donut {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.donut:hover { transform: rotate(10deg); }
+
+.donut::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 80px;
+  height: 80px;
+  background: var(--bg-main);
+  border-radius: 50%;
+}
+
+.donut-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  font-feature-settings: 'tnum';
+}
+
+.donut--94 { background: conic-gradient(var(--primary) 0deg, var(--primary) 338.4deg, var(--bg-card) 338.4deg); }
+.donut--96 { background: conic-gradient(var(--primary) 0deg, var(--primary) 345.6deg, var(--bg-card) 345.6deg); }
+.donut--98 { background: conic-gradient(var(--primary) 0deg, var(--primary) 353.16deg, var(--bg-card) 353.16deg); }
+
+.donut-desc {
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
+/* Animated bar charts */
+.impact-bars {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 60px;
+  gap: 12px;
+  align-items: center;
+}
+
+.bar-label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-mid);
+  text-align: right;
+}
+
+.bar-track {
+  height: 16px;
+  background: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-soft));
+  border-radius: 8px;
+  transition: width 1s ease;
+  width: 0;
+}
+
+.impact-bars:hover .bar-fill--98 { width: 98.1%; }
+.impact-bars:hover .bar-fill--84 { width: 84.1%; }
+.impact-bars:hover .bar-fill--68 { width: 67.6%; }
+
+.bar-value {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  font-feature-settings: 'tnum';
+}
+
+/* ===== COUNTRIES ===== */
+.countries {
+  background: var(--bg-alt);
+  padding: 96px 0;
+}
+
+.countries .section-eyebrow,
+.countries .section-title,
+.countries .section-deck { text-align: center; }
+.countries .section-deck { margin-left: auto; margin-right: auto; }
+
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.country-item {
+  background: var(--bg-main);
+  border: 1px solid rgba(45,27,14,0.08);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-align: center;
+  transition: transform 0.2s, background 0.2s, color 0.2s;
+}
+
+.country-item:hover {
+  transform: translateY(-3px);
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--text-dark);
+  border-radius: 24px 24px 0 0;
+  padding: 56px 24px;
+  text-align: center;
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 16px;
+}
+
+.footer-cta {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  background: var(--accent);
+  padding: 12px 32px;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.footer-cta:hover {
+  background: var(--primary-soft);
+  transform: translateY(-1px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .race-cards { grid-template-columns: 1fr; gap: 16px; }
+  .race-verdict { padding: 8px; }
+  .impact-donuts { grid-template-columns: 1fr; max-width: 200px; }
+  .challenge-row,
+  .challenge-row--reverse { grid-template-columns: 1fr; gap: 24px; }
+  .challenge-row--reverse { direction: ltr; }
+  .challenge-illust { margin: 0 auto; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .section-title { font-size: 1.6rem; }
+  .hero h1 { font-size: 2rem; }
+  .race, .challenge, .method, .impact, .countries, .quote-section { padding: 64px 0; }
+  .countries-grid { grid-template-columns: repeat(2, 1fr); }
+  .bar-row { grid-template-columns: 100px 1fr 50px; }
+  .tab-nav label { font-size: 0.78rem; padding: 10px 8px; }
+}
+
+@media (max-width: 320px) {
+  .hero h1 { font-size: 1.6rem; }
+  .countries-grid { grid-template-columns: 1fr; }
+  .impact-big-number { font-size: 2.8rem; padding: 16px 24px; }
+  .bar-row { grid-template-columns: 1fr; gap: 4px; }
+  .bar-label { text-align: left; }
+}
+
+/* ===== RESPONSIVE: 1440px+ ===== */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .hero {
+    padding: 100px 24px;
+  }
+
+  .race, .challenge, .quote-section, .method, .impact, .countries {
+    padding: 112px 0;
+  }
+
+  .hero h1 {
+    font-size: 3.8rem;
+  }
+}

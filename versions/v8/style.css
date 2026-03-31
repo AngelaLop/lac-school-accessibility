@@ -1,0 +1,892 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Poppins:wght@400;600;800&display=swap');
+
+/* ====== Reset & Variables ====== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --pink: #FF1493;
+  --yellow: #FFD700;
+  --teal: #00CED1;
+  --purple: #6A0DAD;
+  --white: #FFFFFF;
+  --dark: #1A0A2E;
+  --pink-light: #FF69B4;
+  --purple-light: #9B59B6;
+  --teal-dark: #009B9E;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--white);
+  overflow-x: hidden;
+  background: var(--dark);
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.2;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ====== Shared Section Styles ====== */
+section {
+  position: relative;
+  padding: 6rem 0 8rem;
+  overflow: hidden;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.section-title--dark {
+  color: var(--dark);
+}
+
+.section-intro {
+  text-align: center;
+  font-size: 1.15rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+  color: var(--white);
+}
+
+.section-intro--dark {
+  color: var(--dark);
+  opacity: 0.75;
+}
+
+/* ====== Wave Dividers ====== */
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 3;
+}
+
+.wave--hero {
+  clip-path: polygon(0 60%, 5% 45%, 10% 55%, 15% 40%, 20% 50%, 25% 35%, 30% 48%, 35% 30%, 40% 45%, 45% 32%, 50% 42%, 55% 28%, 60% 40%, 65% 30%, 70% 45%, 75% 33%, 80% 48%, 85% 38%, 90% 52%, 95% 42%, 100% 55%, 100% 100%, 0 100%);
+  background: var(--white);
+}
+
+.wave--race {
+  clip-path: polygon(0 50%, 4% 65%, 8% 45%, 12% 60%, 16% 40%, 20% 55%, 25% 35%, 30% 50%, 35% 38%, 40% 55%, 45% 40%, 50% 58%, 55% 42%, 60% 55%, 65% 38%, 70% 52%, 75% 35%, 80% 50%, 85% 40%, 90% 55%, 95% 45%, 100% 60%, 100% 100%, 0 100%);
+  background: var(--yellow);
+}
+
+.wave--stats {
+  clip-path: polygon(0 55%, 6% 40%, 12% 55%, 18% 38%, 24% 52%, 30% 35%, 36% 50%, 42% 38%, 48% 55%, 54% 40%, 60% 52%, 66% 35%, 72% 48%, 78% 38%, 84% 52%, 90% 42%, 96% 55%, 100% 45%, 100% 100%, 0 100%);
+  background: var(--teal);
+}
+
+.wave--problem {
+  clip-path: polygon(0 45%, 5% 58%, 10% 42%, 15% 55%, 20% 38%, 25% 52%, 30% 40%, 35% 55%, 40% 42%, 45% 58%, 50% 45%, 55% 55%, 60% 38%, 65% 50%, 70% 35%, 75% 48%, 80% 40%, 85% 55%, 90% 45%, 95% 58%, 100% 48%, 100% 100%, 0 100%);
+  background: var(--purple);
+}
+
+.wave--methodology {
+  clip-path: polygon(0 60%, 7% 42%, 14% 58%, 21% 40%, 28% 55%, 35% 38%, 42% 52%, 49% 35%, 56% 50%, 63% 38%, 70% 55%, 77% 42%, 84% 58%, 91% 45%, 100% 55%, 100% 100%, 0 100%);
+  background: var(--pink);
+}
+
+.wave--impact {
+  clip-path: polygon(0 50%, 5% 38%, 10% 52%, 15% 35%, 20% 48%, 25% 32%, 30% 45%, 35% 35%, 40% 50%, 45% 38%, 50% 55%, 55% 42%, 60% 52%, 65% 38%, 70% 50%, 75% 35%, 80% 48%, 85% 40%, 90% 55%, 95% 45%, 100% 58%, 100% 100%, 0 100%);
+  background: var(--white);
+}
+
+.wave--countries {
+  clip-path: polygon(0 55%, 8% 42%, 16% 55%, 24% 38%, 32% 50%, 40% 35%, 48% 48%, 56% 38%, 64% 52%, 72% 40%, 80% 55%, 88% 42%, 96% 55%, 100% 48%, 100% 100%, 0 100%);
+  background: var(--dark);
+}
+
+/* ====== Decorative Circles ====== */
+.deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0.15;
+}
+
+.deco-circle--hero-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--yellow);
+  top: -100px;
+  right: -100px;
+  transform: rotate(15deg);
+}
+
+.deco-circle--hero-2 {
+  width: 250px;
+  height: 250px;
+  background: var(--teal);
+  bottom: 60px;
+  left: -80px;
+  transform: rotate(-20deg);
+}
+
+.deco-circle--stats-1 {
+  width: 350px;
+  height: 350px;
+  background: var(--pink);
+  top: -80px;
+  left: -120px;
+  opacity: 0.12;
+}
+
+.deco-circle--problem-1 {
+  width: 300px;
+  height: 300px;
+  background: var(--yellow);
+  top: -50px;
+  right: -80px;
+}
+
+.deco-circle--problem-2 {
+  width: 200px;
+  height: 200px;
+  background: var(--pink);
+  bottom: 80px;
+  left: -60px;
+  opacity: 0.1;
+}
+
+.deco-circle--method-1 {
+  width: 350px;
+  height: 350px;
+  background: var(--yellow);
+  bottom: -60px;
+  right: -100px;
+  opacity: 0.1;
+}
+
+.deco-circle--impact-1 {
+  width: 300px;
+  height: 300px;
+  background: var(--yellow);
+  top: -80px;
+  left: -80px;
+  opacity: 0.12;
+}
+
+.deco-circle--impact-2 {
+  width: 200px;
+  height: 200px;
+  background: var(--teal);
+  bottom: 100px;
+  right: -60px;
+  opacity: 0.1;
+}
+
+/* ====== Hero Section ====== */
+.hero {
+  background: var(--pink);
+  padding: 8rem 0 10rem;
+  text-align: center;
+}
+
+.hero-label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.hero-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.hero-description {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  opacity: 0.85;
+  line-height: 1.8;
+}
+
+/* ====== The School Race ====== */
+.race {
+  background: var(--white);
+  padding: 6rem 0 8rem;
+}
+
+.race .section-title--dark {
+  color: var(--dark);
+}
+
+.race .section-intro--dark {
+  color: var(--dark);
+}
+
+.race-lanes {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.race-lane {
+  position: relative;
+  border-radius: 1.2rem;
+  padding: 2rem 2rem 1.5rem;
+  overflow: hidden;
+}
+
+.race-lane--emma {
+  background: var(--teal);
+}
+
+.race-lane--yurani {
+  background: var(--purple);
+}
+
+/* Confetti dots for Emma's lane */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0.35;
+  z-index: 1;
+}
+
+.confetti--1 { background: var(--yellow); top: 15%; left: 8%; width: 12px; height: 12px; }
+.confetti--2 { background: var(--pink); top: 25%; left: 25%; width: 8px; height: 8px; }
+.confetti--3 { background: var(--yellow); top: 10%; left: 45%; width: 14px; height: 14px; }
+.confetti--4 { background: var(--white); top: 60%; left: 15%; width: 9px; height: 9px; }
+.confetti--5 { background: var(--pink); top: 70%; left: 55%; width: 11px; height: 11px; }
+.confetti--6 { background: var(--yellow); top: 40%; left: 70%; width: 8px; height: 8px; }
+.confetti--7 { background: var(--white); top: 20%; left: 85%; width: 13px; height: 13px; }
+.confetti--8 { background: var(--pink); top: 75%; left: 90%; width: 10px; height: 10px; }
+
+/* Rain dots for Yurani's lane */
+.raindrop {
+  position: absolute;
+  width: 3px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  z-index: 1;
+  transform: rotate(12deg);
+}
+
+.raindrop--1  { top: 5%;  left: 5%; height: 16px; }
+.raindrop--2  { top: 12%; left: 15%; height: 12px; }
+.raindrop--3  { top: 3%;  left: 25%; height: 18px; }
+.raindrop--4  { top: 18%; left: 35%; height: 14px; }
+.raindrop--5  { top: 8%;  left: 45%; height: 15px; }
+.raindrop--6  { top: 15%; left: 55%; height: 11px; }
+.raindrop--7  { top: 2%;  left: 65%; height: 17px; }
+.raindrop--8  { top: 20%; left: 72%; height: 13px; }
+.raindrop--9  { top: 6%;  left: 80%; height: 16px; }
+.raindrop--10 { top: 14%; left: 88%; height: 12px; }
+.raindrop--11 { top: 10%; left: 93%; height: 15px; }
+.raindrop--12 { top: 22%; left: 60%; height: 10px; }
+
+.lane-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lane-kid {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.lane-location {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  font-weight: 700;
+}
+
+.lane-track {
+  position: relative;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  height: 52px;
+  margin-bottom: 0.8rem;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.lane-bar {
+  height: 100%;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 1.2rem;
+}
+
+.lane-bar--emma {
+  width: 15%;
+  min-width: 130px;
+  background: var(--yellow);
+}
+
+.lane-bar--yurani {
+  width: 100%;
+  background: var(--pink);
+}
+
+.lane-time {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  white-space: nowrap;
+}
+
+.lane-time--emma {
+  color: var(--dark);
+}
+
+.lane-time--yurani {
+  color: var(--white);
+}
+
+.lane-note {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  position: relative;
+  z-index: 2;
+}
+
+.race-callout {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: var(--purple);
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(106, 13, 173, 0.08), rgba(255, 20, 147, 0.08));
+  border-radius: 1rem;
+}
+
+/* ====== Stats Section ====== */
+.stats {
+  background: var(--yellow);
+  padding: 6rem 0 8rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--white);
+}
+
+.stat-badge--pink {
+  background: var(--pink);
+}
+
+.stat-badge--teal {
+  background: var(--teal);
+}
+
+.stat-badge--purple {
+  background: var(--purple);
+}
+
+.stat-number {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 2.4rem;
+  line-height: 1.1;
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  opacity: 0.9;
+  margin-top: 0.3rem;
+  line-height: 1.3;
+}
+
+/* ====== Problem Section ====== */
+.problem {
+  background: var(--teal);
+  padding: 6rem 0 8rem;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.problem-card {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 1.2rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.problem-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.problem-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.problem-card p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+/* ====== Methodology Section ====== */
+.methodology {
+  background: var(--purple);
+  padding: 6rem 0 8rem;
+}
+
+.method-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.method-step {
+  text-align: center;
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 1.2rem;
+  padding: 2.5rem 1.5rem 2rem;
+}
+
+.method-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.method-number {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--dark);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.method-step h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+}
+
+.method-step p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* ====== Impact Section ====== */
+.impact {
+  background: var(--pink);
+  padding: 6rem 0 8rem;
+}
+
+.impact-content {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.impact-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.impact-text strong {
+  color: var(--yellow);
+}
+
+.impact-results {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.impact-result {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  padding: 1.2rem 1.5rem;
+  text-align: center;
+  flex: 1;
+  min-width: 100px;
+}
+
+.impact-result-number {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  display: block;
+  color: var(--yellow);
+}
+
+.impact-result-label {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  font-weight: 700;
+}
+
+.impact-quote {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 1.2rem;
+  padding: 2rem;
+  border-left: 5px solid var(--yellow);
+}
+
+.impact-quote blockquote {
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.impact-quote cite {
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+/* ====== Countries Section ====== */
+.countries {
+  background: var(--white);
+  padding: 6rem 0 8rem;
+}
+
+.country-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.country-tag {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--white);
+  transform: rotate(0deg);
+}
+
+.country-tag:nth-child(3n+1) {
+  transform: rotate(-1.5deg);
+}
+
+.country-tag:nth-child(3n+2) {
+  transform: rotate(1deg);
+}
+
+.country-tag:nth-child(3n) {
+  transform: rotate(-0.5deg);
+}
+
+.country-tag--pink {
+  background: var(--pink);
+}
+
+.country-tag--teal {
+  background: var(--teal);
+  color: var(--dark);
+}
+
+.country-tag--purple {
+  background: var(--purple);
+}
+
+.country-tag--yellow {
+  background: var(--yellow);
+  color: var(--dark);
+}
+
+/* ====== Footer ====== */
+.footer {
+  background: var(--dark);
+  padding: 4rem 0;
+  text-align: center;
+  color: var(--white);
+}
+
+.footer-brand {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: var(--yellow);
+}
+
+.footer-text {
+  font-size: 0.95rem;
+  opacity: 0.65;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-link {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  background: var(--pink);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.footer-link:hover {
+  background: var(--pink-light);
+  transform: scale(1.05);
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .method-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .impact-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 5rem 0 7rem;
+  }
+
+  .hero-title {
+    font-size: 2.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  section {
+    padding: 4rem 0 6rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .stat-badge {
+    width: 160px;
+    height: 160px;
+    padding: 1rem;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .problem-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .method-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-content {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-results {
+    flex-direction: column;
+  }
+
+  .lane-time {
+    font-size: 1rem;
+  }
+
+  .race-callout {
+    font-size: 1.1rem;
+  }
+
+  .deco-circle--hero-1 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .deco-circle--hero-2 {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-badge {
+    width: 180px;
+    height: 180px;
+  }
+
+  .container {
+    padding: 0 1.2rem;
+  }
+
+  .lane-bar--emma {
+    min-width: 110px;
+  }
+
+  .country-tag {
+    font-size: 0.85rem;
+    padding: 0.5rem 1.1rem;
+  }
+}
+
+/* ====== Responsive — 1440px ====== */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1240px;
+  }
+
+  .hero {
+    padding: 10rem 0 12rem;
+  }
+
+  .hero-title {
+    font-size: 5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+
+  section {
+    padding: 7rem 0 9rem;
+  }
+
+  .section-title {
+    font-size: 3.2rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+  }
+
+  .stat-badge {
+    width: 220px;
+    height: 220px;
+  }
+
+  .stat-number {
+    font-size: 2.8rem;
+  }
+
+  .method-steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,0 +1,866 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+/* ===== RESET & VARIABLES ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --terracotta: #C65D3E;
+  --cream: #FFF8F0;
+  --green: #7BA68A;
+  --brown: #3B2314;
+  --sand: #EDE5D8;
+  --sage: #F0F5F1;
+  --gold-accent: #D4A853;
+  --max-width: 1200px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  color: var(--brown);
+  background: var(--sand);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  color: var(--brown);
+  line-height: 1.2;
+}
+
+/* ===== NAVIGATION ===== */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  background: rgba(237, 229, 216, 0.95);
+  border-bottom: 2px solid var(--brown);
+  backdrop-filter: blur(10px);
+}
+
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+}
+
+.nav-brand {
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--brown);
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.25rem;
+}
+
+.nav-links a {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--brown);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--terracotta);
+}
+
+/* ===== ATLAS PLATES (Section styling) ===== */
+.atlas-plate {
+  border: 1px solid rgba(59, 35, 20, 0.15);
+  margin: 0 auto;
+  max-width: var(--max-width);
+  position: relative;
+  transition: border-left 0.4s ease, transform 0.3s ease;
+}
+
+.atlas-plate:target {
+  border-left: 4px solid var(--terracotta);
+  transform: scale(1.005);
+}
+
+.plate--cream {
+  background: var(--cream);
+}
+
+.plate--sage {
+  background: var(--sage);
+}
+
+.plate-inner {
+  padding: 3.5rem 3rem;
+  position: relative;
+}
+
+/* Coordinate stamp on each plate */
+.atlas-plate::after {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  color: rgba(59, 35, 20, 0.12);
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+
+#hero::after    { content: '4.5981\00B0N  74.0758\00B0W'; }
+#race::after    { content: '38.9072\00B0N  77.0369\00B0W'; }
+#stats::after   { content: '14.6349\00B0N  90.5069\00B0W'; }
+#challenge::after { content: '1.2136\00B0S  77.0158\00B0W'; }
+#method::after  { content: '8.9824\00B0N  79.5199\00B0W'; }
+#impact::after  { content: '8.5380\00B0N  80.7821\00B0W'; }
+#countries::after { content: '23.6345\00B0S  46.7311\00B0W'; }
+
+.plate-heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.plate-intro {
+  font-size: 1.05rem;
+  color: rgba(59, 35, 20, 0.7);
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+  line-height: 1.65;
+}
+
+.subsection-heading {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* ===== HERO PLATE ===== */
+.hero-plate {
+  background: var(--cream);
+  border: none;
+  border-bottom: 2px solid var(--brown);
+}
+
+.hero-inner {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 6rem 2rem 5rem;
+}
+
+.hero-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 1.5rem;
+}
+
+.hero-headline {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--brown);
+  margin-bottom: 1.5rem;
+}
+
+.hero-rule {
+  width: 60px;
+  height: 3px;
+  background: var(--terracotta);
+  margin: 0 auto 1.5rem;
+}
+
+.hero-deck {
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: rgba(59, 35, 20, 0.65);
+  line-height: 1.6;
+}
+
+/* ===== TERRAIN DIVIDERS ===== */
+.terrain-divider {
+  height: 32px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background:
+    linear-gradient(180deg,
+      rgba(123, 166, 138, 0.15) 0%,
+      rgba(123, 166, 138, 0.08) 20%,
+      rgba(198, 93, 62, 0.06) 40%,
+      rgba(59, 35, 20, 0.08) 60%,
+      rgba(123, 166, 138, 0.1) 80%,
+      rgba(123, 166, 138, 0.05) 100%
+    );
+  position: relative;
+}
+
+.terrain-divider--alt {
+  background:
+    linear-gradient(180deg,
+      rgba(59, 35, 20, 0.06) 0%,
+      rgba(198, 93, 62, 0.08) 25%,
+      rgba(212, 168, 83, 0.1) 50%,
+      rgba(123, 166, 138, 0.08) 75%,
+      rgba(59, 35, 20, 0.04) 100%
+    );
+}
+
+/* ===== THE SCHOOL RACE ===== */
+.race-comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.race-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.race-name {
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--brown);
+}
+
+.race-location {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  color: rgba(59, 35, 20, 0.5);
+  letter-spacing: 0.05em;
+}
+
+.race-bar-track {
+  height: 44px;
+  background: rgba(59, 35, 20, 0.05);
+  border: 1px solid rgba(59, 35, 20, 0.12);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.race-bar-fill {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  border-radius: 3px;
+}
+
+.race-bar--emma {
+  width: 8.3%;
+  min-width: 85px;
+  background: var(--green);
+}
+
+.race-bar--yurani {
+  width: 100%;
+  background: var(--terracotta);
+}
+
+.race-bar-time {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+}
+
+.race-route {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  color: rgba(59, 35, 20, 0.45);
+  margin-top: 0.4rem;
+  letter-spacing: 0.04em;
+}
+
+/* Distance scale bar */
+.distance-scale {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(59, 35, 20, 0.1);
+}
+
+.scale-bar {
+  height: 8px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--brown) 0px,
+    var(--brown) 1px,
+    transparent 1px,
+    transparent 10px,
+    var(--brown) 10px,
+    var(--brown) 11px,
+    transparent 11px,
+    transparent 20px
+  );
+  opacity: 0.25;
+  margin-bottom: 0.4rem;
+}
+
+.scale-labels {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  color: rgba(59, 35, 20, 0.35);
+  letter-spacing: 0.05em;
+}
+
+/* ===== PULL QUOTE ===== */
+.quote-plate {
+  text-align: center;
+}
+
+.pull-quote {
+  padding: 1rem 0;
+}
+
+.pull-quote p {
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+  line-height: 1.55;
+  color: var(--brown);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ===== STATS ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  position: relative;
+}
+
+/* Plotting grid behind stats */
+.stats-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    repeating-linear-gradient(
+      to right,
+      rgba(59, 35, 20, 0.04) 0px,
+      rgba(59, 35, 20, 0.04) 1px,
+      transparent 1px,
+      transparent 25%
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(59, 35, 20, 0.04) 0px,
+      rgba(59, 35, 20, 0.04) 1px,
+      transparent 1px,
+      transparent 40px
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid rgba(59, 35, 20, 0.1);
+  border-radius: 6px;
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(59, 35, 20, 0.1);
+}
+
+.stat-number {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 1.9rem;
+  color: var(--terracotta);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brown);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.stat-detail {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  color: rgba(59, 35, 20, 0.45);
+  display: block;
+}
+
+/* ===== TEXT COLUMNS ===== */
+.text-columns {
+  max-width: 700px;
+}
+
+.text-columns p {
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(59, 35, 20, 0.8);
+}
+
+.text-columns p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== METHOD STEPS ===== */
+.method-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.method-card {
+  background: white;
+  border: 1px solid rgba(59, 35, 20, 0.1);
+  border-radius: 6px;
+  padding: 1.75rem 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.method-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(59, 35, 20, 0.1);
+}
+
+.method-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--terracotta);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.method-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.method-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: rgba(59, 35, 20, 0.65);
+}
+
+/* ===== IMPACT ===== */
+.impact-hero-stat {
+  text-align: center;
+  padding: 1.5rem 0 2.5rem;
+  border-bottom: 1px solid rgba(59, 35, 20, 0.1);
+  margin-bottom: 2rem;
+}
+
+.impact-big-number {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 600;
+  color: var(--green);
+  line-height: 1;
+  display: block;
+}
+
+.impact-big-label {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(59, 35, 20, 0.55);
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.impact-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.impact-bar-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 55px;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.impact-bar-label {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(59, 35, 20, 0.6);
+  text-align: right;
+}
+
+.impact-bar-track {
+  height: 24px;
+  background: rgba(59, 35, 20, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.impact-bar-fill {
+  height: 100%;
+  background: var(--green);
+  border-radius: 3px;
+}
+
+.impact-bar-fill--alert {
+  background: var(--terracotta);
+}
+
+.impact-bar-value {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--brown);
+}
+
+/* Education gradient */
+.education-gradient {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(59, 35, 20, 0.1);
+}
+
+.gradient-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.gradient-item {
+  padding: 1.25rem;
+  background: white;
+  border: 1px solid rgba(59, 35, 20, 0.1);
+  border-radius: 6px;
+}
+
+.gradient-level {
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--brown);
+}
+
+.gradient-desc {
+  font-size: 0.82rem;
+  color: rgba(59, 35, 20, 0.55);
+  line-height: 1.5;
+}
+
+/* ===== COUNTRIES ===== */
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.country-item {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--brown);
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(59, 35, 20, 0.1);
+  border-radius: 4px;
+  background: white;
+  text-align: center;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  cursor: default;
+}
+
+.country-item:hover {
+  background: var(--terracotta);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  border-top: 2px solid var(--brown);
+  padding: 2.5rem 3rem;
+  background: var(--cream);
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.footer-message {
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: rgba(59, 35, 20, 0.65);
+  margin-bottom: 1.25rem;
+  max-width: 480px;
+}
+
+.footer-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-version {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  color: rgba(59, 35, 20, 0.35);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.footer-back {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--terracotta);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-back:hover {
+  color: var(--brown);
+}
+
+/* ===== RESPONSIVE: 1440px+ ===== */
+@media (min-width: 1440px) {
+  .hero-inner {
+    padding: 8rem 2rem 6rem;
+  }
+}
+
+/* ===== RESPONSIVE: 1024px ===== */
+@media (max-width: 1024px) {
+  .plate-inner {
+    padding: 3rem 2.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .method-steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gradient-items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .countries-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .impact-bar-row {
+    grid-template-columns: 100px 1fr 50px;
+  }
+}
+
+/* ===== RESPONSIVE: 768px ===== */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-inner {
+    justify-content: center;
+  }
+
+  .hero-inner {
+    padding: 4.5rem 1.5rem 3.5rem;
+  }
+
+  .hero-headline {
+    font-size: 1.9rem;
+  }
+
+  .plate-inner {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .plate-heading {
+    font-size: 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .method-steps {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .gradient-items {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .countries-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .impact-bar-row {
+    grid-template-columns: 80px 1fr 45px;
+    gap: 0.5rem;
+  }
+
+  .pull-quote p {
+    font-size: 1.05rem;
+  }
+
+  .terrain-divider {
+    height: 20px;
+  }
+
+  .footer-meta {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .site-footer {
+    padding: 2rem 1.5rem;
+  }
+
+  .atlas-plate::after {
+    font-size: 0.55rem;
+    top: 0.75rem;
+    right: 1rem;
+  }
+}
+
+/* ===== RESPONSIVE: 320px ===== */
+@media (max-width: 480px) {
+  .hero-inner {
+    padding: 3.5rem 1rem 3rem;
+  }
+
+  .hero-headline {
+    font-size: 1.6rem;
+  }
+
+  .hero-deck {
+    font-size: 0.95rem;
+  }
+
+  .plate-inner {
+    padding: 2rem 1rem;
+  }
+
+  .plate-heading {
+    font-size: 1.3rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .countries-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.35rem;
+  }
+
+  .country-item {
+    font-size: 0.72rem;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .impact-bar-row {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .impact-bar-label {
+    text-align: left;
+  }
+
+  .pull-quote p {
+    font-size: 0.95rem;
+  }
+
+  .site-footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .terrain-divider {
+    height: 14px;
+  }
+
+  .atlas-plate::after {
+    display: none;
+  }
+}

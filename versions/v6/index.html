@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAC School Accessibility Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="terminal">
+
+    <!-- ====== Title Bar ====== -->
+    <div class="terminal-titlebar">
+      <span>idb-accessibility-platform v2.1.0</span>
+      <div class="titlebar-buttons">
+        <span class="titlebar-btn"></span>
+        <span class="titlebar-btn"></span>
+        <span class="titlebar-btn"></span>
+      </div>
+    </div>
+
+    <div class="terminal-body">
+
+      <!-- ====== Boot Sequence ====== -->
+      <div class="block">
+        <span class="boot-line">BOOT idb-platform kernel 2.1.0-lac</span>
+        <span class="boot-line">loading geospatial modules... <span class="boot-ok">[OK]</span></span>
+        <span class="boot-line">loading school registry... <span class="boot-ok">[OK]</span></span>
+        <span class="boot-line">loading friction surface... <span class="boot-ok">[OK]</span></span>
+        <span class="boot-line">initializing travel-time engine... <span class="boot-ok">[OK]</span></span>
+        <span class="boot-line">connecting 21 country nodes... <span class="boot-ok">[OK]</span></span>
+        <span class="boot-line">all systems nominal</span>
+        <div class="boot-title">
+          SCHOOL<br>ACCESSIBILITY PLATFORM
+        </div>
+        <p class="boot-subtitle">
+          Mapping education access across Latin America &amp; the Caribbean
+        </p>
+      </div>
+
+      <div class="block-separator">========================================</div>
+
+      <!-- ====== The School Race ====== -->
+      <div class="block">
+        <span class="section-header">// SIMULATION: THE SCHOOL RACE</span>
+        <span class="prompt">SIMULATING SCHOOL COMMUTE...</span>
+        <span class="prompt--dim prompt">Two children. Same morning. Same planet.</span>
+
+        <div class="race-block">
+
+          <div class="race-spacer"></div>
+
+          <!-- Emma -->
+          <div class="race-subject">
+            <span class="race-label"><span class="prompt--amber" style="text-shadow: var(--glow-amber);">SUBJECT_A:</span> Emma, age 8 | Virginia, USA</span>
+            <div class="race-track">
+              <div class="race-bar race-bar--emma"></div>
+              <span class="race-time race-time--arrived">10 min | ARRIVED &#x2713;</span>
+            </div>
+          </div>
+
+          <div class="race-spacer"></div>
+
+          <!-- Yurani -->
+          <div class="race-subject">
+            <span class="race-label"><span class="prompt--amber" style="text-shadow: var(--glow-amber);">SUBJECT_B:</span> Yurani, age 8 | Vaup&eacute;s, Colombia</span>
+            <div class="race-track">
+              <div class="race-bar race-bar--yurani"></div>
+              <span class="race-time race-time--walking">127 min | STILL WALKING...<span class="cursor cursor--amber"></span></span>
+            </div>
+          </div>
+
+          <div class="race-spacer"></div>
+          <span class="prompt--dim prompt">RESULT: 12.7x travel time disparity detected</span>
+        </div>
+      </div>
+
+      <div class="block-separator">========================================</div>
+
+      <!-- ====== Stats ====== -->
+      <div class="block">
+        <span class="section-header">// PLATFORM DATABASE</span>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-box-label">QUERY school_count</span>
+            <span class="stat-box-value">532,650</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-box-label">QUERY country_count</span>
+            <span class="stat-box-value">21</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-box-label">QUERY coverage_rate</span>
+            <span class="stat-box-value">94%</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-box-label">QUERY georeferenced</span>
+            <span class="stat-box-value">96%</span>
+          </div>
+        </div>
+
+        <span class="prompt--dim prompt">447K public + 86K private institutions indexed</span>
+      </div>
+
+      <div class="block-separator">========================================</div>
+
+      <!-- ====== Problem Statement ====== -->
+      <div class="block">
+        <span class="section-header">// REPORT: THE CHALLENGE</span>
+        <span class="prompt">cat /reports/educational_access_inequality.txt</span>
+
+        <p class="report-text">
+          Across Latin America and the Caribbean, millions of children face a
+          daily obstacle that never appears on a syllabus: distance. In remote
+          and rural areas, the nearest school can be hours away by foot, boat,
+          or unpaved road. This geographic barrier drives dropout, limits
+          enrollment, and deepens inequality long before curriculum quality
+          enters the conversation.
+        </p>
+        <p class="report-text">
+          Traditional enrollment statistics mask this reality. A school may
+          exist on paper, yet remain effectively unreachable for the
+          communities it is meant to serve. Without granular geospatial data
+          on travel time, policymakers are planning blind &mdash; building
+          schools where access already exists and overlooking the settlements
+          that need them most.
+        </p>
+
+        <span class="prompt--dim prompt">EOF</span>
+      </div>
+
+      <div class="block-separator">========================================</div>
+
+      <!-- ====== Methodology ====== -->
+      <div class="block">
+        <span class="section-header">// ALGORITHM: METHODOLOGY</span>
+        <span class="prompt">describe --verbose travel_time_engine</span>
+
+        <div class="algorithm-box">
+          <div class="algorithm-label">FAST MARCHING METHOD</div>
+          <p class="algorithm-text">
+            The platform computes travel time from every populated pixel in
+            the region to its nearest school using wave-front propagation
+            across a friction surface. The algorithm finds the least-cost
+            path from each origin to the nearest school, yielding a
+            continuous travel-time surface at high resolution.
+          </p>
+        </div>
+
+        <span class="prompt">list --friction-surface-inputs</span>
+        <ul class="algorithm-list">
+          <li>Terrain slope</li>
+          <li>Land cover classification</li>
+          <li>Road network density</li>
+          <li>Waterway crossings</li>
+          <li>Available transport modes</li>
+        </ul>
+
+        <p class="report-text">
+          This approach captures what straight-line distance cannot: a school
+          five kilometers away across a mountain ridge may be far harder to
+          reach than one fifteen kilometers away along a paved highway.
+        </p>
+      </div>
+
+      <div class="block-separator">========================================</div>
+
+      <!-- ====== Impact ====== -->
+      <div class="block">
+        <span class="section-header">// ANALYSIS COMPLETE: IMPACT</span>
+        <span class="prompt">summarize --region=panama --pilot</span>
+
+        <div class="impact-box">
+          <span class="impact-stat">98.1%</span>
+          <span class="impact-label">> PANAMA PILOT RESULT</span>
+          <p class="impact-text">
+            Share of Panama&rsquo;s population within 30 minutes of a school
+            by motorized transport. The remaining 1.9% are concentrated in
+            indigenous comarcas where travel times exceed two hours.
+          </p>
+        </div>
+
+        <span class="prompt">summarize --gradient=education_level</span>
+
+        <div class="impact-box">
+          <span class="impact-stat">PRIMARY &rarr; SECONDARY</span>
+          <span class="impact-label">> EDUCATION GRADIENT</span>
+          <p class="impact-text">
+            Primary schooling is nearly universal in reach across the region,
+            yet secondary coverage drops sharply in rural zones. The gap
+            widens further for upper-secondary and technical education.
+          </p>
+        </div>
+
+        <span class="prompt--dim prompt">Analysis complete. 2 findings exported.<span class="cursor"></span></span>
+      </div>
+
+      <div class="block-separator">========================================</div>
+
+      <!-- ====== Countries ====== -->
+      <div class="block">
+        <span class="section-header">// COUNTRY NODES</span>
+        <span class="prompt">ls /nodes/countries/ --format=table</span>
+
+        <table class="countries-table">
+          <tr><td>01</td><td>Argentina</td></tr>
+          <tr><td>02</td><td>Belize</td></tr>
+          <tr><td>03</td><td>Bolivia</td></tr>
+          <tr><td>04</td><td>Brazil</td></tr>
+          <tr><td>05</td><td>Chile</td></tr>
+          <tr><td>06</td><td>Colombia</td></tr>
+          <tr><td>07</td><td>Costa Rica</td></tr>
+          <tr><td>08</td><td>Dominican Republic</td></tr>
+          <tr><td>09</td><td>Ecuador</td></tr>
+          <tr><td>10</td><td>El Salvador</td></tr>
+          <tr><td>11</td><td>Guatemala</td></tr>
+          <tr><td>12</td><td>Guyana</td></tr>
+          <tr><td>13</td><td>Haiti</td></tr>
+          <tr><td>14</td><td>Honduras</td></tr>
+          <tr><td>15</td><td>Jamaica</td></tr>
+          <tr><td>16</td><td>Mexico</td></tr>
+          <tr><td>17</td><td>Nicaragua</td></tr>
+          <tr><td>18</td><td>Panama</td></tr>
+          <tr><td>19</td><td>Paraguay</td></tr>
+          <tr><td>20</td><td>Peru</td></tr>
+          <tr><td>21</td><td>Uruguay</td></tr>
+        </table>
+
+        <span class="prompt--dim prompt">21 nodes online. All connections stable.</span>
+      </div>
+
+      <div class="block-separator">========================================</div>
+
+      <!-- ====== Footer ====== -->
+      <div class="footer-block">
+        <span class="prompt">cd /</span>
+        <a href="/" class="footer-link">&gt; cd / [GALLERY]</a>
+        <p class="footer-note">
+          > Data compiled from national education ministries and georeferenced
+          school registries across Latin America and the Caribbean.<br>
+          > Inter-American Development Bank | idb-accessibility-platform v2.1.0<br>
+          > session terminated.<span class="cursor"></span>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

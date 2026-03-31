@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V13 Signal &amp; Noise &mdash; LAC School Accessibility Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Hidden checkbox for DATA / STORY toggle -->
+  <input type="checkbox" id="view-toggle" class="view-toggle-input">
+
+  <!-- ===== HEADER WITH TOGGLE ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <span class="header-brand">LAC School Accessibility Platform</span>
+      <label for="view-toggle" class="toggle-switch" aria-label="Toggle between data and story view">
+        <span class="toggle-label toggle-label--data">DATA</span>
+        <span class="toggle-track">
+          <span class="toggle-thumb"></span>
+        </span>
+        <span class="toggle-label toggle-label--story">STORY</span>
+      </label>
+      <a href="/" class="header-back">Gallery</a>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section class="section hero-section">
+      <div class="data-content">
+        <p class="data-tag">PLATFORM // SCHOOL-ACCESS-LAC</p>
+        <h1 class="data-headline">SAP-LAC-2025</h1>
+        <div class="data-meta">
+          <span>records: 532,650</span>
+          <span>countries: 21</span>
+          <span>coverage: 94%</span>
+          <span>georef: 96%</span>
+        </div>
+      </div>
+      <div class="story-content">
+        <p class="story-eyebrow">LAC School Accessibility Platform</p>
+        <h1 class="story-headline">Every child deserves a school they can reach</h1>
+        <p class="story-deck">532,650 schools mapped across 21 LAC countries</p>
+      </div>
+    </section>
+
+    <!-- ===== THE SCHOOL RACE ===== -->
+    <section class="section">
+      <div class="data-content">
+        <h2 class="data-section-title">TRAVEL_TIME_COMPARISON</h2>
+        <div class="data-table">
+          <div class="data-row">
+            <span class="data-cell data-cell--label">subject_a</span>
+            <span class="data-cell">"Emma"</span>
+            <span class="data-cell">loc: 38.9072N, 77.0369W</span>
+            <span class="data-cell">travel_min: 10</span>
+            <span class="data-cell">mode: walk</span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">subject_b</span>
+            <span class="data-cell">"Yurani"</span>
+            <span class="data-cell">loc: 1.2136N, 70.2289W</span>
+            <span class="data-cell">travel_min: 120+</span>
+            <span class="data-cell">mode: foot+canoe</span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">ratio</span>
+            <span class="data-cell">12x</span>
+            <span class="data-cell">delta_min: 110+</span>
+            <span class="data-cell"></span>
+            <span class="data-cell"></span>
+          </div>
+        </div>
+      </div>
+      <div class="story-content">
+        <h2 class="story-section-title">The School Race</h2>
+        <p class="story-intro">Two children. Same morning. Same goal: get to school. The distance between them tells the story of inequality.</p>
+        <div class="race-comparison">
+          <div class="race-child">
+            <span class="race-name">Emma</span>
+            <span class="race-location">Virginia, USA</span>
+            <div class="race-bar-track">
+              <div class="race-bar-fill race-bar--emma"><span class="race-time">10 min</span></div>
+            </div>
+            <span class="race-route">Sidewalk &rarr; School</span>
+          </div>
+          <div class="race-child">
+            <span class="race-name">Yurani</span>
+            <span class="race-location">Vaup&eacute;s, Colombia</span>
+            <div class="race-bar-track">
+              <div class="race-bar-fill race-bar--yurani"><span class="race-time">2+ hours</span></div>
+            </div>
+            <span class="race-route">Jungle trail &rarr; River &rarr; Canoe &rarr; School</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PULL QUOTE ===== -->
+    <section class="section quote-section">
+      <div class="data-content">
+        <p class="data-quote-ref">// annotation.pull_quote[0]</p>
+        <p class="data-quote-text">"Distance is not just a number on a map. For millions of children, it is the invisible wall between who they are and who they could become."</p>
+        <p class="data-quote-meta">type: qualitative | weight: high | src: field_report</p>
+      </div>
+      <div class="story-content">
+        <blockquote class="story-quote">
+          <p>&ldquo;Distance is not just a number on a map. For millions of children, it is the invisible wall between who they are and who they could become.&rdquo;</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="section">
+      <div class="data-content">
+        <h2 class="data-section-title">DATASET_SUMMARY</h2>
+        <div class="data-table">
+          <div class="data-row">
+            <span class="data-cell data-cell--label">total_schools</span>
+            <span class="data-cell">532650</span>
+            <span class="data-cell">public: 447000</span>
+            <span class="data-cell">private: 86000</span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">n_countries</span>
+            <span class="data-cell">21</span>
+            <span class="data-cell">region: LAC</span>
+            <span class="data-cell"></span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">coverage_pct</span>
+            <span class="data-cell">0.94</span>
+            <span class="data-cell">vs: official_universe</span>
+            <span class="data-cell"></span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">georef_pct</span>
+            <span class="data-cell">0.96</span>
+            <span class="data-cell">precision: lat/lon</span>
+            <span class="data-cell"></span>
+          </div>
+        </div>
+      </div>
+      <div class="story-content">
+        <h2 class="story-section-title">The Data</h2>
+        <div class="story-stats-grid">
+          <div class="story-stat-card">
+            <span class="story-stat-number">532,650</span>
+            <span class="story-stat-label">schools mapped</span>
+            <span class="story-stat-detail">447K public + 86K private</span>
+          </div>
+          <div class="story-stat-card">
+            <span class="story-stat-number">21</span>
+            <span class="story-stat-label">countries</span>
+            <span class="story-stat-detail">Latin America &amp; Caribbean</span>
+          </div>
+          <div class="story-stat-card">
+            <span class="story-stat-number">94%</span>
+            <span class="story-stat-label">coverage</span>
+            <span class="story-stat-detail">vs. official registries</span>
+          </div>
+          <div class="story-stat-card">
+            <span class="story-stat-number">96%</span>
+            <span class="story-stat-label">georeferenced</span>
+            <span class="story-stat-detail">precise coordinates</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== THE CHALLENGE ===== -->
+    <section class="section">
+      <div class="data-content">
+        <h2 class="data-section-title">PROBLEM_STATEMENT</h2>
+        <div class="data-table">
+          <div class="data-row">
+            <span class="data-cell data-cell--label">affected</span>
+            <span class="data-cell">millions</span>
+            <span class="data-cell">demographic: rural, female_disproportionate</span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">barrier</span>
+            <span class="data-cell">travel_distance</span>
+            <span class="data-cell">modes: foot, boat, unpaved_road</span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">prior_data</span>
+            <span class="data-cell">null</span>
+            <span class="data-cell">note: "no unified geospatial dataset existed"</span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">solution</span>
+            <span class="data-cell">harmonized_platform</span>
+            <span class="data-cell">scope: 21_countries</span>
+          </div>
+        </div>
+      </div>
+      <div class="story-content">
+        <h2 class="story-section-title">The Challenge</h2>
+        <p>Millions of children across Latin America and the Caribbean face impossible journeys to reach school each day. In remote and rural areas, the nearest classroom can be hours away by foot, boat, or unpaved road.</p>
+        <p>Rural girls are disproportionately affected. When the journey to school is dangerous or long, families often keep daughters home first. The data to understand these patterns simply did not exist &mdash; until now.</p>
+        <p>The LAC School Accessibility Platform harmonizes school location data across 21 countries, creating the first unified geospatial picture of educational access in the region.</p>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="section">
+      <div class="data-content">
+        <h2 class="data-section-title">METHODOLOGY // FMM</h2>
+        <div class="data-table">
+          <div class="data-row">
+            <span class="data-cell data-cell--label">step_1</span>
+            <span class="data-cell">ingest_schools()</span>
+            <span class="data-cell">n=532650, src=national_registries</span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">step_2</span>
+            <span class="data-cell">build_friction_surface()</span>
+            <span class="data-cell">layers: landcover, roads, rivers, elevation</span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">step_3</span>
+            <span class="data-cell">run_fmm()</span>
+            <span class="data-cell">output: travel_time_isochrones</span>
+          </div>
+        </div>
+      </div>
+      <div class="story-content">
+        <h2 class="story-section-title">How It Works</h2>
+        <p class="story-intro">The Friction Map Model (FMM) transforms satellite imagery and road networks into a continuous travel-time surface.</p>
+        <div class="method-steps">
+          <div class="method-card">
+            <span class="method-num">01</span>
+            <h3>Locate Every School</h3>
+            <p>Harmonized national registries produce 532,650 georeferenced school locations across 21 countries.</p>
+          </div>
+          <div class="method-card">
+            <span class="method-num">02</span>
+            <h3>Map the Terrain</h3>
+            <p>Satellite-derived friction surfaces model roads, rivers, mountains, and land cover. Each pixel gets a traversal cost.</p>
+          </div>
+          <div class="method-card">
+            <span class="method-num">03</span>
+            <h3>Calculate Travel Time</h3>
+            <p>The FMM algorithm computes least-cost paths, generating travel-time isochrones from every populated cell to the nearest school.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== IMPACT ===== -->
+    <section class="section">
+      <div class="data-content">
+        <h2 class="data-section-title">IMPACT // PANAMA_PILOT</h2>
+        <div class="data-table">
+          <div class="data-row">
+            <span class="data-cell data-cell--label">within_15min</span>
+            <span class="data-cell">0.91</span>
+            <span class="data-cell">mode: motorized</span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">within_30min</span>
+            <span class="data-cell">0.981</span>
+            <span class="data-cell">mode: motorized</span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">within_60min</span>
+            <span class="data-cell">0.995</span>
+            <span class="data-cell">mode: motorized</span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">over_60min</span>
+            <span class="data-cell">0.005</span>
+            <span class="data-cell">flag: critical</span>
+          </div>
+        </div>
+        <div class="data-table" style="margin-top: 1.5rem;">
+          <div class="data-row">
+            <span class="data-cell data-cell--label">edu_primary</span>
+            <span class="data-cell">enrollment: highest</span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">edu_secondary</span>
+            <span class="data-cell">dropout: 3x_remote</span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">edu_upper_sec</span>
+            <span class="data-cell">enrollment_remote: &lt;0.20</span>
+          </div>
+        </div>
+      </div>
+      <div class="story-content">
+        <h2 class="story-section-title">Impact: Panama Pilot</h2>
+        <div class="impact-hero-stat">
+          <span class="impact-big-number">98.1%</span>
+          <span class="impact-big-label">of schools within 30 min by motorized transport</span>
+        </div>
+        <div class="impact-bars">
+          <div class="impact-bar-row">
+            <span class="impact-bar-label">Within 15 min</span>
+            <div class="impact-bar-track"><div class="impact-bar-fill" style="width: 91%"></div></div>
+            <span class="impact-bar-value">91%</span>
+          </div>
+          <div class="impact-bar-row">
+            <span class="impact-bar-label">Within 30 min</span>
+            <div class="impact-bar-track"><div class="impact-bar-fill" style="width: 98.1%"></div></div>
+            <span class="impact-bar-value">98.1%</span>
+          </div>
+          <div class="impact-bar-row">
+            <span class="impact-bar-label">Within 60 min</span>
+            <div class="impact-bar-track"><div class="impact-bar-fill" style="width: 99.5%"></div></div>
+            <span class="impact-bar-value">99.5%</span>
+          </div>
+          <div class="impact-bar-row">
+            <span class="impact-bar-label">Over 60 min</span>
+            <div class="impact-bar-track"><div class="impact-bar-fill impact-bar-fill--alert" style="width: 5%"></div></div>
+            <span class="impact-bar-value">0.5%</span>
+          </div>
+        </div>
+        <div class="education-gradient">
+          <h3 class="subsection-heading">Education Gradient</h3>
+          <div class="gradient-items">
+            <div class="gradient-item">
+              <span class="gradient-level">Primary</span>
+              <span class="gradient-desc">Highest enrollment across the region</span>
+            </div>
+            <div class="gradient-item">
+              <span class="gradient-level">Secondary</span>
+              <span class="gradient-desc">3x dropout rate in remote areas</span>
+            </div>
+            <div class="gradient-item">
+              <span class="gradient-level">Upper Secondary</span>
+              <span class="gradient-desc">Below 20% enrollment in remote areas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== COUNTRIES ===== -->
+    <section class="section">
+      <div class="data-content">
+        <h2 class="data-section-title">GEOGRAPHIC_SCOPE</h2>
+        <div class="data-table">
+          <div class="data-row">
+            <span class="data-cell data-cell--label">countries[]</span>
+            <span class="data-cell">AR, BZ, BO, BR, CL, CO, CR, DO, EC, SV, GT, GY, HT, HN, JM, MX, NI, PA, PY, PE, UY</span>
+          </div>
+          <div class="data-row">
+            <span class="data-cell data-cell--label">n_countries</span>
+            <span class="data-cell">21</span>
+            <span class="data-cell">population: 640M+</span>
+          </div>
+        </div>
+      </div>
+      <div class="story-content">
+        <h2 class="story-section-title">21 Nations</h2>
+        <div class="countries-grid">
+          <span class="country-tag">Argentina</span>
+          <span class="country-tag">Belize</span>
+          <span class="country-tag">Bolivia</span>
+          <span class="country-tag">Brazil</span>
+          <span class="country-tag">Chile</span>
+          <span class="country-tag">Colombia</span>
+          <span class="country-tag">Costa Rica</span>
+          <span class="country-tag">Dominican Republic</span>
+          <span class="country-tag">Ecuador</span>
+          <span class="country-tag">El Salvador</span>
+          <span class="country-tag">Guatemala</span>
+          <span class="country-tag">Guyana</span>
+          <span class="country-tag">Haiti</span>
+          <span class="country-tag">Honduras</span>
+          <span class="country-tag">Jamaica</span>
+          <span class="country-tag">Mexico</span>
+          <span class="country-tag">Nicaragua</span>
+          <span class="country-tag">Panama</span>
+          <span class="country-tag">Paraguay</span>
+          <span class="country-tag">Peru</span>
+          <span class="country-tag">Uruguay</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-message">LAC School Accessibility Platform &mdash; Mapping the distance between children and their futures.</p>
+      <div class="footer-meta">
+        <span class="footer-version">V13 &middot; Signal &amp; Noise</span>
+        <a href="/" class="footer-back">&larr; Back to Gallery</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAC School Accessibility Platform &mdash; Data Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+  <!-- ===== HEADER BAR ===== -->
+  <header class="header-bar">
+    <div class="header-brand">
+      <span class="header-logo">School<span class="slash"> / </span>Accessibility</span>
+      <span class="header-subtitle">K-12 Travel Time Analytics &middot; Latin America &amp; Caribbean</span>
+    </div>
+    <div class="header-right">
+      <span class="live-badge"><span class="live-dot"></span> Live Data</span>
+      <span class="header-meta">21 Countries &middot; Updated 2025</span>
+    </div>
+  </header>
+
+  <!-- ===== SIDEBAR ===== -->
+  <nav class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Dashboard</div>
+      <ul class="sidebar-nav">
+        <li><a href="#overview"><span class="nav-icon">&#9632;</span> Overview</a></li>
+        <li><a href="#travel-time"><span class="nav-icon">&#9654;</span> Travel Time</a></li>
+        <li><a href="#coverage"><span class="nav-icon">&#9650;</span> Coverage</a></li>
+        <li><a href="#distribution"><span class="nav-icon">&#9679;</span> Distribution</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Analysis</div>
+      <ul class="sidebar-nav">
+        <li><a href="#methodology"><span class="nav-icon">&#9830;</span> Methodology</a></li>
+        <li><a href="#impact"><span class="nav-icon">&#9733;</span> Impact</a></li>
+        <li><a href="#countries"><span class="nav-icon">&#9776;</span> Countries</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-status">
+      <div class="sidebar-status-label">Total Schools</div>
+      <div class="sidebar-status-value">532,650</div>
+      <div class="sidebar-status-sub">across 21 countries</div>
+    </div>
+  </nav>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content">
+
+    <!-- OVERVIEW STAT CARDS -->
+    <section id="overview" class="stat-cards">
+      <div class="stat-card stat-card--cyan">
+        <div class="stat-card-label">Schools Mapped</div>
+        <div class="stat-card-value">532,650</div>
+        <div class="stat-card-sub">447K public + 86K private</div>
+      </div>
+      <div class="stat-card stat-card--green">
+        <div class="stat-card-label">Countries</div>
+        <div class="stat-card-value">21</div>
+        <div class="stat-card-sub">Latin America &amp; Caribbean</div>
+      </div>
+      <div class="stat-card stat-card--orange">
+        <div class="stat-card-label">Official Coverage</div>
+        <div class="stat-card-value">94%</div>
+        <div class="stat-card-sub">vs. national school registries</div>
+      </div>
+      <div class="stat-card stat-card--cyan">
+        <div class="stat-card-label">Georeferenced</div>
+        <div class="stat-card-value">96%</div>
+        <div class="stat-card-sub">precise lat/lon coordinates</div>
+      </div>
+    </section>
+
+    <!-- TRAVEL TIME + COVERAGE -->
+    <div class="panels-row">
+
+      <!-- TRAVEL TIME COMPARISON (THE SCHOOL RACE) -->
+      <section id="travel-time" class="panel">
+        <div class="panel-header">
+          <span class="panel-title"><span class="icon">&#9654;</span> Travel Time Comparison</span>
+          <span class="panel-badge panel-badge--orange">Inequality Index</span>
+        </div>
+        <div class="panel-body">
+          <div class="travel-comparison">
+
+            <!-- US Route -->
+            <div class="travel-route">
+              <div class="travel-route-header">
+                <div class="travel-route-label">
+                  <span class="travel-route-flag travel-route-flag--us">US</span>
+                  <span class="travel-route-name">Virginia, United States</span>
+                </div>
+                <div class="travel-route-stats">
+                  <div class="travel-stat">
+                    <span class="travel-stat-value">10</span>
+                    <span class="travel-stat-unit">min</span>
+                  </div>
+                  <div class="travel-stat">
+                    <span class="travel-stat-value">0.8</span>
+                    <span class="travel-stat-unit">km</span>
+                  </div>
+                </div>
+              </div>
+              <div class="travel-bar-container">
+                <div class="travel-bar travel-bar--us">10 min</div>
+              </div>
+            </div>
+
+            <div class="travel-divider"></div>
+
+            <!-- Colombia Route -->
+            <div class="travel-route">
+              <div class="travel-route-header">
+                <div class="travel-route-label">
+                  <span class="travel-route-flag travel-route-flag--col">COL</span>
+                  <span class="travel-route-name">Vaup&eacute;s, Colombia</span>
+                </div>
+                <div class="travel-route-stats">
+                  <div class="travel-stat">
+                    <span class="travel-stat-value">127</span>
+                    <span class="travel-stat-unit">min</span>
+                  </div>
+                  <div class="travel-stat">
+                    <span class="travel-stat-value">8.4</span>
+                    <span class="travel-stat-unit">km</span>
+                  </div>
+                </div>
+              </div>
+              <div class="travel-bar-container">
+                <div class="travel-bar travel-bar--col">127 min</div>
+              </div>
+            </div>
+
+            <!-- Severity Legend -->
+            <div class="severity-legend">
+              <div class="severity-item">
+                <span class="severity-dot severity-dot--green"></span>
+                &lt; 15 min
+              </div>
+              <div class="severity-item">
+                <span class="severity-dot severity-dot--yellow"></span>
+                15 &ndash; 30 min
+              </div>
+              <div class="severity-item">
+                <span class="severity-dot severity-dot--orange"></span>
+                30 &ndash; 60 min
+              </div>
+              <div class="severity-item">
+                <span class="severity-dot severity-dot--red"></span>
+                &gt; 60 min
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GEOREFERENCING COVERAGE -->
+      <section id="coverage" class="panel">
+        <div class="panel-header">
+          <span class="panel-title"><span class="icon">&#9650;</span> Georeferencing Coverage</span>
+          <span class="panel-badge panel-badge--green">96% Avg</span>
+        </div>
+        <div class="panel-body">
+          <div class="coverage-chart">
+            <div class="coverage-row">
+              <span class="coverage-label">Chile</span>
+              <div class="coverage-bar-track">
+                <div class="coverage-bar-fill coverage-bar-fill--high" style="width: 100%"></div>
+              </div>
+              <span class="coverage-pct">100%</span>
+            </div>
+            <div class="coverage-row">
+              <span class="coverage-label">Costa Rica</span>
+              <div class="coverage-bar-track">
+                <div class="coverage-bar-fill coverage-bar-fill--high" style="width: 100%"></div>
+              </div>
+              <span class="coverage-pct">100%</span>
+            </div>
+            <div class="coverage-row">
+              <span class="coverage-label">Uruguay</span>
+              <div class="coverage-bar-track">
+                <div class="coverage-bar-fill coverage-bar-fill--high" style="width: 100%"></div>
+              </div>
+              <span class="coverage-pct">100%</span>
+            </div>
+            <div class="coverage-row">
+              <span class="coverage-label">Colombia</span>
+              <div class="coverage-bar-track">
+                <div class="coverage-bar-fill coverage-bar-fill--high" style="width: 99%"></div>
+              </div>
+              <span class="coverage-pct">99%</span>
+            </div>
+            <div class="coverage-row">
+              <span class="coverage-label">Brazil</span>
+              <div class="coverage-bar-track">
+                <div class="coverage-bar-fill coverage-bar-fill--high" style="width: 98%"></div>
+              </div>
+              <span class="coverage-pct">98%</span>
+            </div>
+            <div class="coverage-row">
+              <span class="coverage-label">Mexico</span>
+              <div class="coverage-bar-track">
+                <div class="coverage-bar-fill coverage-bar-fill--high" style="width: 97%"></div>
+              </div>
+              <span class="coverage-pct">97%</span>
+            </div>
+            <div class="coverage-row">
+              <span class="coverage-label">Peru</span>
+              <div class="coverage-bar-track">
+                <div class="coverage-bar-fill coverage-bar-fill--mid" style="width: 94%"></div>
+              </div>
+              <span class="coverage-pct">94%</span>
+            </div>
+            <div class="coverage-row">
+              <span class="coverage-label">Argentina</span>
+              <div class="coverage-bar-track">
+                <div class="coverage-bar-fill coverage-bar-fill--mid" style="width: 91%"></div>
+              </div>
+              <span class="coverage-pct">91%</span>
+            </div>
+            <div class="coverage-row">
+              <span class="coverage-label">Honduras</span>
+              <div class="coverage-bar-track">
+                <div class="coverage-bar-fill coverage-bar-fill--low" style="width: 78%"></div>
+              </div>
+              <span class="coverage-pct">78%</span>
+            </div>
+            <div class="coverage-row">
+              <span class="coverage-label">Haiti</span>
+              <div class="coverage-bar-track">
+                <div class="coverage-bar-fill coverage-bar-fill--low" style="width: 62%"></div>
+              </div>
+              <span class="coverage-pct">62%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- DISTRIBUTION + METHODOLOGY -->
+    <div class="panels-row">
+
+      <!-- SCHOOL DISTRIBUTION PIE -->
+      <section id="distribution" class="panel">
+        <div class="panel-header">
+          <span class="panel-title"><span class="icon">&#9679;</span> School Distribution</span>
+          <span class="panel-badge panel-badge--cyan">By Sector</span>
+        </div>
+        <div class="panel-body">
+          <div class="pie-chart-container">
+            <div class="pie-chart">
+              <div class="pie-chart-hole">
+                <span class="pie-chart-center-value">533K</span>
+                <span class="pie-chart-center-label">Total</span>
+              </div>
+            </div>
+            <div class="pie-legend">
+              <div class="pie-legend-item">
+                <span class="pie-legend-color" style="background: var(--cyan)"></span>
+                Public Schools
+                <span class="pie-legend-value">447,000 (84%)</span>
+              </div>
+              <div class="pie-legend-item">
+                <span class="pie-legend-color" style="background: var(--orange)"></span>
+                Private Schools
+                <span class="pie-legend-value">85,650 (16%)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- METHODOLOGY -->
+      <section id="methodology" class="panel">
+        <div class="panel-header">
+          <span class="panel-title"><span class="icon">&#9830;</span> Methodology</span>
+          <span class="panel-badge panel-badge--cyan">FMM Model</span>
+        </div>
+        <div class="panel-body">
+          <p class="method-description">
+            The Friction Map Model (FMM) calculates travel time from every point in a territory
+            to the nearest school. It combines land-cover data, road networks, topography, and
+            waterways into a single friction surface, then computes least-cost-path travel times
+            across multiple transport modes (walking, motorized, mixed).
+          </p>
+          <div class="method-grid">
+            <div class="method-item">
+              <div class="method-item-label">Data Sources</div>
+              <div class="method-item-value">OpenStreetMap, national registries, satellite land-cover imagery</div>
+            </div>
+            <div class="method-item">
+              <div class="method-item-label">Resolution</div>
+              <div class="method-item-value">1 km grid cells across full national territories</div>
+            </div>
+            <div class="method-item">
+              <div class="method-item-label">Transport Modes</div>
+              <div class="method-item-value">Walking, motorized, and combined multimodal scenarios</div>
+            </div>
+            <div class="method-item">
+              <div class="method-item-label">Validation</div>
+              <div class="method-item-value">Cross-checked with census microdata and household surveys</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- IMPACT: PANAMA PILOT -->
+    <div class="panels-row">
+      <section id="impact" class="panel panel--full">
+        <div class="panel-header">
+          <span class="panel-title"><span class="icon">&#9733;</span> Impact &mdash; Panama Pilot Results</span>
+          <span class="panel-badge panel-badge--green">Pilot Complete</span>
+        </div>
+        <div class="panel-body">
+          <div class="impact-grid">
+            <div class="impact-card">
+              <div class="impact-card-value">98.1%</div>
+              <div class="impact-card-label">Schools within 30 min (motorized)</div>
+            </div>
+            <div class="impact-card">
+              <div class="impact-card-value">1.9%</div>
+              <div class="impact-card-label">Schools beyond 30 min threshold</div>
+            </div>
+            <div class="impact-card">
+              <div class="impact-card-value">3,200+</div>
+              <div class="impact-card-label">Schools analyzed in Panama</div>
+            </div>
+            <div class="impact-card">
+              <div class="impact-card-value">15 min</div>
+              <div class="impact-card-label">Median walking time to nearest school</div>
+            </div>
+            <div class="impact-card">
+              <div class="impact-card-value">72%</div>
+              <div class="impact-card-label">Rural schools within 30 min walking</div>
+            </div>
+            <div class="impact-card">
+              <div class="impact-card-value">99.5%</div>
+              <div class="impact-card-label">Urban schools within 15 min walking</div>
+            </div>
+          </div>
+          <p class="impact-context">
+            The Panama pilot demonstrated that the Friction Map Model (FMM) can effectively identify
+            accessibility gaps at a national scale. Results were validated against Ministry of Education
+            records and used to prioritize infrastructure investment in underserved comarcas.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- COUNTRY COVERAGE TABLE -->
+    <div class="panels-row">
+      <section id="countries" class="panel panel--full">
+        <div class="panel-header">
+          <span class="panel-title"><span class="icon">&#9776;</span> Country Coverage &mdash; 21 LAC Nations</span>
+          <span class="panel-badge panel-badge--cyan">Full Dataset</span>
+        </div>
+        <div class="panel-body" style="padding: 0;">
+          <div class="table-scroll-container">
+            <table class="country-table">
+              <thead>
+                <tr>
+                  <th>Country</th>
+                  <th class="align-right">Schools</th>
+                  <th class="align-right">Public</th>
+                  <th class="align-right">Private</th>
+                  <th>Georeferenced</th>
+                  <th class="align-right">Coverage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="td-country">Argentina</td>
+                  <td class="td-mono align-right">63,000</td>
+                  <td class="td-mono align-right">48,200</td>
+                  <td class="td-mono align-right">14,800</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:91%"></div></div><span class="georef-mini-pct">91%</span></div></td>
+                  <td class="td-mono align-right">96%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Bahamas</td>
+                  <td class="td-mono align-right">340</td>
+                  <td class="td-mono align-right">230</td>
+                  <td class="td-mono align-right">110</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:95%"></div></div><span class="georef-mini-pct">95%</span></div></td>
+                  <td class="td-mono align-right">92%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Barbados</td>
+                  <td class="td-mono align-right">210</td>
+                  <td class="td-mono align-right">150</td>
+                  <td class="td-mono align-right">60</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:98%"></div></div><span class="georef-mini-pct">98%</span></div></td>
+                  <td class="td-mono align-right">95%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Belize</td>
+                  <td class="td-mono align-right">680</td>
+                  <td class="td-mono align-right">520</td>
+                  <td class="td-mono align-right">160</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:88%"></div></div><span class="georef-mini-pct">88%</span></div></td>
+                  <td class="td-mono align-right">90%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Bolivia</td>
+                  <td class="td-mono align-right">16,800</td>
+                  <td class="td-mono align-right">14,100</td>
+                  <td class="td-mono align-right">2,700</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:85%"></div></div><span class="georef-mini-pct">85%</span></div></td>
+                  <td class="td-mono align-right">93%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Brazil</td>
+                  <td class="td-mono align-right">178,400</td>
+                  <td class="td-mono align-right">142,700</td>
+                  <td class="td-mono align-right">35,700</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:98%"></div></div><span class="georef-mini-pct">98%</span></div></td>
+                  <td class="td-mono align-right">97%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Chile</td>
+                  <td class="td-mono align-right">12,100</td>
+                  <td class="td-mono align-right">7,800</td>
+                  <td class="td-mono align-right">4,300</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:100%"></div></div><span class="georef-mini-pct">100%</span></div></td>
+                  <td class="td-mono align-right">99%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Colombia</td>
+                  <td class="td-mono align-right">55,200</td>
+                  <td class="td-mono align-right">44,600</td>
+                  <td class="td-mono align-right">10,600</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:99%"></div></div><span class="georef-mini-pct">99%</span></div></td>
+                  <td class="td-mono align-right">97%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Costa Rica</td>
+                  <td class="td-mono align-right">5,100</td>
+                  <td class="td-mono align-right">4,200</td>
+                  <td class="td-mono align-right">900</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:100%"></div></div><span class="georef-mini-pct">100%</span></div></td>
+                  <td class="td-mono align-right">98%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Dominican Rep.</td>
+                  <td class="td-mono align-right">10,800</td>
+                  <td class="td-mono align-right">7,900</td>
+                  <td class="td-mono align-right">2,900</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:93%"></div></div><span class="georef-mini-pct">93%</span></div></td>
+                  <td class="td-mono align-right">94%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Ecuador</td>
+                  <td class="td-mono align-right">22,500</td>
+                  <td class="td-mono align-right">18,300</td>
+                  <td class="td-mono align-right">4,200</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:96%"></div></div><span class="georef-mini-pct">96%</span></div></td>
+                  <td class="td-mono align-right">95%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">El Salvador</td>
+                  <td class="td-mono align-right">6,100</td>
+                  <td class="td-mono align-right">5,200</td>
+                  <td class="td-mono align-right">900</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:94%"></div></div><span class="georef-mini-pct">94%</span></div></td>
+                  <td class="td-mono align-right">93%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Guatemala</td>
+                  <td class="td-mono align-right">33,600</td>
+                  <td class="td-mono align-right">28,900</td>
+                  <td class="td-mono align-right">4,700</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:87%"></div></div><span class="georef-mini-pct">87%</span></div></td>
+                  <td class="td-mono align-right">92%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Haiti</td>
+                  <td class="td-mono align-right">18,200</td>
+                  <td class="td-mono align-right">15,400</td>
+                  <td class="td-mono align-right">2,800</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:62%"></div></div><span class="georef-mini-pct">62%</span></div></td>
+                  <td class="td-mono align-right">80%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Honduras</td>
+                  <td class="td-mono align-right">22,900</td>
+                  <td class="td-mono align-right">20,100</td>
+                  <td class="td-mono align-right">2,800</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:78%"></div></div><span class="georef-mini-pct">78%</span></div></td>
+                  <td class="td-mono align-right">88%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Jamaica</td>
+                  <td class="td-mono align-right">1,100</td>
+                  <td class="td-mono align-right">830</td>
+                  <td class="td-mono align-right">270</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:97%"></div></div><span class="georef-mini-pct">97%</span></div></td>
+                  <td class="td-mono align-right">96%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Mexico</td>
+                  <td class="td-mono align-right">44,800</td>
+                  <td class="td-mono align-right">38,200</td>
+                  <td class="td-mono align-right">6,600</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:97%"></div></div><span class="georef-mini-pct">97%</span></div></td>
+                  <td class="td-mono align-right">95%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Nicaragua</td>
+                  <td class="td-mono align-right">11,300</td>
+                  <td class="td-mono align-right">9,800</td>
+                  <td class="td-mono align-right">1,500</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:82%"></div></div><span class="georef-mini-pct">82%</span></div></td>
+                  <td class="td-mono align-right">89%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Panama</td>
+                  <td class="td-mono align-right">3,200</td>
+                  <td class="td-mono align-right">2,700</td>
+                  <td class="td-mono align-right">500</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:99%"></div></div><span class="georef-mini-pct">99%</span></div></td>
+                  <td class="td-mono align-right">98%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Peru</td>
+                  <td class="td-mono align-right">19,400</td>
+                  <td class="td-mono align-right">32,200</td>
+                  <td class="td-mono align-right">7,200</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:94%"></div></div><span class="georef-mini-pct">94%</span></div></td>
+                  <td class="td-mono align-right">95%</td>
+                </tr>
+                <tr>
+                  <td class="td-country">Uruguay</td>
+                  <td class="td-mono align-right">4,920</td>
+                  <td class="td-mono align-right">3,800</td>
+                  <td class="td-mono align-right">1,120</td>
+                  <td><div class="georef-bar-cell"><div class="georef-mini-bar"><div class="georef-mini-fill" style="width:100%"></div></div><span class="georef-mini-pct">100%</span></div></td>
+                  <td class="td-mono align-right">99%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <span>&copy; 2025 Inter-American Development Bank &middot; LAC School Accessibility Platform</span>
+    <a href="/">&larr; Back to Gallery</a>
+  </footer>
+
+</div>
+
+</body>
+</html>

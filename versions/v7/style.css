@@ -1,0 +1,648 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+/* ========================================
+   V7 — Swiss / Bauhaus / International Typographic Style
+   ======================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+  --red: #FF0000;
+  --gray: #E0E0E0;
+  --col: calc(100% / 12);
+  --gutter: 1.5rem;
+  --page-pad: 3rem;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  color: var(--black);
+  background-color: var(--white);
+  line-height: 1.5;
+  /* visible 12-column grid lines as background */
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      var(--gray) 0px,
+      var(--gray) 1px,
+      transparent 1px,
+      transparent calc(100% / 12)
+    );
+  background-size: calc(100% - var(--page-pad) * 2) 100%;
+  background-position: var(--page-pad) 0;
+  background-repeat: no-repeat;
+}
+
+/* ---- Utility ---- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/* ---- Grid Container ---- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0 var(--gutter);
+  max-width: 100%;
+  padding: 0 var(--page-pad);
+}
+
+/* ---- Section Scaffolding ---- */
+
+section {
+  padding: 5rem 0 4rem;
+  border-top: 1px solid var(--black);
+}
+
+section:first-of-type {
+  border-top: none;
+}
+
+.section-number {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  grid-column: 1 / 3;
+  padding-top: 0.15rem;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  grid-column: 3 / 8;
+  margin-bottom: 2rem;
+}
+
+/* ========================================
+   HERO
+   ======================================== */
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 1fr auto;
+  gap: 0 var(--gutter);
+  padding: var(--page-pad);
+  position: relative;
+}
+
+.hero-rule {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  width: 100%;
+  height: 2px;
+  background: var(--black);
+  margin-bottom: 2rem;
+}
+
+.hero-headline {
+  grid-column: 1 / 7;
+  grid-row: 2;
+  align-self: start;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.hero-headline span {
+  color: var(--red);
+}
+
+.hero-subtitle {
+  grid-column: 1 / 5;
+  grid-row: 3;
+  align-self: end;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.6;
+  padding-bottom: 1rem;
+  max-width: 28ch;
+}
+
+.hero-stat {
+  grid-column: 9 / -1;
+  grid-row: 3;
+  align-self: end;
+  text-align: right;
+  padding-bottom: 1rem;
+}
+
+.hero-stat-number {
+  display: block;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.hero-stat-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+/* ========================================
+   01. THE RACE
+   ======================================== */
+
+.race-container {
+  grid-column: 3 / 12;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 1rem;
+}
+
+.race-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.race-label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.race-bar {
+  height: 3.5rem;
+}
+
+.race-bar--us {
+  width: calc(100% * 10 / 120);
+  background: var(--red);
+}
+
+.race-bar--vaupes {
+  width: 100%;
+  background: var(--black);
+}
+
+.race-time {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.race-note {
+  grid-column: 3 / 8;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  margin-top: 1.5rem;
+  color: var(--black);
+}
+
+/* ========================================
+   02. THE PROBLEM
+   ======================================== */
+
+.problem-text {
+  grid-column: 3 / 8;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.problem-stats {
+  grid-column: 3 / 12;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gutter);
+  margin-top: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--gray);
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-number {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.stat-number--red {
+  color: var(--red);
+}
+
+.stat-label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  max-width: 20ch;
+}
+
+/* ========================================
+   03. THE METHOD
+   ======================================== */
+
+.method-text {
+  grid-column: 3 / 7;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.method-steps {
+  grid-column: 8 / 12;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-left: 2px solid var(--black);
+  padding-left: 1.5rem;
+}
+
+.method-steps li {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.method-steps .step-num {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.15rem;
+}
+
+/* ========================================
+   04. THE IMPACT
+   ======================================== */
+
+.impact-intro {
+  grid-column: 3 / 8;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.impact-grid {
+  grid-column: 3 / 12;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gutter);
+  padding-top: 2rem;
+  border-top: 1px solid var(--gray);
+}
+
+.impact-card {
+  padding: 1.5rem 0;
+}
+
+.impact-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.impact-unit {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 0.5rem;
+  max-width: 22ch;
+  line-height: 1.4;
+}
+
+/* ========================================
+   05. THE COVERAGE
+   ======================================== */
+
+.coverage-intro {
+  grid-column: 3 / 8;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.country-grid {
+  grid-column: 3 / 12;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.country-cell {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--gray);
+}
+
+.country-cell:nth-child(-n+3) {
+  border-top: 1px solid var(--black);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+footer {
+  border-top: 2px solid var(--black);
+  padding: 2.5rem var(--page-pad) 3rem;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0 var(--gutter);
+}
+
+.footer-back {
+  grid-column: 1 / 4;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-back:hover {
+  color: var(--red);
+}
+
+.footer-credit {
+  grid-column: 9 / -1;
+  text-align: right;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--black);
+  opacity: 0.5;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --page-pad: 1.25rem;
+    --gutter: 1rem;
+  }
+
+  body {
+    background-image:
+      repeating-linear-gradient(
+        to right,
+        var(--gray) 0px,
+        var(--gray) 1px,
+        transparent 1px,
+        transparent 25%
+      );
+    background-size: calc(100% - var(--page-pad) * 2) 100%;
+    background-position: var(--page-pad) 0;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-headline {
+    grid-column: 1 / -1;
+    font-size: 2.25rem;
+  }
+
+  .hero-subtitle {
+    grid-column: 1 / -1;
+    margin-top: 2rem;
+    max-width: none;
+  }
+
+  .hero-stat {
+    grid-column: 1 / -1;
+    text-align: left;
+    margin-top: 3rem;
+  }
+
+  .section-number {
+    grid-column: 1 / -1;
+    margin-bottom: 0.25rem;
+  }
+
+  .section-title {
+    grid-column: 1 / -1;
+    font-size: 1.35rem;
+  }
+
+  .race-container,
+  .race-note,
+  .problem-text,
+  .problem-stats,
+  .method-text,
+  .method-steps,
+  .impact-intro,
+  .impact-grid,
+  .coverage-intro,
+  .country-grid {
+    grid-column: 1 / -1;
+  }
+
+  .problem-stats,
+  .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .country-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .method-steps {
+    margin-top: 1.5rem;
+    border-left: 2px solid var(--black);
+  }
+
+  .footer-back {
+    grid-column: 1 / -1;
+  }
+
+  .footer-credit {
+    grid-column: 1 / -1;
+    text-align: left;
+    margin-top: 1rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE — 480px
+   ======================================== */
+
+@media (max-width: 480px) {
+  :root {
+    --page-pad: 1rem;
+    --gutter: 0.75rem;
+  }
+
+  .hero-headline {
+    font-size: 1.75rem;
+  }
+
+  .hero-stat-number {
+    font-size: 3rem;
+  }
+
+  .section-title {
+    font-size: 1.15rem;
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+  }
+
+  .impact-number {
+    font-size: 2rem;
+  }
+
+  .country-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .race-bar {
+    height: 2.5rem;
+  }
+
+  section {
+    padding: 3rem 0 2.5rem;
+  }
+
+  footer {
+    padding: 2rem var(--page-pad);
+  }
+}
+
+/* ========================================
+   RESPONSIVE — 1024px
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .hero {
+    min-height: auto;
+    padding-bottom: 5rem;
+  }
+
+  .hero-headline {
+    grid-column: 1 / 8;
+    font-size: 3rem;
+  }
+
+  .hero-subtitle {
+    grid-column: 1 / 6;
+  }
+
+  .hero-stat {
+    grid-column: 8 / -1;
+  }
+
+  .race-container,
+  .race-note,
+  .problem-text,
+  .problem-stats,
+  .method-text,
+  .method-steps,
+  .impact-intro,
+  .impact-grid,
+  .coverage-intro,
+  .country-grid {
+    grid-column: 2 / 12;
+  }
+
+  .section-number {
+    grid-column: 1 / 3;
+  }
+
+  .section-title {
+    grid-column: 3 / 10;
+  }
+
+  .problem-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .impact-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .country-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ========================================
+   RESPONSIVE — 1440px
+   ======================================== */
+
+@media (min-width: 1440px) {
+  :root {
+    --page-pad: 5rem;
+    --gutter: 2rem;
+  }
+
+  .hero-headline {
+    font-size: 5rem;
+  }
+
+  .hero-stat-number {
+    font-size: 7rem;
+  }
+
+  section {
+    padding: 6rem 0 5rem;
+  }
+
+  .stat-number {
+    font-size: 2.75rem;
+  }
+
+  .impact-number {
+    font-size: 3rem;
+  }
+}

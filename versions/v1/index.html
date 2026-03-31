@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAC School Accessibility Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page-wrap">
+
+    <!-- ====== Hero ====== -->
+    <section class="hero">
+      <span class="label">Inter-American Development Bank</span>
+      <h1>LAC School Accessibility Platform</h1>
+      <p class="tagline">
+        Mapping education access across Latin America and the Caribbean
+        &mdash; measuring how far children must travel to reach the
+        classroom door.
+      </p>
+      <hr class="hero-rule">
+    </section>
+
+    <!-- ====== The School Race ====== -->
+    <section>
+      <span class="label">The School Race</span>
+      <h2>Two Kids, Two Realities</h2>
+      <p>
+        How long does it take a child to get to school in the morning?
+        The answer depends almost entirely on where they were born.
+      </p>
+
+      <div class="race-container">
+
+        <div class="race-bar-group">
+          <div class="race-bar-label">
+            <span class="race-icon">&#x1F466;</span>
+            <span class="race-name">Emma</span>
+            <span class="race-detail">&mdash; suburban Virginia, USA</span>
+          </div>
+          <div class="race-bar-track">
+            <div class="race-bar-fill us">10 min</div>
+          </div>
+        </div>
+
+        <div class="race-bar-group">
+          <div class="race-bar-label">
+            <span class="race-icon">&#x1F467;</span>
+            <span class="race-name">Yurani</span>
+            <span class="race-detail">&mdash; Vaup&eacute;s, Colombia</span>
+          </div>
+          <div class="race-bar-track">
+            <div class="race-bar-fill vaupes">120+ min by river &amp; trail</div>
+          </div>
+        </div>
+
+        <p class="race-note">
+          Same planet, same morning &mdash; twelve times the journey.
+        </p>
+      </div>
+    </section>
+
+    <!-- ====== Key Figures ====== -->
+    <section>
+      <span class="label">Coverage at a Glance</span>
+      <h2>Platform in Numbers</h2>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">532,650</span>
+          <span class="stat-unit">Schools</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">21</span>
+          <span class="stat-unit">Countries</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">94%</span>
+          <span class="stat-unit">Coverage</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">96%</span>
+          <span class="stat-unit">Georeferenced</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Problem Statement ====== -->
+    <section class="content-section">
+      <span class="label">The Challenge</span>
+      <h2>Educational Access Inequality in Latin America</h2>
+      <p>
+        Across Latin America and the Caribbean, millions of children face
+        a daily obstacle that never appears on a syllabus: distance.
+        In remote and rural areas, the nearest school can be hours away
+        by foot, boat, or unpaved road. This geographic barrier drives
+        dropout, limits enrollment, and deepens inequality long before
+        curriculum quality enters the conversation.
+      </p>
+      <p>
+        Traditional enrollment statistics mask this reality. A school may
+        exist on paper, yet remain effectively unreachable for the
+        communities it is meant to serve. Without granular,
+        geospatial data on travel time, policymakers are planning
+        blind &mdash; building schools where access already exists and
+        overlooking the settlements that need them most.
+      </p>
+    </section>
+
+    <!-- ====== How It Works ====== -->
+    <section class="content-section">
+      <span class="label">Methodology</span>
+      <h2>How It Works</h2>
+      <p>
+        The platform computes travel time from every populated pixel in
+        the region to its nearest school using the
+        <strong>Fast Marching Method</strong> &mdash; an algorithm that
+        models wave-front propagation across a friction surface.
+      </p>
+
+      <div class="method-box">
+        <p>
+          The friction surface encodes how quickly a person can traverse
+          each cell based on terrain slope, land cover, road networks,
+          waterways, and available transport modes. The algorithm then
+          finds the least-cost path from each origin to the nearest
+          school, yielding a continuous travel-time surface at
+          high resolution.
+        </p>
+      </div>
+
+      <p>
+        This approach captures what straight-line distance cannot:
+        a school five kilometers away across a mountain ridge may
+        be far harder to reach than one fifteen kilometers away
+        along a paved highway.
+      </p>
+    </section>
+
+    <!-- ====== Impact ====== -->
+    <section>
+      <span class="label">Evidence &amp; Impact</span>
+      <h2>What the Data Reveals</h2>
+
+      <div class="impact-highlights">
+        <div class="impact-card">
+          <span class="impact-stat">98.1%</span>
+          <h3>Panama Pilot</h3>
+          <p>
+            Share of Panama&rsquo;s population within 30 minutes of a
+            school by motorized transport &mdash; but the remaining 1.9%
+            are concentrated in indigenous comarcas where travel times
+            exceed two hours.
+          </p>
+        </div>
+        <div class="impact-card">
+          <span class="impact-stat">Primary &rarr; Secondary</span>
+          <h3>The Education Gradient</h3>
+          <p>
+            Primary schooling is nearly universal in reach across the
+            region, yet secondary coverage drops sharply in rural zones.
+            The gap widens further for upper-secondary and
+            technical education.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Countries ====== -->
+    <section>
+      <span class="label">Geographic Scope</span>
+      <h2>21 Countries in the Platform</h2>
+
+      <ul class="countries-list">
+        <li>Argentina</li>
+        <li>Belize</li>
+        <li>Bolivia</li>
+        <li>Brazil</li>
+        <li>Chile</li>
+        <li>Colombia</li>
+        <li>Costa Rica</li>
+        <li>Dominican Republic</li>
+        <li>Ecuador</li>
+        <li>El Salvador</li>
+        <li>Guatemala</li>
+        <li>Guyana</li>
+        <li>Haiti</li>
+        <li>Honduras</li>
+        <li>Jamaica</li>
+        <li>Mexico</li>
+        <li>Nicaragua</li>
+        <li>Panama</li>
+        <li>Paraguay</li>
+        <li>Peru</li>
+        <li>Uruguay</li>
+      </ul>
+    </section>
+
+    <!-- ====== Footer ====== -->
+    <footer class="site-footer">
+      <span class="label">LAC School Accessibility Platform</span>
+      <a href="/" class="back-link">&larr; Back to Gallery</a>
+      <p class="footer-note">
+        Data compiled from national education ministries and
+        georeferenced school registries across Latin America
+        and the Caribbean.
+      </p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,501 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap');
+
+/* ============================================
+   LAC School Accessibility Platform — v1
+   Institutional Report Style
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #FFFFFF;
+  --idb-blue: #003876;
+  --gray: #4A4A4A;
+  --light-gray: #E8E8E8;
+  --accent-gold: #D4A843;
+  --faint-bg: #F7F7F7;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: var(--gray);
+  background-color: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Layout container ---------- */
+
+.page-wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ---------- Section rhythm ---------- */
+
+section {
+  padding: 3rem 0;
+}
+
+section + section {
+  border-top: 1px solid var(--light-gray);
+}
+
+/* ---------- Typography ---------- */
+
+h1, h2, h3 {
+  font-family: 'Source Serif 4', 'Georgia', serif;
+  color: var(--idb-blue);
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Small-caps labels */
+.label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 5rem 0 3rem;
+  text-align: left;
+}
+
+.hero .label {
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  margin-bottom: 1.25rem;
+}
+
+.hero .tagline {
+  font-family: 'Source Serif 4', 'Georgia', serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--gray);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.hero-rule {
+  width: 60px;
+  height: 3px;
+  background: var(--accent-gold);
+  border: none;
+  margin: 2rem 0 0;
+}
+
+/* ---------- Stats grid ---------- */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1.5rem 0.5rem;
+  background: var(--faint-bg);
+  border-radius: 4px;
+}
+
+.stat-number {
+  font-family: 'Source Serif 4', 'Georgia', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--idb-blue);
+  line-height: 1.1;
+  display: block;
+}
+
+.stat-unit {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-top: 0.4rem;
+}
+
+/* ---------- The School Race ---------- */
+
+.race-container {
+  background: var(--faint-bg);
+  border-radius: 6px;
+  padding: 2rem 2rem 2.5rem;
+  margin-top: 1.25rem;
+}
+
+.race-bar-group {
+  margin-bottom: 1.75rem;
+}
+
+.race-bar-group:last-child {
+  margin-bottom: 0;
+}
+
+.race-bar-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.race-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.race-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--idb-blue);
+}
+
+.race-detail {
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+.race-bar-track {
+  background: var(--light-gray);
+  border-radius: 20px;
+  height: 2.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.race-bar-fill {
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 0 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.race-bar-fill.us {
+  width: 8.3%;
+  min-width: 80px;
+  background: var(--accent-gold);
+}
+
+.race-bar-fill.vaupes {
+  width: 100%;
+  background: var(--idb-blue);
+}
+
+.race-note {
+  margin-top: 1.25rem;
+  font-size: 0.78rem;
+  color: #888;
+  font-style: italic;
+  text-align: center;
+}
+
+/* ---------- Problem / Content sections ---------- */
+
+.content-section p {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* ---------- How It Works ---------- */
+
+.method-box {
+  background: var(--faint-bg);
+  border-left: 3px solid var(--accent-gold);
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.method-box p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+/* ---------- Impact ---------- */
+
+.impact-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.impact-card {
+  background: var(--faint-bg);
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
+.impact-card h3 {
+  font-size: 1rem;
+}
+
+.impact-card p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+  line-height: 1.65;
+}
+
+.impact-stat {
+  font-family: 'Source Serif 4', 'Georgia', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--idb-blue);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+/* ---------- Countries list ---------- */
+
+.countries-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem 1.5rem;
+  margin: 1.25rem 0;
+}
+
+.countries-list li {
+  font-size: 0.9rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.countries-list li::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--accent-gold);
+  border-radius: 50%;
+  margin-right: 0.6rem;
+  vertical-align: middle;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--light-gray);
+  padding: 2.5rem 0 3rem;
+  text-align: center;
+}
+
+.site-footer .label {
+  margin-bottom: 0.75rem;
+}
+
+.back-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--idb-blue);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding: 0.6rem 1.6rem;
+  border: 1.5px solid var(--idb-blue);
+  border-radius: 3px;
+  display: inline-block;
+  transition: background 0.2s, color 0.2s;
+}
+
+.back-link:hover {
+  background: var(--idb-blue);
+  color: var(--white);
+}
+
+.footer-note {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 680px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .impact-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .countries-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    padding: 3rem 0 2rem;
+  }
+
+  .race-container {
+    padding: 1.5rem 1.25rem 2rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .page-wrap {
+    padding: 0 1.25rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .stat-number {
+    font-size: 1.6rem;
+  }
+
+  .countries-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Responsive — 768px ---------- */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+  }
+
+  .hero {
+    padding: 3.5rem 0 2rem;
+  }
+
+  .hero .tagline {
+    font-size: 1.05rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .impact-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .countries-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .race-container {
+    padding: 1.5rem 1.25rem 2rem;
+  }
+
+  section {
+    padding: 2.5rem 0;
+  }
+}
+
+/* ---------- Responsive — 1024px ---------- */
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero {
+    padding: 4rem 0 2.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .impact-highlights {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .countries-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  section {
+    padding: 2.5rem 0;
+  }
+}
+
+/* ---------- Responsive — 1440px ---------- */
+
+@media (min-width: 1440px) {
+  .page-wrap {
+    max-width: 880px;
+    padding: 0 2.5rem;
+  }
+
+  .hero {
+    padding: 6rem 0 3.5rem;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  section {
+    padding: 3.5rem 0;
+  }
+}

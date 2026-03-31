@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapping School Accessibility in LAC: A Fast Marching Method Approach</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<article class="paper">
+
+  <!-- ── Title Block ──────────────────────────────────────────── -->
+  <header class="title-block">
+    <h1>Mapping School Accessibility in Latin America and the Caribbean: A Fast Marching Method Approach</h1>
+    <p class="author">L&oacute;pez, A. (2026)</p>
+    <p class="affiliation">Inter-American Development Bank, Social Sector Department</p>
+    <p class="date">Working Paper &middot; March 2026</p>
+  </header>
+
+  <!-- ── Abstract ─────────────────────────────────────────────── -->
+  <div class="abstract">
+    <p class="abstract-label">Abstract</p>
+    <p>
+      This paper presents a geospatial framework for estimating travel time to the nearest
+      school facility across Latin America and the Caribbean. Leveraging geocoded school
+      census data, WorldPop population grids, and global friction surface rasters, we
+      implement the Fast Marching Method (FMM) to compute continuous cost-distance
+      surfaces at approximately one-kilometer resolution. The methodology captures
+      terrain, land cover, and infrastructure constraints that shape actual travel
+      conditions for school-age children. Pilot results from Panama indicate that 98.1%
+      of primary-age children reside within 30 minutes of a school, while significant
+      accessibility gaps persist in indigenous comarcas and riverine areas. We extend the
+      analysis to 21 countries, documenting a pronounced education-level gradient: pre-primary
+      and secondary facilities are systematically less accessible than primary schools. The
+      resulting dataset constitutes the first harmonized, region-wide measure of physical
+      school accessibility for the LAC region.
+    </p>
+  </div>
+
+  <!-- ── Keywords ─────────────────────────────────────────────── -->
+  <p class="keywords">
+    <strong>Keywords:</strong>
+    <span>school accessibility, travel time, Fast Marching Method, Latin America, friction surfaces, geospatial analysis, education infrastructure</span>
+  </p>
+
+  <!-- ── 1. Introduction ──────────────────────────────────────── -->
+  <h2 class="section-heading"><span class="section-number">1.</span> Introduction</h2>
+
+  <p>
+    Physical access to schooling remains one of the most fundamental determinants of
+    educational attainment in developing regions. While enrollment ratios across Latin
+    America and the Caribbean have improved substantially over the past two decades,
+    aggregate statistics obscure persistent spatial inequalities. Children in remote,
+    rural, and indigenous communities frequently face travel times measured in hours
+    rather than minutes&mdash;a barrier that depresses attendance, increases dropout
+    risk, and compounds existing socioeconomic disadvantage.<a class="fnref" href="#fn1" id="fnref1"></a>
+  </p>
+
+  <p>
+    Despite the policy relevance of these disparities, no harmonized, region-wide
+    measure of physical school accessibility has existed for LAC. National education
+    management information systems (EMIS) vary in coverage and geocoding quality;
+    household surveys capture self-reported travel times for enrolled students only,
+    missing the most marginalized children entirely. This paper addresses the gap by
+    constructing a geospatial model of travel time to the nearest school facility
+    across 21 countries, spanning pre-primary through upper-secondary education levels.
+  </p>
+
+  <p>
+    The contribution is threefold. First, we assemble and harmonize geocoded school
+    census records covering over 400,000 educational facilities. Second, we implement
+    the Fast Marching Method on global friction surfaces to produce continuous
+    travel-time rasters at approximately one-kilometer resolution. Third, we overlay
+    WorldPop population grids to estimate the share of school-age children at each
+    accessibility threshold, producing policy-relevant coverage indicators at
+    subnational, national, and regional scales.
+  </p>
+
+  <!-- ── 2. Data ──────────────────────────────────────────────── -->
+  <h2 class="section-heading"><span class="section-number">2.</span> Data</h2>
+
+  <p>
+    The analysis draws on three primary data sources. <em>School census records</em>
+    are obtained from national Ministries of Education via official EMIS platforms
+    or through data-sharing agreements with the Inter-American Development Bank.
+    Each record includes, at minimum, the geographic coordinates of the facility,
+    the education levels offered (pre-primary, primary, lower-secondary,
+    upper-secondary), and the operational status as of the most recent census
+    year.<a class="fnref" href="#fn2" id="fnref2"></a>
+  </p>
+
+  <p>
+    <em>Population data</em> are sourced from the WorldPop constrained individual
+    countries datasets (2020 vintage), which provide estimated population counts
+    at 100-meter resolution, disaggregated by age group. We extract cohorts
+    corresponding to pre-primary (ages 3&ndash;5), primary (ages 6&ndash;11),
+    lower-secondary (ages 12&ndash;14), and upper-secondary (ages 15&ndash;17)
+    populations.
+  </p>
+
+  <p>
+    <em>Friction surfaces</em> are taken from the Malaria Atlas Project (MAP)
+    global friction surface (Weiss et al., 2020), which encodes the estimated
+    travel time per meter of ground traversal. The surface integrates road
+    networks, land cover classification, topographic slope, and hydrological
+    barriers at approximately one-kilometer resolution. Water bodies are assigned
+    high but finite friction values to permit modeled canoe or boat crossings
+    where overland alternatives do not exist.
+  </p>
+
+  <!-- ── Figure 1: The School Race ────────────────────────────── -->
+  <div class="figure">
+    <p class="figure-caption">Figure 1: <em>Travel Time to Nearest School Facility, Selected Cases</em></p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Location</th>
+          <th>Subject</th>
+          <th>Distance</th>
+          <th>Travel Time</th>
+          <th>Mode</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Virginia, USA</td>
+          <td>Emma, age 8</td>
+          <td>0.8 km</td>
+          <td>10 min</td>
+          <td>Walking</td>
+        </tr>
+        <tr>
+          <td>Vaup&eacute;s, Colombia</td>
+          <td>Yurani, age 8</td>
+          <td>8.4 km</td>
+          <td>127 min</td>
+          <td>Walking/Canoe</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="figure-source">
+      Source: Authors&rsquo; calculations using FMM on MAP friction surfaces (2020).
+    </p>
+    <p class="figure-source">
+      Note: Travel times reflect modeled least-cost paths. Actual times may vary
+      with seasonal flooding, path condition, and individual mobility.<a class="fnref" href="#fn3" id="fnref3"></a>
+    </p>
+  </div>
+
+  <p>
+    The contrast documented in Figure 1 illustrates the core empirical motivation.
+    Two children of the same age face radically different physical barriers to
+    attending school. Emma&rsquo;s ten-minute walk along paved suburban sidewalks
+    bears no resemblance to Yurani&rsquo;s two-hour journey across unpaved forest
+    paths and a river crossing by canoe. The friction surface methodology captures
+    precisely these differences in terrain and infrastructure quality.
+  </p>
+
+  <!-- ── 3. Methodology ───────────────────────────────────────── -->
+  <h2 class="section-heading"><span class="section-number">3.</span> Methodology</h2>
+
+  <p>
+    We compute travel-time surfaces using the Fast Marching Method (FMM), an
+    efficient numerical algorithm for solving the Eikonal equation on discrete
+    grids. The Eikonal equation governs the propagation of a wavefront through
+    a medium of spatially varying speed and takes the form:
+  </p>
+
+  <div class="callout">
+    <p>
+      |&nabla;T(<strong>x</strong>)| &middot; F(<strong>x</strong>) = 1
+    </p>
+    <p>
+      where T(<strong>x</strong>) denotes the minimum travel time from source
+      to location <strong>x</strong>, and F(<strong>x</strong>) is the local
+      speed (inverse of friction) at <strong>x</strong>.
+    </p>
+  </div>
+
+  <p>
+    FMM solves this equation by propagating a front outward from source
+    locations&mdash;in our case, geocoded schools&mdash;across all grid cells
+    in order of increasing travel time. The algorithm maintains a narrow band
+    of &ldquo;trial&rdquo; cells at the frontier, updates travel-time estimates
+    using an upwind finite-difference scheme, and guarantees that each cell is
+    visited exactly once. Computational complexity is O(N log N) for a grid of
+    N cells, making it tractable for national and regional-scale
+    analyses.<a class="fnref" href="#fn4" id="fnref4"></a>
+  </p>
+
+  <p>
+    For each education level, we seed the FMM with the set of schools offering
+    that level and compute the minimum travel time from every populated grid
+    cell to the nearest facility. We then overlay age-specific WorldPop
+    population grids to compute coverage rates: the share of the relevant
+    school-age population residing within a given travel-time threshold
+    (e.g., 15, 30, 60, or 120 minutes).
+  </p>
+
+  <p>
+    The methodology assumes travel along least-cost paths as determined by the
+    friction surface. It does not model road congestion, public transit
+    schedules, or household vehicle ownership. These limitations are partially
+    offset by the friction surface&rsquo;s empirical calibration against
+    observed travel-time data from Google and other sources (Weiss et al., 2020).
+  </p>
+
+  <!-- ── 4. Results ───────────────────────────────────────────── -->
+  <h2 class="section-heading"><span class="section-number">4.</span> Results</h2>
+
+  <p>
+    We report initial results from the Panama pilot, which provides the most
+    complete data for validation purposes. Of the approximately 620,000
+    primary-age children (ages 6&ndash;11) identified in the WorldPop grid,
+    an estimated 98.1% reside within 30 minutes of travel time to the nearest
+    primary school. Coverage drops to 94.3% for pre-primary facilities, 91.7%
+    for lower-secondary, and 83.6% for upper-secondary&mdash;confirming a
+    steep education-level gradient in physical
+    accessibility.<a class="fnref" href="#fn5" id="fnref5"></a>
+  </p>
+
+  <p>
+    Spatial disaggregation reveals that the national aggregate masks substantial
+    subnational variation. In Panama City and Col&oacute;n, primary coverage
+    exceeds 99.5% at the 30-minute threshold. In the Ember&aacute;-Wounaan and
+    Guna Yala comarcas, by contrast, coverage falls below 80%, with median
+    travel times exceeding 45 minutes. These areas are characterized by sparse
+    road networks, riverine transport dependence, and dispersed settlement
+    patterns.
+  </p>
+
+  <p>
+    Cross-country results confirm that the education gradient is a regional
+    phenomenon rather than a Panama-specific artifact. Across the 21 countries
+    in our sample, the median coverage rate at 30 minutes is 96.8% for primary,
+    91.2% for lower-secondary, and 79.4% for upper-secondary schools. The
+    gradient is steepest in countries with large rural and indigenous
+    populations, including Bolivia, Guatemala, Honduras, and Peru.
+  </p>
+
+  <div class="callout">
+    <p>
+      <strong>Key finding:</strong> At the 60-minute threshold, approximately
+      12.7 million school-age children across the region reside beyond
+      reasonable walking distance to the nearest secondary school facility,
+      compared to 2.1 million for primary schools.
+    </p>
+  </div>
+
+  <!-- ── 5. Coverage ──────────────────────────────────────────── -->
+  <h2 class="section-heading"><span class="section-number">5.</span> Coverage</h2>
+
+  <p>
+    Table 1 summarizes the geographic scope of the analysis. Geocoding
+    completeness (the share of facilities with valid coordinates) varies
+    across countries and affects the reliability of derived accessibility
+    estimates. Countries with geocoding rates below 70% are flagged for
+    cautious interpretation.
+  </p>
+
+  <table class="coverage-table">
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Data Year</th>
+        <th>Georef. %</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Argentina</td><td>2022</td><td>92</td></tr>
+      <tr><td>Barbados</td><td>2021</td><td>100</td></tr>
+      <tr><td>Belize</td><td>2023</td><td>87</td></tr>
+      <tr><td>Bolivia</td><td>2022</td><td>78</td></tr>
+      <tr><td>Brazil</td><td>2023</td><td>97</td></tr>
+      <tr><td>Chile</td><td>2023</td><td>99</td></tr>
+      <tr><td>Colombia</td><td>2022</td><td>89</td></tr>
+      <tr><td>Costa Rica</td><td>2023</td><td>95</td></tr>
+      <tr><td>Dominican Republic</td><td>2022</td><td>82</td></tr>
+      <tr><td>Ecuador</td><td>2022</td><td>91</td></tr>
+      <tr><td>El Salvador</td><td>2023</td><td>94</td></tr>
+      <tr><td>Guatemala</td><td>2021</td><td>73</td></tr>
+      <tr><td>Guyana</td><td>2022</td><td>68</td></tr>
+      <tr><td>Haiti</td><td>2020</td><td>51</td></tr>
+      <tr><td>Honduras</td><td>2022</td><td>76</td></tr>
+      <tr><td>Jamaica</td><td>2023</td><td>96</td></tr>
+      <tr><td>Mexico</td><td>2023</td><td>98</td></tr>
+      <tr><td>Nicaragua</td><td>2021</td><td>71</td></tr>
+      <tr><td>Panama</td><td>2023</td><td>99</td></tr>
+      <tr><td>Paraguay</td><td>2022</td><td>84</td></tr>
+      <tr><td>Peru</td><td>2023</td><td>93</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    Data harmonization required reconciling heterogeneous classification
+    systems across countries. Education levels were mapped to ISCED 2011
+    categories to ensure comparability. Facilities reporting zero enrollment
+    in the census year or flagged as permanently closed were excluded from
+    the analysis.
+  </p>
+
+  <!-- ── 6. Conclusion ────────────────────────────────────────── -->
+  <h2 class="section-heading"><span class="section-number">6.</span> Conclusion</h2>
+
+  <p>
+    This paper demonstrates that the Fast Marching Method, applied to globally
+    available friction surfaces and geocoded school registries, can produce
+    granular, policy-relevant measures of school accessibility at scale. The
+    resulting travel-time surfaces and coverage indicators offer several
+    advantages over existing approaches: they are spatially continuous rather
+    than administrative-boundary-dependent, they capture terrain and
+    infrastructure constraints ignored by Euclidean distance measures, and
+    they are reproducible across countries using a common methodology.
+  </p>
+
+  <p>
+    The education-level gradient documented here&mdash;whereby pre-primary and
+    secondary schools are systematically less accessible than primary
+    facilities&mdash;carries direct implications for infrastructure investment
+    planning. Ministries seeking to expand coverage at these levels can use the
+    travel-time surfaces to identify optimal locations for new facilities,
+    targeting areas where marginal investments yield the largest reductions
+    in travel time for underserved populations.
+  </p>
+
+  <p>
+    Important limitations remain. The friction surface does not capture
+    seasonal variation in road conditions or waterway navigability, which
+    can dramatically alter accessibility in tropical lowland areas. Geocoding
+    quality varies across countries, and incomplete registries may
+    underestimate true coverage. Future work should integrate temporal
+    variation in transport conditions, validate modeled travel times against
+    household-reported data, and extend the analysis to incorporate school
+    quality and capacity constraints alongside physical
+    accessibility.<a class="fnref" href="#fn6" id="fnref6"></a>
+  </p>
+
+  <!-- ── References ───────────────────────────────────────────── -->
+  <section class="references">
+    <h2>References</h2>
+
+    <p>
+      Filmer, D., &amp; Pritchett, L. (1999). The effect of household wealth on
+      educational attainment: Evidence from 35 countries. <em>Population and
+      Development Review</em>, 25(1), 85&ndash;120.
+    </p>
+
+    <p>
+      Nelson, A., Weiss, D. J., van Etten, J., Sber, A.,";"; Gibson, H. S.,
+      et al. (2019). A suite of global accessibility indicators.
+      <em>Scientific Data</em>, 6(1), 266.
+    </p>
+
+    <p>
+      Sethian, J. A. (1996). A fast marching level set method for monotonically
+      advancing fronts. <em>Proceedings of the National Academy of Sciences</em>,
+      93(4), 1591&ndash;1595.
+    </p>
+
+    <p>
+      Tatem, A. J. (2017). WorldPop, open data for spatial demography.
+      <em>Scientific Data</em>, 4, 170004.
+    </p>
+
+    <p>
+      UNESCO (2023). <em>Global Education Monitoring Report 2023: Technology in
+      education</em>. Paris: UNESCO Publishing.
+    </p>
+
+    <p>
+      Weiss, D. J., Nelson, A., Varber, C. A., Moyes, C. L., et al. (2020).
+      Global maps of travel time to healthcare facilities. <em>Nature
+      Medicine</em>, 26(12), 1835&ndash;1838.
+    </p>
+
+    <p>
+      World Bank (2018). <em>World Development Report 2018: Learning to Realize
+      Education&rsquo;s Promise</em>. Washington, DC: World Bank Group.
+    </p>
+  </section>
+
+  <!-- ── Footnotes ────────────────────────────────────────────── -->
+  <section class="footnotes">
+    <p class="footnotes-label">Notes</p>
+    <ol>
+      <li id="fn1">
+        Filmer and Pritchett (1999) document that distance to school is among
+        the strongest predictors of non-enrollment in rural areas of developing
+        countries, independent of household wealth.
+      </li>
+      <li id="fn2">
+        Geocoding completeness varies from 51% (Haiti) to 100% (Barbados).
+        See Section 5 for country-level detail.
+      </li>
+      <li id="fn3">
+        The Vaup&eacute;s case illustrates conditions in the Colombian Amazon,
+        where the school network is sparse and river transport is the dominant
+        mode of travel. Seasonal variation in water levels can increase or
+        decrease travel times by 30&ndash;50%.
+      </li>
+      <li id="fn4">
+        Our implementation uses the <code>scikit-fmm</code> Python library
+        (v2024.05), which provides a NumPy-compatible interface to the FMM
+        algorithm. Raster operations are handled via <code>rasterio</code>
+        and <code>xarray</code>.
+      </li>
+      <li id="fn5">
+        Coverage rates are computed as the share of WorldPop-estimated
+        population in the relevant age cohort residing in grid cells with
+        travel time at or below the stated threshold.
+      </li>
+      <li id="fn6">
+        A companion interactive platform is under development at the platform
+        to allow policymakers to explore the travel-time surfaces and
+        simulate facility placement scenarios.
+      </li>
+    </ol>
+  </section>
+
+  <!-- ── Footer ───────────────────────────────────────────────── -->
+  <footer class="footer">
+    <a href="/">&larr; Back to Gallery</a>
+  </footer>
+
+</article>
+
+</body>
+</html>

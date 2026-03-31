@@ -1,0 +1,1006 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+/* ========================================
+   V16 — "River Crossing" — Continuous CSS Path
+   ======================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --terracotta: #C65D3E;
+  --cream: #FFF8F0;
+  --green: #7BA68A;
+  --brown: #3B2314;
+  --sand: #EDE5D8;
+  --sage: #F0F5F1;
+  --gold-accent: #D4A853;
+  --river: #7BA68A;
+  --river-light: rgba(123, 166, 138, 0.15);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Source Sans 3', 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  color: var(--brown);
+  background-color: var(--cream);
+  line-height: 1.75;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', serif;
+  line-height: 1.3;
+  color: var(--brown);
+}
+
+a {
+  color: var(--terracotta);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--gold-accent);
+}
+
+/* ========================================
+   NAV
+   ======================================== */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  background: rgba(59, 35, 20, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.nav-brand {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 248, 240, 0.6);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 248, 240, 0.65);
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--cream);
+}
+
+.nav-gallery {
+  color: var(--cream) !important;
+  background: var(--terracotta);
+  padding: 0.35rem 0.9rem;
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.nav-gallery:hover {
+  background: var(--gold-accent);
+  color: var(--brown) !important;
+}
+
+/* ========================================
+   SECTION SCAFFOLD
+   ======================================== */
+
+.section {
+  padding: 5rem 2rem;
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 1rem;
+}
+
+.section h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(59, 35, 20, 0.7);
+  max-width: 50ch;
+  margin: 0 auto 2.5rem;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 1.5rem;
+}
+
+/* ========================================
+   SETTLEMENT DOTS — "Communities along the river"
+   ======================================== */
+
+.settlement-dot {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 3px solid var(--cream);
+  z-index: 10;
+  box-shadow: 0 0 0 2px var(--green);
+}
+
+/* ========================================
+   WAVE DIVIDERS — "The River"
+   ======================================== */
+
+.wave-divider {
+  position: relative;
+  height: 80px;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.wave-divider svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wave-divider svg path {
+  fill: var(--green);
+  opacity: 0.12;
+}
+
+/* River flow animation */
+@keyframes riverFlow {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 0; }
+}
+
+.wave-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--green) 0px,
+    var(--green) 20px,
+    transparent 20px,
+    transparent 40px
+  );
+  opacity: 0.25;
+  animation: riverFlow 4s linear infinite;
+  z-index: 2;
+}
+
+/* Different wave colors for variety */
+.wave-1 svg path { fill: var(--green); opacity: 0.1; }
+.wave-2 svg path { fill: var(--green); opacity: 0.08; }
+.wave-3 svg path { fill: var(--terracotta); opacity: 0.06; }
+.wave-4 svg path { fill: var(--green); opacity: 0.1; }
+.wave-5 svg path { fill: var(--green); opacity: 0.08; }
+.wave-6 svg path { fill: var(--terracotta); opacity: 0.06; }
+.wave-7 svg path { fill: var(--green); opacity: 0.1; }
+
+/* ========================================
+   RIVER PATH — Vertical dashed connector
+   ======================================== */
+
+.river-path {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  transform: translateX(-50%);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--green) 0px,
+    var(--green) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  opacity: 0.12;
+  z-index: 0;
+}
+
+/* ========================================
+   1. HERO
+   ======================================== */
+
+.hero-section {
+  padding: 7rem 2rem 5rem;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--brown);
+  margin-bottom: 1.5rem;
+  max-width: 16ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-lead {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--terracotta);
+  margin-bottom: 1rem;
+}
+
+.hero-sub {
+  font-size: 0.92rem;
+  color: rgba(59, 35, 20, 0.55);
+  font-style: italic;
+}
+
+/* ========================================
+   2. THE SCHOOL RACE
+   ======================================== */
+
+.race-section {
+  background: var(--sage);
+  border-radius: 16px;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.race-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.race-card {
+  padding: 2rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.race-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(59, 35, 20, 0.1);
+}
+
+.race-card--emma {
+  background: var(--cream);
+  border: 1px solid var(--sand);
+}
+
+.race-card--yurani {
+  background: var(--brown);
+  color: var(--cream);
+}
+
+.race-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.race-card--yurani h3 { color: var(--cream); }
+
+.race-location {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 1.25rem;
+}
+
+/* Race bars styled as river stretches */
+.race-bar-container {
+  display: flex;
+  gap: 3px;
+  height: 28px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.race-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  transition: width 1s ease;
+}
+
+.race-bar--land {
+  background: var(--sand);
+}
+
+.race-card--yurani .race-bar--land {
+  background: rgba(237, 229, 216, 0.2);
+}
+
+.race-bar--water {
+  background: var(--green);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Flowing water effect inside the water bar */
+.race-bar--water::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to right,
+    transparent 0px,
+    rgba(255, 255, 255, 0.15) 10px,
+    transparent 20px
+  );
+  animation: riverFlow 3s linear infinite;
+}
+
+.race-bar-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brown);
+  white-space: nowrap;
+}
+
+.race-bar--water .race-bar-label {
+  color: var(--cream);
+  position: relative;
+  z-index: 1;
+}
+
+.race-card--yurani .race-bar-label {
+  color: var(--cream);
+  opacity: 0.7;
+}
+
+.race-time {
+  font-family: 'Merriweather', serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+}
+
+.race-card--emma .race-time { color: var(--green); }
+.race-card--yurani .race-time { color: var(--terracotta); }
+
+.race-desc {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+.race-verdict {
+  margin-top: 1.5rem;
+  padding: 1rem 2rem;
+  background: rgba(198, 93, 62, 0.08);
+  border: 1px solid rgba(198, 93, 62, 0.2);
+  border-radius: 6px;
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--terracotta);
+}
+
+/* ========================================
+   3. PULL QUOTE
+   ======================================== */
+
+.quote-section {
+  padding: 5rem 2rem;
+}
+
+.pull-quote {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--terracotta);
+  max-width: 36ch;
+  margin: 0 auto;
+  padding: 2rem 0;
+  border-top: 2px solid var(--sand);
+  border-bottom: 2px solid var(--sand);
+}
+
+/* ========================================
+   4. STATS
+   ======================================== */
+
+.stats-section {
+  background: var(--sand);
+  border-radius: 16px;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.stat-card {
+  padding: 2rem 1rem;
+  background: var(--cream);
+  border-radius: 10px;
+  border: 1px solid rgba(59, 35, 20, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(59, 35, 20, 0.08);
+}
+
+.stat-number {
+  font-family: 'Merriweather', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--terracotta);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.82rem;
+  color: rgba(59, 35, 20, 0.65);
+  line-height: 1.5;
+}
+
+/* ========================================
+   5. THE CHALLENGE
+   ======================================== */
+
+.challenge-section {
+  padding: 5rem 2rem;
+}
+
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.challenge-card {
+  padding: 2rem;
+  background: var(--sage);
+  border-radius: 10px;
+  border-left: 4px solid var(--terracotta);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.challenge-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(59, 35, 20, 0.08);
+}
+
+.challenge-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--brown);
+}
+
+.challenge-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(59, 35, 20, 0.75);
+}
+
+/* ========================================
+   6. HOW IT WORKS
+   ======================================== */
+
+.method-section {
+  background: var(--sage);
+  border-radius: 16px;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.method-steps {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.method-step {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.step-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--brown);
+  color: var(--cream);
+  font-family: 'Merriweather', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-connector {
+  width: 2px;
+  height: 40px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    var(--green) 0px,
+    var(--green) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  margin-top: 8px;
+}
+
+.step-content {
+  padding-bottom: 2rem;
+}
+
+.method-step:last-child .step-content {
+  padding-bottom: 0;
+}
+
+.method-step h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.method-step p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(59, 35, 20, 0.75);
+}
+
+/* ========================================
+   7. IMPACT
+   ======================================== */
+
+.impact-section {
+  padding: 5rem 2rem;
+}
+
+.impact-hero {
+  margin: 2rem 0;
+  padding: 2.5rem;
+  background: var(--sage);
+  border-radius: 12px;
+}
+
+.impact-big-number {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(3.5rem, 10vw, 6rem);
+  font-weight: 900;
+  color: var(--green);
+  line-height: 1;
+}
+
+.impact-big-label {
+  font-size: 1rem;
+  color: rgba(59, 35, 20, 0.7);
+  max-width: 32ch;
+  margin: 0.75rem auto 0;
+}
+
+/* Bar chart */
+.bar-chart {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: left;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.bar-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  width: 100px;
+  flex-shrink: 0;
+  text-align: right;
+  color: var(--brown);
+}
+
+.bar-track {
+  flex: 1;
+  height: 22px;
+  background: var(--sand);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--green);
+  border-radius: 4px;
+  transition: width 1s ease;
+}
+
+.bar-fill--alert {
+  background: var(--terracotta);
+}
+
+.bar-value {
+  font-family: 'Merriweather', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  width: 48px;
+  color: var(--brown);
+}
+
+/* Gradient cards */
+.gradient-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.gradient-card {
+  padding: 1.5rem;
+  background: var(--sage);
+  border-radius: 8px;
+  border-left: 4px solid var(--green);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gradient-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(59, 35, 20, 0.08);
+}
+
+.gradient-card h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--brown);
+  margin-bottom: 0.4rem;
+}
+
+.gradient-card p {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: rgba(59, 35, 20, 0.7);
+}
+
+/* ========================================
+   8. COUNTRIES
+   ======================================== */
+
+.countries-section {
+  background: var(--sand);
+  border-radius: 16px;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.country-item {
+  font-size: 0.85rem;
+  padding: 0.65rem 0.75rem;
+  border-top: 1px solid rgba(59, 35, 20, 0.12);
+  color: var(--brown);
+  transition: all 0.25s ease;
+  position: relative;
+  cursor: default;
+}
+
+.country-item:nth-child(-n+3) {
+  border-top: 2px solid var(--terracotta);
+}
+
+.country-item:hover {
+  background: rgba(198, 93, 62, 0.08);
+  color: var(--terracotta);
+  padding-left: 1rem;
+}
+
+/* ========================================
+   :target highlight for sections
+   ======================================== */
+
+.section:target {
+  outline: none;
+}
+
+.section:target::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--terracotta);
+  border-radius: 0 0 2px 2px;
+}
+
+/* ========================================
+   9. FOOTER
+   ======================================== */
+
+.footer-section {
+  background: var(--brown);
+  color: var(--cream);
+  border-radius: 16px 16px 0 0;
+  margin: 0 auto;
+  max-width: 1100px;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.footer-tagline {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--cream);
+  max-width: 30ch;
+  margin: 0 auto 1.5rem;
+  line-height: 1.5;
+}
+
+.footer-version {
+  font-size: 0.8rem;
+  color: rgba(255, 248, 240, 0.4);
+  margin-bottom: 1.5rem;
+}
+
+.footer-back {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--terracotta);
+  padding: 0.85rem 2.2rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.footer-back:hover {
+  background: var(--gold-accent);
+  color: var(--brown);
+}
+
+/* ========================================
+   RESPONSIVE — 320 / 768 / 1024 / 1440
+   ======================================== */
+
+@media (min-width: 1440px) {
+  .section-inner {
+    max-width: 900px;
+  }
+
+  .section {
+    padding: 6rem 3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .challenge-grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .gradient-cards {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .race-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nav-links {
+    gap: 0.75rem;
+  }
+
+  .nav-links a {
+    font-size: 0.62rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3.5rem 1.5rem;
+    border-radius: 0;
+    max-width: 100%;
+  }
+
+  .wave-divider {
+    max-width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .countries-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .bar-row {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .bar-label {
+    width: 100%;
+    text-align: left;
+  }
+
+  .method-step {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .step-connector {
+    display: none;
+  }
+
+  .settlement-dot {
+    display: none;
+  }
+
+  .wave-divider {
+    height: 50px;
+  }
+
+  .footer-section {
+    border-radius: 0;
+  }
+
+  .race-section,
+  .stats-section,
+  .method-section,
+  .countries-section {
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .section {
+    padding: 2.5rem 1rem;
+  }
+
+  .hero-section h1 {
+    font-size: 1.6rem;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .impact-big-number {
+    font-size: 3rem;
+  }
+
+  .nav-links a {
+    font-size: 0.55rem;
+  }
+
+  .countries-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gradient-cards {
+    grid-template-columns: 1fr;
+  }
+}

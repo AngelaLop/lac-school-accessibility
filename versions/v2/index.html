@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAC School Accessibility Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <nav class="topbar">
+    <span>School Access v2</span>
+    <a href="/">Back to Gallery</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>School<br>Accessibility<br>Platform</h1>
+      <p class="hero-tagline">
+        Mapping <span class="highlight">every school route</span> across Latin America and the Caribbean.
+        Because no child should walk two hours to learn.
+      </p>
+    </div>
+    <div class="hero-sidebar">
+      <div class="hero-stat">
+        <span class="number">532,650</span>
+        <span class="label">Schools Mapped</span>
+      </div>
+      <div class="hero-stat">
+        <span class="number">21</span>
+        <span class="label">Countries</span>
+      </div>
+      <div class="hero-stat">
+        <span class="number">94%</span>
+        <span class="label">Coverage</span>
+      </div>
+      <div class="hero-stat">
+        <span class="number">96%</span>
+        <span class="label">Georeferenced</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE SCHOOL RACE -->
+  <section class="race-section">
+    <span class="section-label">The School Race</span>
+    <h2>Same Goal.<br><span class="accent">Different Reality.</span></h2>
+    <p class="race-subtitle">
+      Two children. Both headed to school. One in the US suburbs, one in
+      Vaup&eacute;s, Colombia. Same morning. Radically different journeys.
+    </p>
+
+    <div class="race-container">
+      <!-- US Lane -->
+      <div class="race-lane lane-us">
+        <div class="race-lane-label">
+          US Kid
+          <span class="location">Suburban United States</span>
+        </div>
+        <div class="race-track">
+          <div class="race-track-fill">
+            <span class="race-icon">&#x1F6B6;</span>
+          </div>
+        </div>
+        <div class="race-time">
+          <span class="number">10</span>
+          <span class="unit">Minutes</span>
+        </div>
+      </div>
+
+      <!-- Vaupés Lane -->
+      <div class="race-lane lane-vaupes">
+        <div class="race-lane-label">
+          Vaup&eacute;s Kid
+          <span class="location">Vaup&eacute;s, Colombia</span>
+        </div>
+        <div class="race-track">
+          <div class="race-track-fill">
+            <span class="race-icon">&#x1F6B6;</span>
+          </div>
+        </div>
+        <div class="race-time">
+          <span class="number">120+</span>
+          <span class="unit">Minutes</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="race-verdict">
+      12&times; longer to reach school &mdash; same right to education
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stat-cell">
+      <span class="number">532,650</span>
+      <span class="label">Schools</span>
+    </div>
+    <div class="stat-cell">
+      <span class="number">21</span>
+      <span class="label">Countries</span>
+    </div>
+    <div class="stat-cell">
+      <span class="number">94%</span>
+      <span class="label">Coverage</span>
+    </div>
+    <div class="stat-cell">
+      <span class="number">96%</span>
+      <span class="label">Georeferenced</span>
+    </div>
+  </div>
+
+  <!-- PROBLEM STATEMENT -->
+  <section class="problem-section">
+    <span class="section-label" style="border-color: #F5F5F0; color: #F5F5F0;">The Problem</span>
+    <h2>Access Is Not<br><span class="accent">Equal.</span></h2>
+
+    <div class="problem-columns">
+      <div>
+        <p>
+          Across Latin America and the Caribbean, millions of children face
+          extreme barriers to reaching school. Distance, terrain, lack of roads,
+          and absent transportation infrastructure create invisible walls that
+          separate communities from education.
+        </p>
+        <p>
+          These barriers are not random. They concentrate in rural areas,
+          indigenous territories, and marginalized communities &mdash; deepening
+          cycles of inequality that persist across generations.
+        </p>
+      </div>
+      <div>
+        <p>
+          Until now, policymakers lacked the granular data needed to understand
+          where these barriers exist and how severe they are. Traditional
+          metrics like enrollment rates mask the daily reality of a child who
+          must walk hours through difficult terrain just to sit in a classroom.
+        </p>
+        <div class="problem-pullquote">
+          You cannot fix what you cannot see. This platform makes the invisible
+          visible.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section class="methodology-section">
+    <span class="section-label">Methodology</span>
+    <h2>How We<br>Measure <span class="accent">Access</span></h2>
+
+    <div class="method-grid">
+      <div class="method-card">
+        <span class="step-number">01</span>
+        <h3>Friction Surface Modeling</h3>
+        <p>
+          We build high-resolution friction surfaces that model the cost of
+          traversing every pixel of terrain. Road networks, rivers, elevation,
+          land cover &mdash; each factor is weighted to reflect real-world
+          travel difficulty.
+        </p>
+      </div>
+      <div class="method-card">
+        <span class="step-number">02</span>
+        <h3>FMM Travel-Time Analysis</h3>
+        <p>
+          Using the Fast Marching Method (FMM), we compute least-cost travel
+          time from every population point to the nearest school. This captures
+          actual walking and motorized travel conditions, not straight-line
+          distance.
+        </p>
+      </div>
+      <div class="method-card">
+        <span class="step-number">03</span>
+        <h3>Coverage Mapping</h3>
+        <p>
+          Travel-time isochrones are generated around each school at key
+          thresholds. These maps reveal which communities fall within
+          acceptable reach and which remain isolated &mdash; enabling targeted
+          policy intervention.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="impact-section">
+    <span class="section-label" style="border-color: #F5F5F0; color: #F5F5F0;">Impact</span>
+    <h2>Real Results,<br><span style="color: #FFE500;">Real Policy</span></h2>
+
+    <div class="impact-grid">
+      <div class="impact-card">
+        <h3>Panama Pilot</h3>
+        <span class="big-stat">85%</span>
+        <p>
+          In the Comarca Ng&auml;be-Bugl&eacute; pilot, accessibility analysis
+          revealed that 85% of out-of-school children lived beyond 90 minutes
+          from the nearest facility. This data directly informed the government's
+          school construction and transport investment plan.
+        </p>
+      </div>
+      <div class="impact-card">
+        <h3>Education Gradient</h3>
+        <span class="big-stat">3.2 yrs</span>
+        <p>
+          Communities with travel times over 60 minutes show an average education
+          deficit of 3.2 years compared to those within 15 minutes. The
+          accessibility gradient is one of the strongest predictors of
+          educational attainment in the region.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTRIES -->
+  <section class="countries-section">
+    <span class="section-label">Coverage</span>
+    <h2>21 Countries<br><span class="accent">Mapped</span></h2>
+
+    <div class="countries-grid">
+      <div class="country-cell">Argentina</div>
+      <div class="country-cell">Bahamas</div>
+      <div class="country-cell">Barbados</div>
+      <div class="country-cell">Belize</div>
+      <div class="country-cell">Bolivia</div>
+      <div class="country-cell">Brazil</div>
+      <div class="country-cell">Chile</div>
+      <div class="country-cell">Colombia</div>
+      <div class="country-cell">Costa Rica</div>
+      <div class="country-cell">Dominican Rep.</div>
+      <div class="country-cell">Ecuador</div>
+      <div class="country-cell">El Salvador</div>
+      <div class="country-cell">Guatemala</div>
+      <div class="country-cell">Guyana</div>
+      <div class="country-cell">Haiti</div>
+      <div class="country-cell">Honduras</div>
+      <div class="country-cell">Jamaica</div>
+      <div class="country-cell">Mexico</div>
+      <div class="country-cell">Nicaragua</div>
+      <div class="country-cell">Panama</div>
+      <div class="country-cell">Paraguay</div>
+      <div class="country-cell">Peru</div>
+      <div class="country-cell">Suriname</div>
+      <div class="country-cell">Trinidad &amp; Tobago</div>
+      <div class="country-cell">Uruguay</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-text">LAC School Accessibility Platform &mdash; Data for Equity</span>
+    <a href="/">Back to Gallery</a>
+  </footer>
+
+</body>
+</html>
