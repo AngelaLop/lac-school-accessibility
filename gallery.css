@@ -356,8 +356,10 @@ main {
 .preview-v20 .preview-text { font-family: 'Georgia', serif; }
 
 .preview-v21 {
-    background: linear-gradient(135deg, #EDF4F2, #FAF8F5);
-    color: #2E86AB;
+    background:
+        repeating-radial-gradient(ellipse at 50% 50%, rgba(198,93,62,0.06) 0px, rgba(198,93,62,0.06) 2px, transparent 2px, transparent 28px),
+        linear-gradient(135deg, #FFF8F0, #F0F5F1);
+    color: #C65D3E;
 }
 .preview-v21::after {
     content: '';
@@ -366,9 +368,9 @@ main {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(to right, #2E86AB, #A3C4BC, #E8B84B);
+    background: linear-gradient(to right, #C65D3E, #7BA68A, #D4A853, #7BA68A, #C65D3E);
 }
-.preview-v21 .preview-text { font-family: 'Georgia', serif; }
+.preview-v21 .preview-text { font-family: 'Georgia', serif; font-weight: 700; opacity: 0.6; }
 
 .preview-v22 {
     background: linear-gradient(135deg, #F0EDE4, #FEFCF3);
@@ -416,10 +418,8 @@ main {
 .preview-v24 .preview-text { font-family: sans-serif; font-weight: 800; }
 
 .preview-v25 {
-    background:
-        repeating-radial-gradient(ellipse at 50% 50%, rgba(198,93,62,0.06) 0px, rgba(198,93,62,0.06) 2px, transparent 2px, transparent 28px),
-        linear-gradient(135deg, #FFF8F0, #F0F5F1);
-    color: #C65D3E;
+    background: linear-gradient(135deg, #EDF4F2, #FAF8F5);
+    color: #2E86AB;
 }
 .preview-v25::after {
     content: '';
@@ -428,9 +428,9 @@ main {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(to right, #C65D3E, #7BA68A, #D4A853, #7BA68A, #C65D3E);
+    background: linear-gradient(to right, #2E86AB, #A3C4BC, #E8B84B);
 }
-.preview-v25 .preview-text { font-family: 'Georgia', serif; font-weight: 700; opacity: 0.6; }
+.preview-v25 .preview-text { font-family: 'Georgia', serif; }
 
 /* ========================================
    CARD INFO

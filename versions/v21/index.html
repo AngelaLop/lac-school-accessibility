@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>V21 "Tide Pool" — LAC School Accessibility Platform</title>
+  <title>LAC School Accessibility Platform — v21 Amanecer</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,411 +11,341 @@
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <div class="nav-logo">School <span>Accessibility</span></div>
+      <span class="nav-logo">School <span>Accessibility</span></span>
       <ul class="nav-links">
         <li><a href="#race">The Race</a></li>
-        <li><a href="#challenges">Challenges</a></li>
-        <li><a href="#methodology">How It Works</a></li>
+        <li><a href="#challenge">Challenge</a></li>
+        <li><a href="#method">How It Works</a></li>
         <li><a href="#impact">Impact</a></li>
         <li><a href="#countries">Countries</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Hero — Topographic contour circles (v11 "Field Survey" style) -->
-  <section class="hero" id="hero">
-    <div class="hero-topo"></div>
+  <!-- Hero — v11 Field Survey style with animated gradient -->
+  <section class="hero" id="top">
     <div class="hero-inner">
       <p class="hero-eyebrow">LAC School Accessibility Platform</p>
-      <h1>Mapping Every Child's Journey <em>to School</em></h1>
-      <p class="hero-deck">Travel-time accessibility analysis across 532,650 K-12 schools in 21 Latin American and Caribbean countries. Terrain modeling meets educational equity.</p>
-      <a href="#race" class="hero-cta">See the Challenge</a>
-      <p class="hero-coords">4.0151&deg; N, 69.9086&deg; W &mdash; Vaup&eacute;s, Colombia</p>
+      <h1>Mapping Every Child's<br>Path to School</h1>
+      <hr class="hero-rule">
+      <p class="hero-stat">532,650 schools across 21 countries</p>
+      <p class="hero-coord">4.0&deg;N &ensp; 72.0&deg;W</p>
     </div>
   </section>
 
   <!-- Wave divider 1 -->
-  <div class="wave-divider wave-1">
+  <div class="wave-divider wave-divider--1">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" />
+      <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="var(--bg-main)"/>
     </svg>
-    <div class="settlement-dot" style="left:15%;"></div>
-    <div class="settlement-dot" style="left:45%;"></div>
-    <div class="settlement-dot" style="left:78%;"></div>
+    <span class="settlement-dot"></span>
   </div>
 
-  <!-- Sticky Stat Ribbon (v17 "Mission Control") -->
-  <section class="stat-ribbon">
+  <!-- Sticky Stat Ribbon -->
+  <div class="stat-ribbon">
     <div class="stat-ribbon-inner">
-      <div class="stat-ribbon-item">
-        <span class="stat-ribbon-num">532,650</span>
-        <span class="stat-ribbon-label">Schools Mapped</span>
-      </div>
-      <div class="stat-ribbon-item">
-        <span class="stat-ribbon-num">21</span>
-        <span class="stat-ribbon-label">Countries</span>
-      </div>
-      <div class="stat-ribbon-item">
-        <span class="stat-ribbon-num">94%</span>
-        <span class="stat-ribbon-label">Coverage</span>
-      </div>
-      <div class="stat-ribbon-item">
-        <span class="stat-ribbon-num">96%</span>
-        <span class="stat-ribbon-label">Georeferenced</span>
-      </div>
+      <span class="stat-ribbon-item"><strong>532,650</strong> schools</span>
+      <span class="stat-ribbon-sep">|</span>
+      <span class="stat-ribbon-item"><strong>21</strong> countries</span>
+      <span class="stat-ribbon-sep">|</span>
+      <span class="stat-ribbon-item"><strong>94%</strong> coverage</span>
+      <span class="stat-ribbon-sep">|</span>
+      <span class="stat-ribbon-item"><strong>96%</strong> georeferenced</span>
     </div>
-  </section>
+  </div>
 
-  <!-- School Race (v16 enhanced) -->
-  <section class="school-race" id="race">
+  <!-- School Race — Enhanced v16 with growBar animation -->
+  <section class="race" id="race">
     <div class="container">
-      <p class="section-label">The School Race</p>
+      <p class="section-eyebrow">The School Race</p>
       <h2 class="section-title">Same Destination, Different Journeys</h2>
-      <p class="section-subtitle">Two eight-year-old children leave home at the same time. Only one arrives on time.</p>
+      <p class="section-deck">Two children leave home at the same time. Only one makes it to class on time.</p>
 
       <div class="race-cards">
-        <!-- Emma -->
         <div class="race-card race-card--emma">
           <div class="race-avatar">
-            <div class="avatar-head"></div>
-            <div class="avatar-body"></div>
+            <div class="avatar-head avatar-head--emma"></div>
+            <div class="avatar-body avatar-body--emma"></div>
           </div>
-          <div class="race-card-location">Virginia, USA</div>
-          <div class="race-card-name">Emma, age 8</div>
-          <div class="race-card-time">10 min</div>
+          <p class="race-card-location">VIRGINIA, USA</p>
+          <h3 class="race-card-name">Emma</h3>
+          <p class="race-card-time">10 min</p>
+          <p class="race-card-route">Sidewalk to school</p>
           <div class="race-bar-track">
-            <div class="race-dot race-dot--start"></div>
-            <div class="race-segment race-segment--land" style="width:100%;"></div>
-            <div class="race-dot race-dot--end"></div>
+            <div class="race-bar race-bar--emma">
+              <span class="race-bar-dot"></span>
+            </div>
           </div>
-          <div class="race-bar-labels">
-            <span>Home</span>
-            <span>School</span>
-          </div>
-          <p class="race-card-desc">Walks on paved sidewalks through her neighborhood. A safe, short trip every morning.</p>
+          <p class="race-card-text">Walks to school on paved sidewalks through her neighborhood. A short, safe trip every morning.</p>
         </div>
 
-        <!-- Verdict -->
         <div class="race-verdict">
-          <div class="verdict-number">12x</div>
-          <div class="verdict-text">longer journey</div>
+          <span class="race-verdict-number">12&times;</span>
+          <span class="race-verdict-label">longer</span>
         </div>
 
-        <!-- Yurani -->
         <div class="race-card race-card--yurani">
-          <div class="race-avatar race-avatar--yurani">
-            <div class="avatar-head"></div>
-            <div class="avatar-body"></div>
+          <div class="race-avatar">
+            <div class="avatar-head avatar-head--yurani"></div>
+            <div class="avatar-body avatar-body--yurani"></div>
           </div>
-          <div class="race-card-location">Vaup&eacute;s, Colombia</div>
-          <div class="race-card-name">Yurani, age 8</div>
-          <div class="race-card-time">120+ min</div>
-          <div class="race-bar-track race-bar-track--long">
-            <div class="race-dot race-dot--start"></div>
-            <div class="race-segment race-segment--land" style="width:35%;"></div>
-            <div class="race-segment race-segment--water" style="width:25%;"></div>
-            <div class="race-segment race-segment--land" style="width:40%;"></div>
-            <div class="race-dot race-dot--end"></div>
+          <p class="race-card-location">VAUP&Eacute;S, COLOMBIA</p>
+          <h3 class="race-card-name">Yurani</h3>
+          <p class="race-card-time">120+ min</p>
+          <p class="race-card-route">Jungle &rarr; River &rarr; Walk</p>
+          <div class="race-bar-track">
+            <div class="race-bar race-bar--yurani-jungle"></div>
+            <div class="race-bar race-bar--yurani-river"></div>
+            <div class="race-bar race-bar--yurani-walk"></div>
+            <span class="race-bar-dot"></span>
           </div>
-          <div class="race-bar-labels race-bar-labels--long">
-            <span>Home</span>
-            <span>Jungle trail</span>
-            <span>River crossing</span>
-            <span>School</span>
-          </div>
-          <p class="race-card-desc">Walks through jungle on unpaved trails, then canoes across a river, and continues on foot to reach the nearest school.</p>
+          <p class="race-card-text">Navigates dense jungle on foot, crosses a river by canoe, then walks unpaved trails to reach the nearest school.</p>
         </div>
       </div>
-
-      <p class="race-note">The barriers are not in the children &mdash; they are in the geography.</p>
     </div>
   </section>
 
   <!-- Wave divider 2 -->
-  <div class="wave-divider wave-2">
+  <div class="wave-divider wave-divider--2">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path d="M0,20 C360,70 720,0 1080,50 C1260,70 1380,30 1440,20 L1440,80 L0,80 Z" />
+      <path d="M0,20 C360,70 720,0 1080,50 C1260,70 1380,30 1440,20 L1440,80 L0,80 Z" fill="var(--bg-alt)"/>
     </svg>
-    <div class="settlement-dot" style="left:25%;"></div>
-    <div class="settlement-dot" style="left:60%;"></div>
+    <span class="settlement-dot"></span>
   </div>
 
-  <!-- Challenges Section -->
-  <section class="challenges" id="challenges">
+  <!-- Challenge Section — Alternating layout with CSS illustrations -->
+  <section class="challenge" id="challenge">
     <div class="container">
-      <p class="section-label">The Challenges</p>
-      <h2 class="section-title">Geography as Gatekeeper</h2>
-      <p class="section-subtitle">Across Latin America, the landscape itself decides who gets an education.</p>
+      <p class="section-eyebrow">The Challenge</p>
+      <h2 class="section-title">Geographic Isolation Drives Educational Inequality</h2>
 
-      <div class="challenge-row challenge-row--normal">
-        <div class="challenge-illustration challenge-illust--road">
-          <div class="road-svg">
-            <div class="road-curve"></div>
-            <div class="road-curve road-curve-2"></div>
-            <div class="road-curve road-curve-3"></div>
-          </div>
+      <div class="challenge-row">
+        <div class="challenge-illust challenge-illust--road">
+          <div class="illust-road"></div>
         </div>
         <div class="challenge-text">
-          <h3>Winding, Unpaved Roads</h3>
-          <p>In rural communities, roads may be unpaved, washed out by rain, or simply absent. What appears as a short distance on a map becomes hours of difficult travel on foot.</p>
-          <div class="challenge-callout">
-            <span class="callout-num">40%</span>
-            <span class="callout-text">of rural roads in LAC are unpaved or seasonal</span>
-          </div>
+          <h3>Distance Without Roads</h3>
+          <p>Across Latin America and the Caribbean, millions of rural children live hours from the nearest school. Without paved roads, even short distances become grueling treks through difficult terrain.</p>
+          <div class="challenge-callout">15 km = unreachable for families without transport</div>
         </div>
       </div>
 
       <div class="challenge-row challenge-row--reverse">
-        <div class="challenge-text">
-          <h3>Mountain Barriers</h3>
-          <p>The Andes stretch across seven countries, creating extreme elevation changes that multiply travel time. A school may be just 5 km away but separated by a 1,000-meter climb.</p>
-          <div class="challenge-callout">
-            <span class="callout-num">6,900 km</span>
-            <span class="callout-text">of Andean mountain range crossing LAC</span>
-          </div>
+        <div class="challenge-illust challenge-illust--mountain">
+          <div class="illust-mountain"></div>
+          <div class="illust-mountain illust-mountain--sm"></div>
         </div>
-        <div class="challenge-illustration challenge-illust--mountain">
-          <div class="mountain-svg">
-            <div class="mountain-peak"></div>
-            <div class="mountain-peak mountain-peak-2"></div>
-            <div class="mountain-base"></div>
-          </div>
+        <div class="challenge-text">
+          <h3>Mountains and Impassable Terrain</h3>
+          <p>Andean highlands and Central American ranges create physical walls between communities and schools. Children must navigate steep slopes and unpredictable weather just to attend class.</p>
+          <div class="challenge-callout">Secondary access drops to 67.6% within 30 min walking</div>
         </div>
       </div>
 
-      <div class="challenge-row challenge-row--normal">
-        <div class="challenge-illustration challenge-illust--river">
-          <div class="river-svg">
-            <div class="river-flow"></div>
-            <div class="river-flow river-flow-2"></div>
-            <div class="canoe-icon"></div>
-          </div>
+      <div class="challenge-row">
+        <div class="challenge-illust challenge-illust--river">
+          <div class="illust-river"></div>
         </div>
         <div class="challenge-text">
-          <h3>River Crossings</h3>
-          <p>In the Amazon basin and Caribbean lowlands, rivers are both highways and barriers. Children must canoe or wait for boats, adding unpredictable time to every journey.</p>
-          <div class="challenge-callout">
-            <span class="callout-num">6.9M km&sup2;</span>
-            <span class="callout-text">Amazon basin area where rivers define daily life</span>
-          </div>
+          <h3>Rivers Without Bridges</h3>
+          <p>In the Amazon basin and Caribbean lowlands, rivers without bridges force families to rely on canoes and seasonal crossings. When waters rise, schools become completely inaccessible.</p>
+          <div class="challenge-callout">Rainy season can double or triple travel times</div>
         </div>
       </div>
+    </div>
+  </section>
 
+  <!-- Wave divider 3 -->
+  <div class="wave-divider wave-divider--3">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,60 C180,20 360,60 540,30 C720,0 900,50 1080,20 C1260,0 1380,40 1440,60 L1440,80 L0,80 Z" fill="var(--bg-main)"/>
+    </svg>
+    <span class="settlement-dot"></span>
+  </div>
+
+  <!-- Pull Quote -->
+  <section class="quote-section">
+    <div class="container">
       <blockquote class="pull-quote">
-        &ldquo;The first step to closing the gap is measuring how far every child must travel to reach school.&rdquo;
+        The first step to closing the gap is measuring how far every child must travel to reach a classroom.
       </blockquote>
     </div>
   </section>
 
-  <!-- Wave divider 3 -->
-  <div class="wave-divider wave-3">
+  <!-- Wave divider 4 -->
+  <div class="wave-divider wave-divider--4">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path d="M0,60 C180,20 360,70 540,30 C720,0 900,60 1080,20 C1200,0 1320,40 1440,30 L1440,80 L0,80 Z" />
+      <path d="M0,30 C200,60 400,10 600,40 C800,70 1000,20 1200,50 C1350,65 1400,40 1440,30 L1440,80 L0,80 Z" fill="var(--bg-alt)"/>
     </svg>
-    <div class="settlement-dot" style="left:10%;"></div>
-    <div class="settlement-dot" style="left:50%;"></div>
-    <div class="settlement-dot" style="left:85%;"></div>
+    <span class="settlement-dot"></span>
   </div>
 
-  <!-- How It Works — Radio Tabs (v17) -->
-  <section class="methodology" id="methodology">
+  <!-- How It Works — Radio Tabs -->
+  <section class="method" id="method">
     <div class="container">
-      <p class="section-label">Methodology</p>
+      <p class="section-eyebrow">Methodology</p>
       <h2 class="section-title">How It Works</h2>
-      <p class="section-subtitle">A three-step framework using the Fast Marching Method on terrain-based friction surfaces.</p>
+      <p class="section-deck">The Fast Marching Method on friction surfaces models real-world travel time from any point to the nearest school.</p>
 
-      <div class="tabs-wrapper">
+      <div class="tabs">
         <input type="radio" name="method-tab" id="step1" checked>
         <input type="radio" name="method-tab" id="step2">
         <input type="radio" name="method-tab" id="step3">
-
-        <div class="tab-buttons">
-          <label for="step1" class="tab-btn">Step 1: Map Schools</label>
-          <label for="step2" class="tab-btn">Step 2: Friction Surface</label>
-          <label for="step3" class="tab-btn">Step 3: Travel Time</label>
+        <div class="tab-nav">
+          <label for="step1">1. Locate Schools</label>
+          <label for="step2">2. Map Terrain</label>
+          <label for="step3">3. Calculate Time</label>
         </div>
-
         <div class="tab-panels">
-          <div class="tab-panel panel-1">
-            <h3>Map All Schools</h3>
-            <p>We geolocate every K-12 school across 21 LAC countries by combining national education registries, satellite imagery, and field verification. The result is a georeferenced database of <strong>532,650 schools</strong> with 96% coordinate accuracy. Public schools account for 447,000 of these, with the remaining 86,000 being private institutions. Each school record includes location, education level, and administrative metadata.</p>
-            <div class="tab-stats">
-              <div class="tab-stat">
-                <span class="tab-stat-num">447K</span>
-                <span class="tab-stat-label">Public schools</span>
-              </div>
-              <div class="tab-stat">
-                <span class="tab-stat-num">86K</span>
-                <span class="tab-stat-label">Private schools</span>
-              </div>
-              <div class="tab-stat">
-                <span class="tab-stat-num">96%</span>
-                <span class="tab-stat-label">Georeferenced</span>
-              </div>
-            </div>
+          <div class="panel panel-1">
+            <h3>Locate &amp; Geolocate All Schools</h3>
+            <p>We compile national school registries and satellite imagery to geolocate all 532,650 K-12 schools across 21 countries. Of these, 447,000 are public and 86,000 are private. Our georeferencing accuracy reaches 96%, creating the most comprehensive school location dataset in the region.</p>
           </div>
-
-          <div class="tab-panel panel-2">
-            <h3>Build Friction Surface</h3>
-            <p>We construct a terrain-based friction surface that models how difficult it is to move through every point in the landscape. This surface integrates <strong>road networks</strong> (paved and unpaved), <strong>rivers and waterways</strong>, elevation and slope data, land cover classifications, and built-up area boundaries. Each cell receives a friction value representing the time cost to cross it, whether by walking, canoeing, or motorized transport.</p>
-            <div class="tab-stats">
-              <div class="tab-stat">
-                <span class="tab-stat-num">5</span>
-                <span class="tab-stat-label">Data layers fused</span>
-              </div>
-              <div class="tab-stat">
-                <span class="tab-stat-num">~1 km</span>
-                <span class="tab-stat-label">Grid resolution</span>
-              </div>
-              <div class="tab-stat">
-                <span class="tab-stat-num">21</span>
-                <span class="tab-stat-label">Country surfaces</span>
-              </div>
-            </div>
+          <div class="panel panel-2">
+            <h3>Build Friction Surfaces</h3>
+            <p>We construct spatial models of movement difficulty that account for terrain slope, land cover type, road networks, rivers, and other geographic obstacles. Each pixel on the map gets a "cost" value representing how hard it is to cross, whether by foot or motorized transport.</p>
           </div>
-
-          <div class="tab-panel panel-3">
-            <h3>Propagate Travel-Time Wavefront</h3>
-            <p>Using the Fast Marching Method (FMM), we propagate a travel-time wavefront outward from every school simultaneously. The wavefront expands through the friction surface, following the path of least resistance. The result: for <strong>any point on the map</strong>, we know the minimum travel time to the nearest school &mdash; for both walking and motorized scenarios. This lets us identify underserved communities and quantify access gaps at national and regional scale.</p>
-            <div class="tab-stats">
-              <div class="tab-stat">
-                <span class="tab-stat-num">2</span>
-                <span class="tab-stat-label">Transport modes</span>
-              </div>
-              <div class="tab-stat">
-                <span class="tab-stat-num">FMM</span>
-                <span class="tab-stat-label">Algorithm used</span>
-              </div>
-              <div class="tab-stat">
-                <span class="tab-stat-num">100%</span>
-                <span class="tab-stat-label">Area coverage</span>
-              </div>
-            </div>
+          <div class="panel panel-3">
+            <h3>Calculate Travel-Time Isochrones</h3>
+            <p>The Fast Marching Method propagates a wavefront outward from every school location, computing the minimum travel time from any point on the map. The result: continuous travel-time surfaces for both walking and motorized access, enabling isochrone analysis at continental scale.</p>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Wave divider 4 -->
-  <div class="wave-divider wave-4">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path d="M0,50 C200,10 400,70 600,30 C800,0 1000,50 1200,20 C1320,10 1400,40 1440,35 L1440,80 L0,80 Z" />
-    </svg>
-    <div class="settlement-dot" style="left:33%;"></div>
-    <div class="settlement-dot" style="left:67%;"></div>
-  </div>
-
-  <!-- Impact with Conic-Gradient Charts (v18) -->
-  <section class="impact" id="impact">
-    <div class="container">
-      <p class="section-label">Impact</p>
-      <h2 class="section-title">Panama Pilot Results</h2>
-      <p class="section-subtitle">Ground-truth validation reveals the gap between motorized and walking access.</p>
-
-      <div class="impact-hero-stat">
-        <div class="impact-big-number">98.1%</div>
-        <p class="impact-big-label">of students within 30 min by motorized travel</p>
-      </div>
-
-      <div class="impact-charts">
-        <div class="chart-card">
-          <div class="donut-chart donut-94">
-            <span class="donut-value">94%</span>
-          </div>
-          <p class="chart-label">Coverage vs Official Universe</p>
-        </div>
-        <div class="chart-card">
-          <div class="donut-chart donut-96">
-            <span class="donut-value">96%</span>
-          </div>
-          <p class="chart-label">Schools Georeferenced</p>
-        </div>
-        <div class="chart-card">
-          <div class="donut-chart donut-98">
-            <span class="donut-value">98.1%</span>
-          </div>
-          <p class="chart-label">Within 30 min (Motorized)</p>
-        </div>
-      </div>
-
-      <div class="impact-bars">
-        <h3>Panama Access Breakdown</h3>
-        <div class="bar-row">
-          <span class="bar-label">Primary &mdash; Motorized (30 min)</span>
-          <div class="bar-track"><div class="bar-fill bar-fill--98" style="--bar-width:98.1%;"></div></div>
-          <span class="bar-value">98.1%</span>
-        </div>
-        <div class="bar-row">
-          <span class="bar-label">Primary &mdash; Walking (15 min)</span>
-          <div class="bar-track"><div class="bar-fill bar-fill--84" style="--bar-width:84.1%;"></div></div>
-          <span class="bar-value">84.1%</span>
-        </div>
-        <div class="bar-row">
-          <span class="bar-label">Secondary &mdash; Walking (30 min)</span>
-          <div class="bar-track"><div class="bar-fill bar-fill--67" style="--bar-width:67.6%;"></div></div>
-          <span class="bar-value">67.6%</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Wave divider 5 -->
-  <div class="wave-divider wave-5">
+  <div class="wave-divider wave-divider--5">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path d="M0,30 C240,70 480,10 720,50 C960,80 1200,20 1440,50 L1440,80 L0,80 Z" />
+      <path d="M0,50 C240,10 480,60 720,20 C960,50 1200,10 1440,50 L1440,80 L0,80 Z" fill="var(--bg-main)"/>
     </svg>
-    <div class="settlement-dot" style="left:20%;"></div>
-    <div class="settlement-dot" style="left:55%;"></div>
-    <div class="settlement-dot" style="left:90%;"></div>
+    <span class="settlement-dot"></span>
   </div>
 
-  <!-- Countries -->
-  <section class="countries" id="countries">
+  <!-- Impact — Donut Charts + Bar Charts -->
+  <section class="impact" id="impact">
     <div class="container">
-      <p class="section-label">Coverage</p>
-      <h2 class="section-title">21 Countries Across the Region</h2>
-      <p class="section-subtitle">From Mexico to Argentina, measuring travel time to every school.</p>
+      <p class="section-eyebrow">Impact</p>
+      <h2 class="section-title">Proven Results from Panama</h2>
+      <p class="section-deck">The Panama pilot validated the platform with on-the-ground data across hundreds of schools.</p>
 
-      <div class="countries-grid">
-        <div class="country-item">Argentina</div>
-        <div class="country-item">Bahamas</div>
-        <div class="country-item">Barbados</div>
-        <div class="country-item">Belize</div>
-        <div class="country-item">Bolivia</div>
-        <div class="country-item">Brazil</div>
-        <div class="country-item">Chile</div>
-        <div class="country-item">Colombia</div>
-        <div class="country-item">Costa Rica</div>
-        <div class="country-item">Dominican Rep.</div>
-        <div class="country-item">Ecuador</div>
-        <div class="country-item">El Salvador</div>
-        <div class="country-item">Guatemala</div>
-        <div class="country-item">Guyana</div>
-        <div class="country-item">Haiti</div>
-        <div class="country-item">Honduras</div>
-        <div class="country-item">Jamaica</div>
-        <div class="country-item">Mexico</div>
-        <div class="country-item">Panama</div>
-        <div class="country-item">Paraguay</div>
-        <div class="country-item">Peru</div>
-        <div class="country-item">Suriname</div>
-        <div class="country-item">Uruguay</div>
+      <div class="impact-hero-stat">
+        <div class="impact-big-number">98.1%</div>
+        <p class="impact-big-label">within 30 min by motorized transport</p>
+      </div>
+
+      <div class="impact-donuts">
+        <div class="donut-card">
+          <div class="donut donut--94">
+            <span class="donut-label">94%</span>
+          </div>
+          <p class="donut-desc">Population coverage across 21 countries</p>
+        </div>
+        <div class="donut-card">
+          <div class="donut donut--96">
+            <span class="donut-label">96%</span>
+          </div>
+          <p class="donut-desc">Schools successfully georeferenced</p>
+        </div>
+        <div class="donut-card">
+          <div class="donut donut--98">
+            <span class="donut-label">98.1%</span>
+          </div>
+          <p class="donut-desc">Panama: within 30 min motorized</p>
+        </div>
+      </div>
+
+      <div class="impact-bars">
+        <div class="bar-row">
+          <span class="bar-label">Motorized 30 min</span>
+          <div class="bar-track"><div class="bar-fill bar-fill--98"></div></div>
+          <span class="bar-value">98.1%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Walking 15 min</span>
+          <div class="bar-track"><div class="bar-fill bar-fill--84"></div></div>
+          <span class="bar-value">84.1%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Secondary 30 min walk</span>
+          <div class="bar-track"><div class="bar-fill bar-fill--68"></div></div>
+          <span class="bar-value">67.6%</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Wave divider 6 -->
-  <div class="wave-divider wave-6">
+  <div class="wave-divider wave-divider--6">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path d="M0,45 C360,10 720,70 1080,25 C1260,10 1380,50 1440,40 L1440,80 L0,80 Z" />
+      <path d="M0,40 C180,70 360,10 540,50 C720,80 900,20 1080,40 C1260,60 1380,30 1440,40 L1440,80 L0,80 Z" fill="var(--bg-alt)"/>
     </svg>
+    <span class="settlement-dot"></span>
   </div>
 
-  <!-- Footer -->
+  <!-- Countries — details/summary grouped by region -->
+  <section class="countries" id="countries">
+    <div class="container">
+      <p class="section-eyebrow">Coverage</p>
+      <h2 class="section-title">21 Countries Across the Region</h2>
+      <p class="section-deck">From Mexico to Argentina, mapping travel-time accessibility for every school.</p>
+
+      <div class="countries-accordion">
+        <details class="country-group" open>
+          <summary>Central America &amp; Mexico</summary>
+          <div class="country-group-grid">
+            <div class="country-item">Belize</div>
+            <div class="country-item">Costa Rica</div>
+            <div class="country-item">El Salvador</div>
+            <div class="country-item">Guatemala</div>
+            <div class="country-item">Honduras</div>
+            <div class="country-item">Mexico</div>
+            <div class="country-item">Panama</div>
+          </div>
+        </details>
+        <details class="country-group" open>
+          <summary>South America</summary>
+          <div class="country-group-grid">
+            <div class="country-item">Argentina</div>
+            <div class="country-item">Bolivia</div>
+            <div class="country-item">Brazil</div>
+            <div class="country-item">Chile</div>
+            <div class="country-item">Colombia</div>
+            <div class="country-item">Ecuador</div>
+            <div class="country-item">Guyana</div>
+            <div class="country-item">Paraguay</div>
+            <div class="country-item">Peru</div>
+            <div class="country-item">Suriname</div>
+            <div class="country-item">Uruguay</div>
+          </div>
+        </details>
+        <details class="country-group" open>
+          <summary>Caribbean</summary>
+          <div class="country-group-grid">
+            <div class="country-item">Bahamas</div>
+            <div class="country-item">Barbados</div>
+            <div class="country-item">Dominican Rep.</div>
+            <div class="country-item">Haiti</div>
+            <div class="country-item">Jamaica</div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave divider 7 -->
+  <div class="wave-divider wave-divider--7">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path d="M0,20 C120,50 240,10 480,40 C720,70 960,20 1200,50 C1350,60 1400,30 1440,20 L1440,80 L0,80 Z" fill="var(--text-dark)"/>
+    </svg>
+    <span class="settlement-dot"></span>
+  </div>
+
+  <!-- Footer with compass rose watermark -->
   <footer class="footer">
-    <div class="footer-inner">
-      <p class="footer-copy">&copy; 2026 LAC School Accessibility Platform &mdash; IDB</p>
+    <div class="footer-compass"></div>
+    <div class="container">
+      <p class="footer-copy">&copy; 2026 LAC School Accessibility Platform</p>
       <a href="/" class="footer-cta">Back to Gallery</a>
     </div>
   </footer>
